@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["BotFramework", "LUIS"]
-permalink: ["/post/microsoft-bot-framework-adding-common-intents-to-the-dispatch-luis-app"]
-  ---
+permalink: /post/microsoft-bot-framework-adding-common-intents-to-the-dispatch-luis-app
+---
 <!-- more -->
 <p style="text-align: justify;"><em>Go directly to the <a href="#cancelintent">steps</a> for adding a common cancel intent in the dispatch LUIS app</em></p>
 <p style="text-align: justify;"><a href="https://github.com/microsoft/botbuilder-tools/tree/master/packages/Dispatch" target="_blank">Dispatch</a> is a special type of LUIS app which helps in routing a user&rsquo;s action to the correct module from different models. For a bot which handles Service Desk requests, Meeting rooms booking &amp; answers generic questions, we may design the following models with a dispatch tool</p>

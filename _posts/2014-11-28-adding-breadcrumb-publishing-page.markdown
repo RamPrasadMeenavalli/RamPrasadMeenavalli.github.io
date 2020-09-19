@@ -6,11 +6,11 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/adding-breadcrumb-publishing-page"]
-  ---
+permalink: /post/adding-breadcrumb-publishing-page
+---
 <!-- more -->
 <p>Breadcrumb navigation on landing pages of websites is very useful for navigating within the site. For SharePoint sites this can be easily achieved using the SiteMapPath control. Below is a sample BreadCrumb which I added to my SharePoint 2013 master page</p>
-<p><img src="/image.axd?picture=/sp2013_brdcrmb.png" alt="" /></p>
+<p><img src="/assets/images/sp2013_brdcrmb.png" alt="" /></p>
 <p>Add the below control snippet within your SharePoint master page to display the breadcrumb.</p>
 <pre class="brush:xml;auto-links:false;toolbar:false" contenteditable="false">&lt;!--CS: Start Create Snippets From Custom ASP.NET Markup Snippet--&gt;
 &lt;!--SPM:&lt;asp:SiteMapPath ID="SiteMapPath1"

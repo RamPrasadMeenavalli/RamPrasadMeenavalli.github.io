@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Online", "SharePoint Server", "SharePoint 2007", "SharePoint 2010", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/caml-query-to-include-time-value-in-datetime-comparisions"]
-  ---
+permalink: /post/caml-query-to-include-time-value-in-datetime-comparisions
+---
 <!-- more -->
 <p>The <em>Collaborative Application Markup Language (CAML)</em> query is an XML based language used for filtering and/or sorting data from a list within a SharePoint portal . This is often used in custom webparts and controls while retrieving data.</p>
 <p>Let's say, we need to read all the items from a list between some specified dates. We end up preparing a CAML query which looks like</p>

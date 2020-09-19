@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2010", "SharePoint 2013"]
-permalink: ["/post/custom-status-messages-with-different-colors"]
-  ---
+permalink: /post/custom-status-messages-with-different-colors
+---
 <!-- more -->
 <p>Previous <a href="http://spdeveloper.co.in/articles/pages/notificationsnstatus.aspx">article</a> explained how to create custom status messages in SharePoint 2010. As mentioned in that article, we are allowed to set the colors for custom status messages using the <em>SP.UI.Status.setStatusPriColor()</em> method. But SharePoint supports only four colors by default. In this article we will see how to set different colors (other than the default ones) for status messages.</p>
 <p>The four colors which are supported by SharePoint (ie., Red, Yellow, Green and Blue) are set to the status messages through CSS. If you open the core4.css file we can find the following classes.</p>

@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2010", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/retrieve-items-or-documents-from-a-particular-folder-of-a-sharepoint-list-or-document-library"]
-  ---
+permalink: /post/retrieve-items-or-documents-from-a-particular-folder-of-a-sharepoint-list-or-document-library
+---
 <!-- more -->
 <p>Lists and Libraries are the commonly used data storage components is a Sharepoint portal. With data growing huge in the lists, site administrators usually create folders to make the data organized. We use the '<em>ViewAttribute</em>' of the <em>SPQuery</em> object to fetch all the items from the folders and sub folders. Below is a sample code snippet</p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">using (SPWeb spWeb = SPContext.Current.Site.AllWebs["Reports"])

@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2013"]
-permalink: ["/post/optimizing-server-configuration-for-development-farm"]
-  ---
+permalink: /post/optimizing-server-configuration-for-development-farm
+---
 <!-- more -->
 <p>Setting up development environments for SharePoint Server has always been very difficult and costly because of the hardware requirements specifications needed. Development environments mostly use a single server with built-in database. The hardware requirements for SharePoint Server 2013 Preview as suggested by Microsoft (Source: <a title="Technet" href="http://technet.microsoft.com/en-us/library/cc262485%28v=office.15%29.aspx#hwforwebserver">Technet</a>) <br /> Processor - 64 bit, 4 cores and RAM - 24GB</p>
 <p>Getting development machines with 24 GB memory may not possible in most of the organizations. For a development environment, we might not need all the functionalities and features of SharePoint to work. Two features/services in SharePoint 2013 which consume lot of memory are 'Search Service' and 'Distributed Cache Service'. These services might not be needed in most of the development scenarios. Below are the details and uses about these services. Once we understand what these services do and are used for, we can either configure them to use less memory or stop them.</p>

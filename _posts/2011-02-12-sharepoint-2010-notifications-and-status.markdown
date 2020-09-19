@@ -6,15 +6,15 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2010"]
-permalink: ["/post/sharepoint-2010-notifications-and-status"]
-  ---
+permalink: /post/sharepoint-2010-notifications-and-status
+---
 <!-- more -->
 <h2>Using the ECMAScript of SharePoint 2010</h2>
 <p>SharePoint Server 2010 comes with a flashy UI. On the home page of a SharePoint Site, we see many components like the ribbon tool bar, Notifications, Status message, Quick Launch etc., As a developer we should be able to customize all these components. In this article lets explore how to create custom '<em>Notifications</em>' and '<em>Status</em>' messages using the ECMAScript of SharePoint 2010</p>
 <p>What are these Notifications and Status messages?<br /> A <em>Notification</em> is a small text area which gets displayed at the top right corner of the window, while we perform some actions like saving a page, checking out a page etc., (this is like the notification which we see while sending a mail through gmail). This is a simple text area with yellow background and a dark yellow border as shown in the screen below. This is something new in SharePoint 2010 which is not available in MOSS 2007.</p>
-<p><img src="/image.axd?picture=/notification.png" alt="" /></p>
+<p><img src="/assets/images/notification.png" alt="" /></p>
 <p>A <em>Status</em> message is also like a Notification, but it stretches to the width of page. This lies between the body and header of the page. To be more precise, it comes below the title bar (where title and breadcrumb are displayed), or below the ribbon toolbar (when it is opened). This can have different colored backgrounds, signifying the severity of the message. Shown below is a default Status message displayed when we check out a page for editing.</p>
-<p><img src="/image.axd?picture=/statusarea.png" alt="" /></p>
+<p><img src="/assets/images/statusarea.png" alt="" /></p>
 <h2>Creating Custom Notification</h2>
 <p>Using <strong><em>'SP.UI.Notify.addNotification()'</em></strong> method we can create custom notifications on a page.<br /><br />var value = SP.UI.Notify.addNotification(strHtml, bSticky);<br />strHTML - the HTML text that is to be displayed in the notification area.<br />bSticky - true/false. A boolean value which specifies whether the notification should be fixed or to auto closed.<br />value - The ID of the notification added to the page.<br /><br />By default if we add a Notification with <em>bSticky</em> value as false, it closes after 5 seconds. If we specify its value as true, then we have to explicitly close the notification by passing the ID (return value while creating the notification) to the <em><strong>SP.UI.Notify.removeNotification(nid) method</strong></em>. These two methods are part of the <em>SP.UI.Notify</em> class of the ECMAScript library.</p>
 <h2>Creating Custom Status Messages</h2>

@@ -77,7 +77,7 @@
     <post id="5c1ed7f4-ce6d-4a60-bb97-6e8ffdee6a0f" date-created="2020-07-31T00:00:00" date-modified="2020-07-28T15:05:06" approved="true" post-url="/post/spfx-webpart-convert-datatime-value-time-zone-with-pnpjs" type="normal" hasexcerpt="true" views="0" is-published="True">
       <title type="text"><![CDATA[Showing the correct DateTime value from UTC value in an SPFx webpart]]></title>
       <content type="text"><![CDATA[<p>When we fetch the values of any DateTime fields within a SharePoint list or library, the values are returned in UTC format, as they are stored in UTC format internally. When this values is shown with a SharePoint view or any default page, the UTC format is then converted to the correct Time Zone based on the User's &amp; Site's Regional Settings. But within an SPFx webpart it just displays the UTC time.</p>
-<p><img src="/image.axd?picture=/spfx-webpart-date-format.png" alt="" /></p>
+<p><img src="/assets/images/spfx-webpart-date-format.png" alt="" /></p>
 <p>Within an SPFx webpart, after querying the list, if we want to find the correct time zone to display the DateTime value, we will have to make at least 2 REST calls to find the User's regional settings and the Site's regional settings and then convert the UTC value to the correct time zone.</p>
 <p>We can use the '<strong>FieldValuesAsText</strong>' property of the list items, to avoid making these extra REST calls and find the correct display value of the DateTime field. Below is the sample code snippet to expand this property and get the correct Start and End Date values from the list.</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">import { sp } from '@pnp/sp';
@@ -95,7 +95,7 @@ let items = await sp.web.lists.getByTitle(listName)
 console.dir(items);
 
 </pre>
-<p><img src="/image.axd?picture=/spfx-webpart-date-format-1.png" alt="" /></p>
+<p><img src="/assets/images/spfx-webpart-date-format-1.png" alt="" /></p>
 <p>Check out this Video to understand how the Regional Settings effect the DateTime Field values in SharePoint sites.</p>
 <div class="ytEmbed"><iframe src="https://www.youtube.com/embed/OGytQVwidyU" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>]]></content>
       <post-name type="text"><![CDATA[Showing the correct DateTime value from UTC value in an SPFx webpart]]></post-name>
@@ -146,7 +146,7 @@ const images = await sp.web.lists.getByTitle("Site Assets").items.select("Title,
 console.dir(images);
 </pre>
 <p>Here is the sample JSON response from these queries.</p>
-<p><img src="/image.axd?picture=/FileRef-Example.png" alt="" /></p>]]></content>
+<p><img src="/assets/images/FileRef-Example.png" alt="" /></p>]]></content>
       <post-name type="text"><![CDATA[Getting the URL of SharePoint Pages and Documents using PnPjs in SPFx webparts]]></post-name>
       <excerpt type="text"><![CDATA[Querying the SharePoint lists and libraries using PnPjs in your SPFx components to get the full URLs of Pages, Documents, Images etc,. by using the FileRef and EncodedAbsUrl columns.]]></excerpt>
       <authors>
@@ -208,9 +208,9 @@ var items = await _web.lists
     <post id="cccde3eb-3219-4846-a385-ff37878a0b6c" date-created="2020-04-24T08:43:00" date-modified="2020-04-24T12:20:44" approved="true" post-url="/post/bulding-an-image-search-center-in-sharepoint-using-azure-computer-vision-and-power-automate" type="normal" hasexcerpt="true" views="0" is-published="True">
       <title type="text"><![CDATA[Video Series on Bulding an Image Search Center in SharePoint using Azure Computer Vision & Power Automate]]></title>
       <content type="text"><![CDATA[<p>Most of the organizations share the corporate images, brand logos and other media assets at a central location which can be used by employees. With increasing number of assets its difficult to find an appropriate image when needed. A Image Search Center would provide the channel where one can search for images and quickly find the relevant assets.</p>
-<p><img src="/image.axd?picture=/image-search.gif" alt="" /></p>
+<p><img src="/assets/images/image-search.gif" alt="" /></p>
 <p>To design a modern search center, we use a SharePoint Library to store all the images and use a Power Automate flow to automatically trigger when a image is created. The flow then calls the Computer Vision API and extracts the metadata for the image, which is then updated back to the columns in the library. We then configure the SharePoint Search with custom Managed Properties and use PnP Modern Search Webparts to create the custom modern search center.</p>
-<p><img src="/image.axd?picture=/Image-Search.png" alt="" /></p>
+<p><img src="/assets/images/Image-Search.png" alt="" /></p>
 <p>Below are the videos explaining the different components of this design on who to create a modern image search center in your tenant.</p>
 <ul style="list-style-type: disc;">
 <li><strong>Introduction</strong> - SharePoint Image Search &ndash; Using Azure Cognitive Services &amp; Power Automate<br /><iframe src="https://www.youtube.com/embed/KoeJdmWfNP8" width="280" height="158" frameborder="0" allowfullscreen="allowfullscreen"></iframe><br /><br /></li>
@@ -250,7 +250,7 @@ var items = await _web.lists
 <div class="col-sm-6"><a class="btn btn-block btn-primary" href="https://github.com/RamPrasadMeenavalli/react-covid19-tracker" target="_blank">View on Github</a></div>
 <div class="col-sm-6"><a class="btn btn-block btn-primary" href="https://github.com/RamPrasadMeenavalli/react-covid19-tracker/releases" target="_blank">Download from Releases</a></div>
 </div>
-<p style="text-align: center;"><img src="/image.axd?picture=/screen-one.gif" alt="" width="70%" /></p>
+<p style="text-align: center;"><img src="/assets/images/screen-one.gif" alt="" width="70%" /></p>
 <p><span style="text-decoration: underline;"><strong>Global and Country specific stats</strong></span></p>
 <p>It shows two sections.&nbsp;One for the&nbsp;number of cases identified and recovered globally and another section shows the number of cases for a&nbsp;selected country.&nbsp;For the country stats, it also shows the&nbsp;change in the number of cases from the previous day, which gives an insight on how&nbsp;rapidly the cases are increasing.</p>
 <p><span style="text-decoration: underline;"><strong>User scoped Personalization</strong></span></p>
@@ -294,7 +294,7 @@ var items = await _web.lists
       <title type="text"><![CDATA[SharePoint PnPjs : How to filter list items by Managed Metadata Fields or Taxonomy Columns]]></title>
       <content type="text"><![CDATA[<p>SharePoint REST APIs does not allow to Managed Metadata / Taxonomy fields within the OData $filter parameter. So, PnPjs which uses REST APIs internally, cannot query on a&nbsp;Managed Metadata column using the .filter() method.</p>
 <p>But we can query using CAML query and the <strong>.getItemsByCAMLQuery&nbsp;</strong>method. Below is a&nbsp;sample&nbsp;document library which is has some policy documents uploaded and there is Managed Metadata Field called '<strong>Deparments</strong>' which accepts multiple values.</p>
-<p><img src="/image.axd?picture=/listStructure.PNG" alt="" /></p>
+<p><img src="/assets/images/listStructure.PNG" alt="" /></p>
 <p>Below&nbsp;is a sample PnPjs V2 snippet which finds the list of documents that are tagged with a specific Managed Metadata term.</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">import { setup as pnpSetup } from "@pnp/common";
 import { sp } from "@pnp/sp";
@@ -329,7 +329,7 @@ const queryView = `
       console.log(`Url : ${doc.File.ServerRelativeUrl} || Department : ${depts.join(",")}`);
     });</pre>
 <p>This will filter for all the documents which are tagged with the Taxonomy term 'HR'. And here is the output showing the required documents that are filtered.</p>
-<p><img src="/image.axd?picture=/taxonomyQueryOP.PNG" alt="" /></p>
+<p><img src="/assets/images/taxonomyQueryOP.PNG" alt="" /></p>
 <p>This can be used in scenarios where an SPFx webpart should show content based on the current user's properties. The above example can be extended to show policy documents for the current user's department. The user's department can be fetched from the profile and the value can be passed to the CAML Query.</p>]]></content>
       <post-name type="text"><![CDATA[SharePoint PnPjs : How to filter list items by Managed Metadata Fields or Taxonomy Columns]]></post-name>
       <excerpt type="text"><![CDATA[Querying SharePoint list items by Managed Metadata or Taxonomy Columns using PnPjs.]]></excerpt>
@@ -505,18 +505,18 @@ $filter=Author/Name eq 'i:0#.f|membership|r@tenant-name.onmicrosoft.com'</pre>
 <p style="text-align: justify;">When you install different PnP PowerShell modules (i.e., 2013, 2016, 2019 &amp; Online), we have a cmdlet name conflict because all the modules have same name for the cmdlets. And none of the modules are loaded initially when you open a PowerShell session.</p>
 <p style="text-align: justify;"><strong>How are the modules loaded?</strong> When you first run any PnP PowerShell cmdlet (obviously Connect-PnPOnline), the PnP PowerShell module is automatically loaded</p>
 <p style="text-align: justify;"><strong>Which module (2013, 2016, 2019, Online) is loaded?</strong> When you have different modules installed, PowerShell picks the modules to load from the default modules path (in environment variables). As this appears to be alphabetical, 2013 module is loaded by default in my case.</p>
-<p style="text-align: justify;"><img src="/image.axd?picture=/pnppsmodules1.png" alt="" /></p>
+<p style="text-align: justify;"><img src="/assets/images/pnppsmodules1.png" alt="" /></p>
 <p style="text-align: justify;">This <a href="https://thechriskent.com/2018/02/14/using-sharepoint-pnp-powershell-modules-side-by-side-2013-2016-online/" target="_blank">blog</a> from Christ Kent, explains on how to target different versions of SharePoint PnP PowerShell by changing the PSModulePath in environment variables, and using Import-Module whenever we need to target for a different version of SharePoint.</p>
 <p><strong>Here is another approach.</strong> Isn&rsquo;t it cool to have different icons like this to target the PnP PowerShell module for the specific SharePoint version?</p>
-<p><img src="/image.axd?picture=/pnppsmodules2.png" alt="" /></p>
+<p><img src="/assets/images/pnppsmodules2.png" alt="" /></p>
 <p style="text-align: justify;">These are desktop shortcuts for PowerShell specifying which module to load using the shortcut parameters. This way, I can easily open a PowerShell session for the respective SharePoint version without the hassle of typing Import-Module cmdlets always.</p>
 <p><strong>How to do this?</strong></p>
 <ol>
 <li>Right click on your desktop to create a new shortcut</li>
 <li>In the create shortcut window, in the location of the item text box, type the following command.
 <pre class="brush:plain;auto-links:false;toolbar:false" contenteditable="false">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -NoExit -Command "Import-Module -Name 'C:\Users\ram\AppData\Local\Apps\SharePointPnPPowerShell2016\Modules\SharePointPnPPowerShell2016\SharePointPnPPowerShell2016.psd1' -DisableNameChecking;"</pre>
-And click next. This basically specifies that we open PowerShell and load the module targeted for SharePoint 2016.<img src="/image.axd?picture=/pnppsmodules3.png" alt="" /></li>
-<li>Type the name (target version of SharePoint) and click finish<img src="/image.axd?picture=/pnppsmodules4.png" alt="" /></li>
+And click next. This basically specifies that we open PowerShell and load the module targeted for SharePoint 2016.<img src="/assets/images/pnppsmodules3.png" alt="" /></li>
+<li>Type the name (target version of SharePoint) and click finish<img src="/assets/images/pnppsmodules4.png" alt="" /></li>
 </ol>
 <p>Now, whenever I open PowerShell with this shortcut, I am ready to write cmdlets for SharePoint 2016. Similarly I keep 4 different shortcuts for 2013, 2016, 2019 and SharePoint Online which is handy, as I dont have to run the Import-Module cmdlet whenever I need to target a different version of SharePoint.</p>]]></content>
       <post-name type="text"><![CDATA[PowerShell: Import a specific module from the installed SharePoint PnP PowerShell modules (2013, 2016, 2019 & Online)]]></post-name>
@@ -607,7 +607,7 @@ dispatch refresh</pre>
     </post>
     <post id="f39c3289-e861-48f7-a4b7-edaaffe6f6dc" date-created="2018-05-21T03:30:00" date-modified="2019-04-16T04:15:35" approved="true" post-url="/post/welcome-to-blogengine-net" type="normal" hasexcerpt="true" views="0" is-published="False">
       <title type="text"><![CDATA[Welcome to BlogEngine.NET]]></title>
-      <content type="text"><![CDATA[<p><img src="/image.axd?picture=/blogengine.png" alt="" /></p>
+      <content type="text"><![CDATA[<p><img src="/assets/images/blogengine.png" alt="" /></p>
 <p>If you see this post it means that BlogEngine.NET is running and the hard part of creating your own blog is done. There is only a few things left to do.</p>
 <div class="row">
 <div class="col-sm-4 mb-5"><a class="btn btn-block btn-primary" href="https://blogengine.io/themes/" target="_blank">Download Themes</a></div>
@@ -638,7 +638,7 @@ dispatch refresh</pre>
     <post id="de9fc390-d6d4-4dce-ac5d-25f76fe60f8d" date-created="2017-07-10T12:00:00" date-modified="2019-04-16T04:13:26" approved="true" post-url="/post/sharepoint-framework-removing-unwanted-colon-after-text-data-on-modern-pages" type="normal" hasexcerpt="true" views="0" is-published="True">
       <title type="text"><![CDATA[SharePoint Framework : Removing unwanted colon after text/data on Modern Pages]]></title>
       <content type="text"><![CDATA[<p>A Client webpart from a SharePoint framework solution displays unwanted colons (:) after the data. The colons appear only when the SPFx client webpart is added on a Modern page, and the colon is not displayed when the webpart is accessed on a local/SharePoint Online workbench.</p>
-<p><img src="/image.axd?picture=/index.png" alt="" /></p>
+<p><img src="/assets/images/index.png" alt="" /></p>
 <p>This unwanted colon appears only for text with a &lt;label&gt; element. It comes from the CSS class which gets added on the SharePoint Modern page and not on workbench. This class is responsible for adding the extra colon after the text.</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">Webpart TypeScript Code
 public render(): void {
@@ -702,10 +702,10 @@ content: "" !important;
 </ul>
 <h2>Client-Side Web Part icon using an image</h2>
 <p>Open the <strong>'[your webpart name].manifest.json'</strong> file from <strong>src/webparts/[your webpart name]</strong>. And replace the <strong>officeFabricIconFontName</strong> with <strong>iconImageUrl</strong>. This expects a path to an image of 38X38 dimension. At this time of writing this article only absolute URLs are accepted for this property. When its not possible to specify an absolute URL, we can encode an image into base 64 format and provide the encoded string to this property.</p>
-<p><img src="/image.axd?picture=/SPFX_Set_Icon_0.png" alt="" /><img src="/image.axd?picture=/SPFX_Set_Icon_1.png" alt="" /></p>
+<p><img src="/assets/images/SPFX_Set_Icon_0.png" alt="" /><img src="/assets/images/SPFX_Set_Icon_1.png" alt="" /></p>
 <h2>Client-Side Web Part icon using a font icon</h2>
 <p>This is used by default when you create a SharePoint Framework webpart solution. This property is set to "Page" and the page icon appears by default to all the custom webparts</p>
-<p><img src="/image.axd?picture=/SPFX_Set_Icon_2.png" alt="" /></p>
+<p><img src="/assets/images/SPFX_Set_Icon_2.png" alt="" /></p>
 <p>Following are the possible values for this property</p>
 <ul class="spd-ul floatedLis" style="display: inline-block;">
 <li>Add</li>
@@ -865,7 +865,7 @@ content: "" !important;
     <post id="c595ef38-1aae-460f-88d3-8651a1cf9a1d" date-created="2017-06-21T12:00:00" date-modified="2019-04-16T04:09:33" approved="true" post-url="/post/sharepoint-framework-app-icon" type="normal" hasexcerpt="true" views="0" is-published="True">
       <title type="text"><![CDATA[SharePoint Framework App Icon]]></title>
       <content type="text"><![CDATA[<p>SharePoint Framework solutions offer <strong>Client Side Webparts</strong> and <strong>SPFx Extensions</strong> to add custom functionality to your SharePoint sites. When we package these components, they are bundled as a SharePoint Framework App Package with an extension <strong>.sppkg</strong>. These packages are installed (like the SharePoint Add-Ins) and shown as custom Apps in your Site Contents page. Showing a custom App Icon on this page for your App is important, as it can differentiate your App easily from other custom ones.</p>
-<p><img src="/image.axd?picture=/SPFX_AppICON_1.png" alt="" /></p>
+<p><img src="/assets/images/SPFX_AppICON_1.png" alt="" /></p>
 <h2>Create an AppIcon image</h2>
 <p>Prepare your AppIcon image with a dimension of <strong>96X96</strong>. This is important, as images without this dimension are not applied as App Icons.</p>
 <h2>Set the Image as App Icon</h2>
@@ -875,7 +875,7 @@ content: "" !important;
 <li>Build and package the app using gulp bundle &amp; gulp package-solution commands.</li>
 <li>Add the app to your App Catalog and install in a site collection. The App will now have a custom App Icon.</li>
 </ul>
-<p><img src="/image.axd?picture=/SPFX_AppICON_2.png" alt="" /></p>
+<p><img src="/assets/images/SPFX_AppICON_2.png" alt="" /></p>
 <p>However, this icon is not used in the Modern Pages, and only shown in the Site Contents page on a Classic view.</p>
 <p>Its also a good idea to show a custom icon for client side webparts within your SPFx package. Steps to do this in my next post - <a title="SharePoint Framework: Set custom icons for Client Side Webparts" href="http://spdeveloper.co.in/sharepoint2016/sharepoint-framework-client-webparts-custom-icons.aspx">SharePoint Framework: Set custom icons for Client Side Webparts</a></p>]]></content>
       <post-name type="text"><![CDATA[SharePoint Framework App Icon]]></post-name>
@@ -917,9 +917,9 @@ content: "" !important;
 <li><strong>schema.xml</strong>: Defines the list structure, content types and views</li>
 </ul>
 <p>To provision more than one list instance, we can create <strong><em>two different schema files</em></strong> (like schemaOne.xml &amp; schemaTwo.xml), create two <strong><em>ListInstance</em></strong> elements in the elements.xml file referring to the respective schema files.</p>
-<p><img src="/image.axd?picture=/SPFX_MultipleLists_1.png" alt="" /></p>
+<p><img src="/assets/images/SPFX_MultipleLists_1.png" alt="" /></p>
 <p>Also, include all the schema files in the package-solution.json</p>
-<p><img src="/image.axd?picture=/SPFX_MultipleLists_2.png" alt="" /></p>]]></content>
+<p><img src="/assets/images/SPFX_MultipleLists_2.png" alt="" /></p>]]></content>
       <post-name type="text"><![CDATA[SharePoint Framework : Provisioning multiple list instances through SPFx solution.]]></post-name>
       <excerpt type="text"><![CDATA[Provisioning multiple List Instances using Feature Framework Files through a SharePoint Framework solution.]]></excerpt>
       <authors>
@@ -2125,7 +2125,7 @@ $logs.GetCrawledUrls($false,10000,"",$false,1,2,-1,[System.DateTime]::MinValue,[
 <li>CREATOR OWNER</li>
 <li>SERVERNAME\Users</li>
 </ul>
-<p><img src="/image.axd?picture=/owa-permsns.png" alt="" /></p>
+<p><img src="/assets/images/owa-permsns.png" alt="" /></p>
 <p><em>NOTE:</em> While adding the "CREATOR OWNER" account, in the permissions section 'Special Permissions' might be grayed out or you may not be able to select it. Just select the 'Read' permission and click on Apply and Ok. This will automatically set the 'Special Permission' for the account. After assigning these accounts the required permissions on the Office Web App Server installation folder, this error should be resolved.</p>
 <p>If your Server is built using VMWare, then check this Microsoft Support <a href="http://blogs.technet.com/b/office_web_apps_server_2013_support_blog/archive/2014/03/26/office-web-apps-2013-amp-vmware.aspx">article</a> which will fix the issue.</p>
 <p>In the worst case, un-install and clean your Office Web App Servers and re-install on a System Drive.</p>]]></content>
@@ -2276,7 +2276,7 @@ $logs.GetCrawledUrls($false,10000,"",$false,1,2,-1,[System.DateTime]::MinValue,[
 <p>Make these changes and run a full crawl. For some the issue might be solved, but if the issue is still not resolved, check the ULS logs and you might find an error message as shown below</p>
 <p><strong><em>[Microsoft.CrawlerFlow-XXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX] Microsoft.Ceres.ContentEngine.Processing.BuiltIn.AttributeMapperEvaluator+AttributeMapperProducer : Failed to map values to field ExcludeFromSummary</em></strong></p>
 <p>If you see this in the log, then your &lsquo;ExcludeFromSummary&rsquo; Managed Property is having an erroneous setting. Even though your site column has &lsquo;Allow Multiple Values&rsquo; set to Yes, the &lsquo;ExcludeFromSummary&rsquo; managed property should have &lsquo;Allow Multiple Values&rsquo; set to NO.</p>
-<p><img src="/image.axd?picture=/crwlissue_mp.png" alt="" /></p>
+<p><img src="/assets/images/crwlissue_mp.png" alt="" /></p>
 <p>Make sure the &lsquo;ExcludeFromSummary&rsquo; Managed Property has the correct settings as shown above and run a full crawl to solve this error. Now all your items in the Site Collection/s should be crawled successfully.</p>]]></content>
       <post-name type="text"><![CDATA[SharePoint 2013 Search Crawl - The content processing pipeline failed to process the item]]></post-name>
       <excerpt type="text"><![CDATA[The content processing pipeline failed to process the item - This is one of the error messages we observe in the SharePoint crawl log. Here are few causes for this issue and ways to solve this error.]]></excerpt>
@@ -2298,7 +2298,7 @@ $logs.GetCrawledUrls($false,10000,"",$false,1,2,-1,[System.DateTime]::MinValue,[
     <post id="df5e5061-7dec-472e-b0e9-80af8abc0f0a" date-created="2014-11-28T15:57:00" date-modified="2019-04-12T10:26:11" approved="true" post-url="/post/adding-breadcrumb-publishing-page" type="normal" hasexcerpt="true" views="0" is-published="True">
       <title type="text"><![CDATA[Adding BreadCrumb to a SharePoint Page]]></title>
       <content type="text"><![CDATA[<p>Breadcrumb navigation on landing pages of websites is very useful for navigating within the site. For SharePoint sites this can be easily achieved using the SiteMapPath control. Below is a sample BreadCrumb which I added to my SharePoint 2013 master page</p>
-<p><img src="/image.axd?picture=/sp2013_brdcrmb.png" alt="" /></p>
+<p><img src="/assets/images/sp2013_brdcrmb.png" alt="" /></p>
 <p>Add the below control snippet within your SharePoint master page to display the breadcrumb.</p>
 <pre class="brush:xml;auto-links:false;toolbar:false" contenteditable="false">&lt;!--CS: Start Create Snippets From Custom ASP.NET Markup Snippet--&gt;
 &lt;!--SPM:&lt;asp:SiteMapPath ID="SiteMapPath1"
@@ -2343,7 +2343,7 @@ $logs.GetCrawledUrls($false,10000,"",$false,1,2,-1,[System.DateTime]::MinValue,[
 	-ms-name:"My Own Font";
 	font-family:"Custom Font Face Name";
 }</pre>
-<p><img src="/image.axd?picture=/sp2013_rte.png" alt="" /></p>
+<p><img src="/assets/images/sp2013_rte.png" alt="" /></p>
 <p style="text-align: justify;">If you look at the style definition, the attribute '-ms-name' tells the RTE that this is the display name for the font (which comes in the font drop down). And the 'font-family' is the traditional CSS attribute, which applies this font family to the selected object. All other components can be added using style definitions similar to the one described above. Following are the available CSS style definitions which we can use to add custom font-styles or element-styles to the RTEs.</p>
 <ul class="spd-ul">
 <li>.ms-rtestyle</li>
@@ -2505,14 +2505,14 @@ Showing the Page Views within a SharePoint page is a commonly expected feature b
 <li>Select the user control from your 'Solution Explorer', and click F4 to show the properties of the user control.</li>
 <li>In the properties window, check the value for 'Custom Tool'.</li>
 <li>It should be set to 'SharePointWebPartCodeGenerator'. If not please set this value and save this.</li>
-<li><img src="/image.axd?picture=/vwp2013_scr1.jpg" alt="" /></li>
+<li><img src="/assets/images/vwp2013_scr1.jpg" alt="" /></li>
 </ul>
 </li>
 <li>Manually run the custom tool.
 <ul class="spd-ul">
 <li>From the solution explorer, right click on the user control of your visual web part and click on 'Run Custom Tool'.</li>
 <li>Rebuild and deploy the web part.</li>
-<li><img src="/image.axd?picture=/vwp2013_scr2.jpg" alt="" /></li>
+<li><img src="/assets/images/vwp2013_scr2.jpg" alt="" /></li>
 </ul>
 </li>
 </ul>
@@ -3010,7 +3010,7 @@ $serviceInstance.Provision()</pre>
       <content type="text"><![CDATA[<p>Most of the times when we create custom webparts, we define custom properties in it. These properties are used to store some configuration details for the web part to function. In many custom web parts I saw, developers use custom properties in a webpart to store the data source for the web part. Data sources can be a List name, Document Library name or a Connection string for SQL Server database etc.,</p>
 <p>While creating pages and adding web parts, if authors leave the properties empty, the web part may throw some error.</p>
 <p>If you add a Content Query Web Part in your page, and leave the properties empty, then it displays a link to the user, which says <em><strong>Open Tool Pane</strong></em>. On clicking this link the tool pane of the webpart is opened. Its a good practice to provide this type of link on our custom web part as well, when the properties are left empty. Lets see how this can be achieved</p>
-<p><img src="/image.axd?picture=/open_tool_pane.png" alt="" /></p>
+<p><img src="/assets/images/open_tool_pane.png" alt="" /></p>
 <p>Before processing with the logic/data in the custom webpart, check if the required properties are empty. If they are found to be empty, then render an anchor tag in your webpart whose HREF should be set to the below JavaScript function</p>
 <p><em><strong>MSOTlPn_ShowToolPane2Wrapper()</strong></em></p>
 <p>The prepared anchor tag should look as shown below</p>
@@ -3036,7 +3036,7 @@ $serviceInstance.Provision()</pre>
       <title type="text"><![CDATA[Querying Managed Meta Data fields in SharePoint 2010]]></title>
       <content type="text"><![CDATA[<p>I have seen many developers using the &lt;contains&gt; or &lt;eq&gt; element of CAML to query items based on a Managed Meta Data column. Using these elements of CAML for querying, returns irrelevant items in the result.</p>
 <p>Consider we have a pages library with 'Enterprise Keywords' column (OOB Site Column) in the library. Lets assume we have three pages with the Enterprise Keywords as shown in the screen below.</p>
-<p><img src="/image.axd?picture=/query_mms.png" alt="" /></p>
+<p><img src="/assets/images/query_mms.png" alt="" /></p>
 <p>Now if we need to fetch all the items from this library, having '<em>hare</em>' or '<em>hares</em>' in their 'Enterprise Keywords' column, we would end up writing a CAML query as shown below</p>
 <pre class="brush:xml;auto-links:false;toolbar:false" contenteditable="false">&lt;Query&gt;
     &lt;Where&gt;
@@ -3592,7 +3592,7 @@ Microsoft.SharePoint.Administration.SPWebApplication.Lookup(new Uri("URL OF THE 
     <post id="b3b351a9-5ba5-454b-8e2d-ac2ccc53d46b" date-created="2011-03-03T11:04:00" date-modified="2019-04-12T05:37:35" approved="true" post-url="/post/formatting-listview-webpart-in-sharepoint-server-2010" type="normal" hasexcerpt="true" views="0" is-published="True">
       <title type="text"><![CDATA[Formatting ListView WebPart in SharePoint Server 2010]]></title>
       <content type="text"><![CDATA[<p>We know that SharePoint 2010 comes with a flashy UI, but we sometimes want to add more color to the UI of Sharepoint. Most of us must be creating pages in a SharePoint portal, which are stored in the <em>'Pages'</em> library of the site. When we enable the 'Content Approval' feature on a '<em>Pages</em>' library, we see the Approval Status coming up for the pages. Can we have different background colors for the items based on their Approval Status? The answer is yes. SharePoint 2010 gives us the privilege to do this. The Approval Status of page can be in many states like 'Draft', 'Pending', 'Rejected' etc., It looks good when we have different background colors based on these values, like a rejected item will have a red background and a approved item will have a green background. Using this example I will explain how we can do conditional formatting on a ListViewWebpart. At the end of the article we have a View for the Pages library which looks like the screen shown below</p>
-<p><img src="/image.axd?picture=/lstvw_pagelib.png" alt="" /></p>
+<p><img src="/assets/images/lstvw_pagelib.png" alt="" /></p>
 <p>We can do this type of formatting to the ListView WebPart using <em>SharePoint Designer</em>. Following are the detailed steps for doing this.</p>
 <ul class="spd-ul">
 <li>Open your site through <em><strong>Microsoft SharePoint Designer 2010</strong></em></li>
@@ -3602,28 +3602,28 @@ Microsoft.SharePoint.Administration.SPWebApplication.Lookup(new Uri("URL OF THE 
 <li>In the 'Views' category click on the New button and create a view named 'My Views' (or any other which you feel appropriate)</li>
 <li>This opens the page with a ListView Webpart which shows the list of pages. Now click on this webpart area and select a row of this webpart. (You can easily select a row by clicking on the &lt;tr&gt; element in the status bar. Refer the screenshot below)</li>
 </ul>
-<p><img src="/image.axd?picture=/lstvw_rowslct.png" alt="" /></p>
+<p><img src="/assets/images/lstvw_rowslct.png" alt="" /></p>
 <ul>
 <li>After selecting the row, right click on the row and select the <strong>'Conditional Formatting'</strong><em> option from the menu opened. This opens 'Conditional Formatting' panel at the right side of the window. Click on Create and select the 'Apply Formatting' button. this opens a window as shown below.</em></li>
 </ul>
-<p><em><img src="/image.axd?picture=/lstvw_condition.gif" alt="" /></em></p>
+<p><em><img src="/assets/images/lstvw_condition.gif" alt="" /></em></p>
 <ul class="spd-ul">
 <li>In this window select the Field Name as 'Approval Status', and Comparision as Equals and Value as Approved, and click on 'Set Style'. This opens a window, through which we can specify styles for the elemen (in our scenario, its the complete row.)</li>
 <li>In this window, select the 'Background' group and give the 'Background Color' as '##C5E9C0'. Now select Border group and give the details as shown in the screen shot below</li>
 </ul>
-<p><img src="/image.axd?picture=/lstvw_style1.png" alt="" /></p>
+<p><img src="/assets/images/lstvw_style1.png" alt="" /></p>
 <ul class="spd-ul">
 <li>Click on OK. Now click on 'Create' button again and select 'Apply Formatting'. In the window that opens, select appropriate values as we did earlier and give the Value as 'Rejected', set the 'Background' color to '#FFC4C4', and set the 'Border' properties as shown below</li>
 </ul>
-<p><img src="/image.axd?picture=/lstvw_style2.png" alt="" /></p>
+<p><img src="/assets/images/lstvw_style2.png" alt="" /></p>
 <ul class="spd-ul">
 <li>Create one more condition for 'Draft', with 'Background' as '#FFFFCA' and 'Border' properties as shown below</li>
 </ul>
-<p><img src="/image.axd?picture=/lstvw_style3.png" alt="" /></p>
+<p><img src="/assets/images/lstvw_style3.png" alt="" /></p>
 <ul>
 <li>Create one more condition for 'Pending', with 'Background' as '#CEDBFF' and 'Border' properties as shown below</li>
 </ul>
-<p><img src="/image.axd?picture=/lstvw_style4.png" alt="" /></p>
+<p><img src="/assets/images/lstvw_style4.png" alt="" /></p>
 <p>Save this view and try to open this view from your browser. The pages should have appropriate backgrounds depending on the 'Approval Status' as shown in the screen at the begining of this article..</p>]]></content>
       <post-name type="text"><![CDATA[Formatting ListView WebPart in SharePoint Server 2010]]></post-name>
       <excerpt type="text"><![CDATA[We know that SharePoint 2010 comes with a flashy UI, but we sometimes want to add more color to the ]]></excerpt>
@@ -3689,9 +3689,9 @@ border-color:Black;
       <content type="text"><![CDATA[<h2>Using the ECMAScript of SharePoint 2010</h2>
 <p>SharePoint Server 2010 comes with a flashy UI. On the home page of a SharePoint Site, we see many components like the ribbon tool bar, Notifications, Status message, Quick Launch etc., As a developer we should be able to customize all these components. In this article lets explore how to create custom '<em>Notifications</em>' and '<em>Status</em>' messages using the ECMAScript of SharePoint 2010</p>
 <p>What are these Notifications and Status messages?<br /> A <em>Notification</em> is a small text area which gets displayed at the top right corner of the window, while we perform some actions like saving a page, checking out a page etc., (this is like the notification which we see while sending a mail through gmail). This is a simple text area with yellow background and a dark yellow border as shown in the screen below. This is something new in SharePoint 2010 which is not available in MOSS 2007.</p>
-<p><img src="/image.axd?picture=/notification.png" alt="" /></p>
+<p><img src="/assets/images/notification.png" alt="" /></p>
 <p>A <em>Status</em> message is also like a Notification, but it stretches to the width of page. This lies between the body and header of the page. To be more precise, it comes below the title bar (where title and breadcrumb are displayed), or below the ribbon toolbar (when it is opened). This can have different colored backgrounds, signifying the severity of the message. Shown below is a default Status message displayed when we check out a page for editing.</p>
-<p><img src="/image.axd?picture=/statusarea.png" alt="" /></p>
+<p><img src="/assets/images/statusarea.png" alt="" /></p>
 <h2>Creating Custom Notification</h2>
 <p>Using <strong><em>'SP.UI.Notify.addNotification()'</em></strong> method we can create custom notifications on a page.<br /><br />var value = SP.UI.Notify.addNotification(strHtml, bSticky);<br />strHTML - the HTML text that is to be displayed in the notification area.<br />bSticky - true/false. A boolean value which specifies whether the notification should be fixed or to auto closed.<br />value - The ID of the notification added to the page.<br /><br />By default if we add a Notification with <em>bSticky</em> value as false, it closes after 5 seconds. If we specify its value as true, then we have to explicitly close the notification by passing the ID (return value while creating the notification) to the <em><strong>SP.UI.Notify.removeNotification(nid) method</strong></em>. These two methods are part of the <em>SP.UI.Notify</em> class of the ECMAScript library.</p>
 <h2>Creating Custom Status Messages</h2>
@@ -3778,7 +3778,7 @@ function RemoveNotification(nid) {
 <li>Go to the '<strong>Document Library Settings</strong>' page of the respective '<em>Pages</em>' library.</li>
 <li>Under the '<strong>Permissions and Management</strong>' group, there is a link named '<strong>Manage files which have no checked in version</strong>' (in SPS 2010) or '<strong>Manage checked out files</strong>' (in MOSS 2007). On clicking this link, a page like below will be opened.</li>
 </ul>
-<p><img src="/image.axd?picture=/mngchckdoutfls.png" alt="" /></p>
+<p><img src="/assets/images/mngchckdoutfls.png" alt="" /></p>
 <ul class="spd-ul">
 <li>As shown in the above screenshot, all the pages which are checked out (including the pages which are not having a checked in version) are shown.</li>
 <li>We can select the required pages, and click on the 'Take Ownership of selection' link to get the control of the selected page/s.</li>

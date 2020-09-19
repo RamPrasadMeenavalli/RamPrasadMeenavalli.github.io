@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "PnPjs", "SPFx"]
-permalink: ["/post/filtering-sharepoint-list-items-by-current-logged-in-user-in-spfx-webparts-using-pnpjs"]
-  ---
+permalink: /post/filtering-sharepoint-list-items-by-current-logged-in-user-in-spfx-webparts-using-pnpjs
+---
 <!-- more -->
 <h2>How to filter list items based on a Person type field?</h2>
 <p>There could be scenarios where we have to filter or query for SharePoint list items&nbsp;based on a Person field. For example, we might want to show the list items created by the current logged in user. This&nbsp;can be done using the below REST call.</p>

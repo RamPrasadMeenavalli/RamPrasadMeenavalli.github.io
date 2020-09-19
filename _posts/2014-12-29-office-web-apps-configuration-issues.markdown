@@ -1,14 +1,15 @@
 ---
 layout: post
-title: "Word Web App error - "Sorry, Word Web App can't open this document because the service is busy. Please try again later""
+title: "Word Web App error - Sorry, Word Web App can't open this document because the service is busy. Please try again later"
 date: 2014-12-29 12:00:00 +0530
 comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2013", "SharePoint 2016"]
-permalink: ["/post/office-web-apps-configuration-issues"]
-  ---
-<!-- more -->
+permalink: /post/office-web-apps-configuration-issues
+---
+<!-- more -->
+
 <p>After configuring the Office Web App Server for SharePoint 2013 and creating the bindings on the SharePoint farm, I was able to open the excel files on the browser but not other documents like word, power point etc., When I opened a word document, the Word Web App opens, shows the processing/busy status for some time and throws the below error</p>
 <p><em> Sorry, Word Web App can't open this document because the service is busy. Please try again later </em></p>
 <p>After some troubleshooting, following is the checklist I prepared which might provide some information about these kind of issues</p>

@@ -6,12 +6,12 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Online", "SharePoint Server", "SharePoint 2010", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/querying-managed-meta-data-fields-in-sharepoint-2010"]
-  ---
+permalink: /post/querying-managed-meta-data-fields-in-sharepoint-2010
+---
 <!-- more -->
 <p>I have seen many developers using the &lt;contains&gt; or &lt;eq&gt; element of CAML to query items based on a Managed Meta Data column. Using these elements of CAML for querying, returns irrelevant items in the result.</p>
 <p>Consider we have a pages library with 'Enterprise Keywords' column (OOB Site Column) in the library. Lets assume we have three pages with the Enterprise Keywords as shown in the screen below.</p>
-<p><img src="/image.axd?picture=/query_mms.png" alt="" /></p>
+<p><img src="/assets/images/query_mms.png" alt="" /></p>
 <p>Now if we need to fetch all the items from this library, having '<em>hare</em>' or '<em>hares</em>' in their 'Enterprise Keywords' column, we would end up writing a CAML query as shown below</p>
 <pre class="brush:xml;auto-links:false;toolbar:false" contenteditable="false">&lt;Query&gt;
     &lt;Where&gt;

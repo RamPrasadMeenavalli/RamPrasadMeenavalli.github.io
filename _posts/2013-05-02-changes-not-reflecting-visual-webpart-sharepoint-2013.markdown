@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2013"]
-permalink: ["/post/changes-not-reflecting-visual-webpart-sharepoint-2013"]
-  ---
+permalink: /post/changes-not-reflecting-visual-webpart-sharepoint-2013
+---
 <!-- more -->
 <h2>Problem Description</h2>
 <p>Following are some issues observed while developing Visual Web Parts for SharePoint 2013 using Visual Studio 2012</p>
@@ -24,14 +24,14 @@ permalink: ["/post/changes-not-reflecting-visual-webpart-sharepoint-2013"]
 <li>Select the user control from your 'Solution Explorer', and click F4 to show the properties of the user control.</li>
 <li>In the properties window, check the value for 'Custom Tool'.</li>
 <li>It should be set to 'SharePointWebPartCodeGenerator'. If not please set this value and save this.</li>
-<li><img src="/image.axd?picture=/vwp2013_scr1.jpg" alt="" /></li>
+<li><img src="/assets/images/vwp2013_scr1.jpg" alt="" /></li>
 </ul>
 </li>
 <li>Manually run the custom tool.
 <ul class="spd-ul">
 <li>From the solution explorer, right click on the user control of your visual web part and click on 'Run Custom Tool'.</li>
 <li>Rebuild and deploy the web part.</li>
-<li><img src="/image.axd?picture=/vwp2013_scr2.jpg" alt="" /></li>
+<li><img src="/assets/images/vwp2013_scr2.jpg" alt="" /></li>
 </ul>
 </li>
 </ul>

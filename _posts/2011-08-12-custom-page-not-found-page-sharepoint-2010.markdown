@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2010"]
-permalink: ["/post/custom-page-not-found-page-sharepoint-2010"]
-  ---
+permalink: /post/custom-page-not-found-page-sharepoint-2010
+---
 <!-- more -->
 <p>Setting a custom <em>Page Not Found</em> page for a SharePoint 2010 site works the same way as we did for a SharePoint 2007 site in the previous <a title="Creating a Custom Page Not Found Page for SharePoint 2007 Site" href="http://spdeveloper.co.in/articles/pages/custom-page-not-found-page-2007.aspx">article</a>. Earlier we used to change the <em>Page Not Found</em> reference for a Web Application using SharePoint API. But in SharePoint 2010, we can do this easily using PowerShell.</p>
 <p>Create the <em>custom404.html</em> file as described in the previous <a title="Creating a Custom Page Not Found Page for SharePoint 2007 Site" href="http://spdeveloper.co.in/articles/pages/custom-page-not-found-page-2007.aspx">article</a>, and put in the below location instead of the 12 hive.<br />\Program Files\Common Files\Microsoft Shared\Web Server Extensions\14\TEMPLATE\LAYOUTS\LangID<br /> (1033 is the language ID for U.S. English)<br />Now run the following commands in a PowerShell window.</p>

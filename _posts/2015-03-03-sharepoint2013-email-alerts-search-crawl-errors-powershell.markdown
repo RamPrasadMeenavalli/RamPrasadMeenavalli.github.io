@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2013", "SharePoint 2016"]
-permalink: ["/post/sharepoint2013-email-alerts-search-crawl-errors-powershell"]
-  ---
+permalink: /post/sharepoint2013-email-alerts-search-crawl-errors-powershell
+---
 <!-- more -->
 <p>As a SharePoint Admin for a search intensive SharePoint 2013 application, I had to check the Crawl Logs everyday to see if there are any crawl errors for an item, and if any item is missed in the crawl. I always thought if we can simply receive a daily mail whenever there is an error in the crawl. This made me write this simple Powershell Script which sends the mail with the error details, and then schedule this to run daily. Now I don't need to open the Search Service Application everyday and check the crawl logs, I have the details in my mail the moment I start my day, which saves some time for me.. :)</p>
 <h3>PowerShell Script</h3>

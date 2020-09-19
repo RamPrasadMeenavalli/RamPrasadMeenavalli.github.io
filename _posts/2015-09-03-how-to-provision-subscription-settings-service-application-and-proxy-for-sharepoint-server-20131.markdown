@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/how-to-provision-subscription-settings-service-application-and-proxy-for-sharepoint-server-20131"]
-  ---
+permalink: /post/how-to-provision-subscription-settings-service-application-and-proxy-for-sharepoint-server-20131
+---
 <!-- more -->
 <p style="text-align: justify;">Subscription Settings Service Application and the proxy are two of the prerequisites for developing SharePoint Add-Ins (SharePoint Apps). But this service application cannot be provisioned through the UI. A Subscription Settings Service Application can be created only through PowerShell and below is the script to provision the Service Application and its proxy.</p>
 <p style="text-align: justify;">Change the Display Names and Account details as per your environment in the below script and run it through SharePoint Server 2013 Management Shell (opened as a Farm Administrator)</p>

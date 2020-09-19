@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "SharePoint Server", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/rest-api-endpoint-and-jsom-code-to-get-the-list-of-sub-sites-for-the-current-user"]
-  ---
+permalink: /post/rest-api-endpoint-and-jsom-code-to-get-the-list-of-sub-sites-for-the-current-user
+---
 <!-- more -->
 <p>While working with any SharePoint site, there might be a need to display the list of sub sites to which the current user has access, using JSOM or REST APIs. One might end up writing the below code for getting the list of sub sites for the current user.</p>
 <h4>JSOM</h4>

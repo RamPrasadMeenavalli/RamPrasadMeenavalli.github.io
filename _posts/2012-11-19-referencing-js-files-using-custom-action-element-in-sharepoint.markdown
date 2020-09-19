@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2010", "SharePoint 2013", "SharePoint 2016"]
-permalink: ["/post/referencing-js-files-using-custom-action-element-in-sharepoint"]
-  ---
+permalink: /post/referencing-js-files-using-custom-action-element-in-sharepoint
+---
 <!-- more -->
 <p style="text-align: justify;">JavaScript plays an important role in a SharePoint web application. So, as we customize a SharePoint site, we might across a situation where we need to add our custom JS files to SharePoint pages. There are number of ways to refer a JS file on a SharePoint Page.</p>
 <p style="text-align: justify;"><strong>Adding a Reference in the Master Page</strong>: Add a &lt;script&gt; tag on your master page which points to your custom master page. But in this method, we need to create a custom master page just for referencing the custom JS files.</p>

@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "SharePoint Server", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/SharePoint-PropertyOrFieldNotInitializedException-CSOM-ClientContext", "/post/sharepoint-propertyorfieldnotinitializedexception-csom-clientcontext"]
-  ---
+permalink: /post/SharePoint-PropertyOrFieldNotInitializedException-CSOM-ClientContext
+---
 <!-- more -->
 <p>Recently when I was trying to do develop some business logic which involved reading data from SharePoint lists, I thought of writing a Console Application and use the .NET Client Side Object Model (CSOM) to perform the same. I started with a simple code to print the title of a web as shown below.</p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">            ClientContext context = new ClientContext("http://my-sharepoint-site-url");

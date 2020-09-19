@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2010", "SharePoint 2013"]
-permalink: ["/post/install-features-after-update-spsolution"]
-  ---
+permalink: /post/install-features-after-update-spsolution
+---
 <!-- more -->
 <p><em>WSP</em> is the most common and reliable way any developer uses to deploy SharePoint components between different environments. As suggested by Microsoft in this article <a title="Upgrading a Farm Solution in SharePoint 2010" href="http://msdn.microsoft.com/en-us/library/aa543659.aspx">Upgrading a Farm Solution in SharePoint 2010</a>, there are two ways of upgrading a farm solution.</p>
 <ul class="spd-ul">

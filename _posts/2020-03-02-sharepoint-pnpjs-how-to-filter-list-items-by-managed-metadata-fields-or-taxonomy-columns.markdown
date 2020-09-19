@@ -6,12 +6,12 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "PnPjs", "SPFx"]
-permalink: ["/post/sharepoint-pnpjs-how-to-filter-list-items-by-managed-metadata-fields-or-taxonomy-columns"]
-  ---
+permalink: /post/sharepoint-pnpjs-how-to-filter-list-items-by-managed-metadata-fields-or-taxonomy-columns
+---
 <!-- more -->
 <p>SharePoint REST APIs does not allow to Managed Metadata / Taxonomy fields within the OData $filter parameter. So, PnPjs which uses REST APIs internally, cannot query on a&nbsp;Managed Metadata column using the .filter() method.</p>
 <p>But we can query using CAML query and the <strong>.getItemsByCAMLQuery&nbsp;</strong>method. Below is a&nbsp;sample&nbsp;document library which is has some policy documents uploaded and there is Managed Metadata Field called '<strong>Deparments</strong>' which accepts multiple values.</p>
-<p><img src="/image.axd?picture=/listStructure.PNG" alt="" /></p>
+<p><img src="/assets/images/listStructure.PNG" alt="" /></p>
 <p>Below&nbsp;is a sample PnPjs V2 snippet which finds the list of documents that are tagged with a specific Managed Metadata term.</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">import { setup as pnpSetup } from "@pnp/common";
 import { sp } from "@pnp/sp";
@@ -46,5 +46,5 @@ const queryView = `
       console.log(`Url : ${doc.File.ServerRelativeUrl} || Department : ${depts.join(",")}`);
     });</pre>
 <p>This will filter for all the documents which are tagged with the Taxonomy term 'HR'. And here is the output showing the required documents that are filtered.</p>
-<p><img src="/image.axd?picture=/taxonomyQueryOP.PNG" alt="" /></p>
+<p><img src="/assets/images/taxonomyQueryOP.PNG" alt="" /></p>
 <p>This can be used in scenarios where an SPFx webpart should show content based on the current user's properties. The above example can be extended to show policy documents for the current user's department. The user's department can be fetched from the profile and the value can be passed to the CAML Query.</p>

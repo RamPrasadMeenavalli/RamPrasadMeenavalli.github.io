@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2010", "SharePoint 2013"]
-permalink: ["/post/using-modal-dialogs-in-sharepoint-2010"]
-  ---
+permalink: /post/using-modal-dialogs-in-sharepoint-2010
+---
 <!-- more -->
 <h2>Overview</h2>
 <p>Modal Dialogs are one of the new features provided by SharePoint 2010. It's the dialog framework provided by the JavaScript client object model. Modal Dialogs can fetch data from anywhere and display it over the page. One good feature about the Modal Dialogs is, there won't be any navigation to another page, making the user to stay in the context of the current page. The number of post backs will also be reduced by using modal dialogs. These dialogs are used in a large scale in many of the OOB operations, like creating a page, viewing/editing item properties etc., These dialogs are JavaScript pop up dialogs with an iFrame in which the data is displayed.</p>

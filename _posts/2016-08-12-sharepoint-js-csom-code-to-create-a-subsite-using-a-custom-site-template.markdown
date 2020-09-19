@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "SharePoint Server", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/sharepoint-js-csom-code-to-create-a-subsite-using-a-custom-site-template"]
-  ---
+permalink: /post/sharepoint-js-csom-code-to-create-a-subsite-using-a-custom-site-template
+---
 <!-- more -->
 <p>Below is the code snippet to create a subsite in a SharePoint site collection using an existing custom site template.</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">var webUrl = "newSubSite",

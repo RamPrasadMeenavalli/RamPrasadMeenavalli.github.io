@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Online", "Classic Sites", "SharePoint Server", "SharePoint 2010", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/saving-a-sharepoint-site-as-template"]
-  ---
+permalink: /post/saving-a-sharepoint-site-as-template
+---
 <!-- more -->
 <p>We often need to create sites within a SharePoint Portal, with the same structure of another site. So, when we are in such a situation, we first think about saving the site as template. But unfortunately, when we go to the site settings page, we dont find any link to save the site as template. In MOSS 2007, in the settings page of the list/document library, a link is provided to save it as template, but the same option is not provided for a Site. In SPS 2010, we have a link to save the site as template (its under Look and Feel section), but the same option is not available for a sub-sites.</p>
 <p>So, to achieve this simple thing, should we start creating a feature with the site definition we wanted?. Not needed. Here is the solution.</p>

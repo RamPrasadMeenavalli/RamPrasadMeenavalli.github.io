@@ -6,16 +6,16 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "Modern Sites", "SPFx"]
+permalink: /post/spfx-covid-19-tracker-webpart
 ---
-<!-- more -->
-
+<!-- more -->
 <h2>The Need</h2>
 <p>With the the unexpected growth in the number of COVID-19 cases, it is necessary for a business to monitor the situation and&nbsp;take necessary actions to minimize the impact on their operations. This webpart provides a quick overview of the number of cases identified and the rate at which they are growing globally and within a country.</p>
 <div style="margin-bottom: 15px; width: 100%; display: inline-block;">
 <div class="col-sm-6"><a class="btn btn-block btn-primary" href="https://github.com/RamPrasadMeenavalli/react-covid19-tracker" target="_blank">View on Github</a></div>
 <div class="col-sm-6"><a class="btn btn-block btn-primary" href="https://github.com/RamPrasadMeenavalli/react-covid19-tracker/releases" target="_blank">Download from Releases</a></div>
 </div>
-<p style="text-align: center;"><img src="/image.axd?picture=/screen-one.gif" alt="" width="70%" /></p>
+<p style="text-align: center;"><img src="/assets/images/screen-one.gif" alt="" width="70%" /></p>
 <p><span style="text-decoration: underline;"><strong>Global and Country specific stats</strong></span></p>
 <p>It shows two sections.&nbsp;One for the&nbsp;number of cases identified and recovered globally and another section shows the number of cases for a&nbsp;selected country.&nbsp;For the country stats, it also shows the&nbsp;change in the number of cases from the previous day, which gives an insight on how&nbsp;rapidly the cases are increasing.</p>
 <p><span style="text-decoration: underline;"><strong>User scoped Personalization</strong></span></p>

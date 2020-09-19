@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online"]
-permalink: ["/post/understanding-sharepoint-online-file-sharing-and-when-unique-permissions-are-created"]
-  ---
+permalink: /post/understanding-sharepoint-online-file-sharing-and-when-unique-permissions-are-created
+---
 <!-- more -->
 <p>In the recent versions of SharePoint and Office 365, sharing files or folders is a widely used feature where users can share a specific file to internal or external users. While this helps in quickly sharing a document with different people and to collaborate faster, incorrect usage of this feature could create unique permissions in your document library.</p>
 <p>As per the <a href="https://docs.microsoft.com/en-us/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits#service-limits-for-all-plans">SharePoint online limits</a>, there is a service limit of 5000 unique security scopes per list or library. By sharing files very often, one could easily breach this limit. And for large lists/libraries it is advised to keep the unique security scopes to as minimal as possible.</p>

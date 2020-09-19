@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2013", "SharePoint 2016"]
-permalink: ["/post/issues-migrating-custom-field-types-to-sharePoint-2013", "/post/issues-migrating-custom-field-types-to-sharepoint-2013"]
-  ---
+permalink: /post/issues-migrating-custom-field-types-to-sharePoint-2013
+---
 <!-- more -->
 <p style="text-align: justify;">Custom field types are one of those components which cause issues when migrated to SharePoint Server 2013 from its earlier versions. Following are the basic troubleshooting steps to be validated</p>
 <ul class="spd-ul" style="text-align: justify;">

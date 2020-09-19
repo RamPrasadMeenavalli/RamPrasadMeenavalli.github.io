@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "SharePoint Server", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/sharepoint-rest-api-client-code-to-send-mails-with-html-rich-text-content-to-sharepoint-users"]
-  ---
+permalink: /post/sharepoint-rest-api-client-code-to-send-mails-with-html-rich-text-content-to-sharepoint-users
+---
 <!-- more -->
 <p>Following is the code snippet to send emails to local SharePoint users with HTML Content in the email body.</p>
 <p><strong> The recipients should be valid SharePoint Users. Mails cannot be sent to non-SharePoint users and external users. </strong></p>

@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2016"]
-permalink: ["/post/whats-new-sharepoint-server-2016-ignite-2015"]
-  ---
+permalink: /post/whats-new-sharepoint-server-2016-ignite-2015
+---
 <!-- more -->
 <p style="text-align: justify;">With the announcement of SharePoint Server 2016, the most trending discussion in the space of SharePoint is about the new features and capabilities that are expected to be part of SharePoint Server 2016. Microsoft Ignite sessions conducted in the first week of May 2015, have revealed many interesting insights about the new version.</p>
 <p style="text-align: justify;">As we all know, since its evolution in 2001 till SharePoint Server 2013, the on-premises version played a major role in defining the architecture and setting the guidance for its respective Cloud versions. However, this is going to change with SharePoint Server 2016, where Office 365 is set as a base and to define how the on-premises version works. Few features which are expected to come with SharePoint 2016 are already part of Office 365, like Delve, Office Graph, Cloud Search Service Applications etc.,. One significant design change we should note is that SharePoint 2016 is being designed to support more seamless hybrid implementations and scenarios. Before we wait for the Beta which is planned to be available in Q4 2015, and the RTM in Q2 2016, here are few features or functionalities revealed in the Ignite Sessions that grabbed my attention.</p>

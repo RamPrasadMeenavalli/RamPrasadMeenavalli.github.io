@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2013"]
-permalink: ["/post/stand-alone-installation-failed-configuration-database-sharepoint-2013"]
-  ---
+permalink: /post/stand-alone-installation-failed-configuration-database-sharepoint-2013
+---
 <!-- more -->
 <p style="margin-bottom: 5px;">After a long wait, I got a chance to install SharePoint 2013 Preview in one of the development environments. Whenever I install any Microsoft Product, I eagerly wait for the Configuration Failed/Installation Failed screen. As soon I started running the per-requisite installer for SharePoint 2013, things were getting installed without any issues. I was little surprised and a bit worried thinking the installation will complete without any issues. But Microsoft never disappoints me. Below are the issues I faced while doing a Stand-Alone installation of SharePoint 2013 preview.</p>
 <h2 style="margin-top: 5px;">Error 1: Failed to connect to the configuration database</h2>

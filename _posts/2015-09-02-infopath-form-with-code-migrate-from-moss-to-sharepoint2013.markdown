@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2013", "SharePoint 2016"]
-permalink: ["/post/InfoPath-Form-With-Code-Migrate-From-MOSS-To-SharePoint2013", "/post/infopath-form-with-code-migrate-from-moss-to-sharepoint2013"]
-  ---
+permalink: /post/InfoPath-Form-With-Code-Migrate-From-MOSS-To-SharePoint2013
+---
 <!-- more -->
 <p>In one of the migrations from MOSS to SharePoint 2013, I had a application which is using InfoPath (2007) form with code. In this blog I would share the difficulties we faced While migrating this application to SharePoint 2013, and solutions we followed to get the InfoPath form with code working.</p>
 <p>I followed the <em>Database Upgrade</em> approach for migrating the MOSS applications to SharePoint Server 2013. The Content Databases were moved to a SharePoint Server 2010 environment, upgraded and then moved to SharePoint 2013 environment. In the SharePoint 2013 environment, I was unable to access the InfoPath form. Following are the symptoms I observed</p>

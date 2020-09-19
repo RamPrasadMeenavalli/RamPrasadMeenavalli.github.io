@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2010", "SharePoint 2013", "SharePoint 2016"]
-permalink: ["/post/caml-query-not-returning-results-from-code"]
-  ---
+permalink: /post/caml-query-not-returning-results-from-code
+---
 <!-- more -->
 <p>CAML queries are often used to query list items from a sharepoint list. There are many tools which are used to generate CAML queries which can be used in the Object Model (like webparts, controls, event receivers etc.,). Below is a sample <em>&lt;OrderBy&gt;</em> query generated from U2U CAML query builder.</p>
 <pre class="brush:xml;auto-links:false;toolbar:false" contenteditable="false">&lt;Query&gt;

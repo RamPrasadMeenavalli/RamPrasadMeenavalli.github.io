@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Online", "Classic Sites", "SharePoint Server", "SharePoint 2007", "SharePoint 2010", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/manage-checked-out-files-in-sharepoint"]
-  ---
+permalink: /post/manage-checked-out-files-in-sharepoint
+---
 <!-- more -->
 <h2>Problem Description</h2>
 <p>In most of the site templates provided by SharePoint Server we have a default '<em>Pages</em>' library, which is used for holding the content pages for the site . Sometimes while creating pages, we get an error saying 'The page name already exists' or 'its checked out for editing by another user'. Below is the actual error message we get</p>
@@ -19,7 +19,7 @@ permalink: ["/post/manage-checked-out-files-in-sharepoint"]
 <li>Go to the '<strong>Document Library Settings</strong>' page of the respective '<em>Pages</em>' library.</li>
 <li>Under the '<strong>Permissions and Management</strong>' group, there is a link named '<strong>Manage files which have no checked in version</strong>' (in SPS 2010) or '<strong>Manage checked out files</strong>' (in MOSS 2007). On clicking this link, a page like below will be opened.</li>
 </ul>
-<p><img src="/image.axd?picture=/mngchckdoutfls.png" alt="" /></p>
+<p><img src="/assets/images/mngchckdoutfls.png" alt="" /></p>
 <ul class="spd-ul">
 <li>As shown in the above screenshot, all the pages which are checked out (including the pages which are not having a checked in version) are shown.</li>
 <li>We can select the required pages, and click on the 'Take Ownership of selection' link to get the control of the selected page/s.</li>

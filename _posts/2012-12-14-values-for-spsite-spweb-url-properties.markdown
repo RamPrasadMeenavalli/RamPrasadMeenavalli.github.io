@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2010", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/values-for-spsite-spweb-url-properties"]
-  ---
+permalink: /post/values-for-spsite-spweb-url-properties
+---
 <!-- more -->
 <p>There are some properties for <em>SPSite</em> and <em>SPWeb</em> class using which we can get the URL values for the sites and webs. The two most used of these properties are - '<em>ServerRelativeUrl</em>' and '<em>Url</em>'</p>
 <p>As a developer we use the values of the properties for writing some logic for satisfying the business needs. Whenever I used to write a OM code to use these properties, the first question which flashes in my mind - "<em>What values are returned by these properties?</em>". I immediately create a console application, and check the values returned by these properties and continue with the actual work. I have seen many other developers doing this. So, for a quick reference I prepared the below table which has the url values returned by these properties.</p>

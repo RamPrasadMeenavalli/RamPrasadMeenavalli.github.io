@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "Classic Sites", "SharePoint Server", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/sharepoint-jsom-code-to-hide-remove-ribbon-tabs-in-sharepoint-list-forms-or-pages"]
-  ---
+permalink: /post/sharepoint-jsom-code-to-hide-remove-ribbon-tabs-in-sharepoint-list-forms-or-pages
+---
 <!-- more -->
 <p>The Ribbon shows certain tabs like 'Edit', 'View', 'Items', 'List' etc., when we are on a list form page or when a List is added to any SharePoint page. In some cases we do not want to show these tabs to the users, which can be hidden by adding JSOM code to remove the unwanted tabs. Below is the code to get an instance of the Ribbon and remove the Edit tab from the Ribbon. This JavaScript can be added to a certain list form page through a Script Editor WebPart or can be included in a custom list definition.</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false"> &lt;script type="text/javascript"&gt;

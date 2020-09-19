@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/c-net-client-api-code-snippet-to-search-query-for-people-in-sharepoint-server-2013-2016"]
-  ---
+permalink: /post/c-net-client-api-code-snippet-to-search-query-for-people-in-sharepoint-server-2013-2016
+---
 <!-- more -->
 <p><strong> In this post I show how to query/search for people within a .Net application (windows application or a console application) using the .Net Client API for SharePoint Server.</strong></p>
 <p>Though we have REST API to search for people and Client People picker control (JS based), it is difficult or impossible to use these within a windows application. Also, there might be scenarios where User Profile Service is not available within your farm, and you have to query for people within your client application. For example, let's say you might want to assign a task to an SP user. In such scenarios, we can use the <strong><em>'ClientPeoplePickerWebServiceInterface'</em></strong> and <strong><em>'ClientPeoplePickerQueryParameters'</em></strong> classes from <em><strong>Microsoft.SharePoint.ApplicationPages.ClientPickerQuery namespace.</strong></em> These are the same ones used by the out of the box people picker. So, the results would be identical. These classes are available within the 'Microsoft.SharePoint.Client.dll' assembly.</p>

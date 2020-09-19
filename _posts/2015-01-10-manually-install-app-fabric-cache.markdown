@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2013", "SharePoint 2016"]
-permalink: ["/post/manually-install-app-fabric-cache"]
-  ---
+permalink: /post/manually-install-app-fabric-cache
+---
 <!-- more -->
 <h3>Application Server Role. Windows Server (IIS) Role: Configuration Error</h3>
 <p>This issues occurs in some server due a problem in the Microsoft SharePoint Server 2013 Products Preparation Tool. This is issue has been confirmed by Microsoft and follow this <a title="The Products Preparation Tool in SharePoint Server 2013 may not progress past &quot;Configuring Application Server Role, Web Server (IIS) Role&quot;" href="https://support.microsoft.com/kb/2765260?wa=wsignin1.0">KB Article</a> on steps to solve this error.</p>

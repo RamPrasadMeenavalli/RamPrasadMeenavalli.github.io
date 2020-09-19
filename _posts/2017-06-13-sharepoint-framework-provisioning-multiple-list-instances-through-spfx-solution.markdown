@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "SharePoint Server", "SharePoint 2016", "SharePoint 2019", "SPFx"]
-permalink: ["/post/sharepoint-framework-provisioning-multiple-list-instances-through-spfx-solution"]
-  ---
+permalink: /post/sharepoint-framework-provisioning-multiple-list-instances-through-spfx-solution
+---
 <!-- more -->
 <p>SharePoint Asstes, like Fields/Site Columns, Content Types, List Instances can be provisioned or deployed to a SharePoint Site through SharePoint Framework (SPFx) solutions. SPFx solution uses feature framework files through which we can define the XML to provision the necessary assets.</p>
 <p>The following resources from SPFx documentation provides more details</p>
@@ -23,6 +23,6 @@ permalink: ["/post/sharepoint-framework-provisioning-multiple-list-instances-thr
 <li><strong>schema.xml</strong>: Defines the list structure, content types and views</li>
 </ul>
 <p>To provision more than one list instance, we can create <strong><em>two different schema files</em></strong> (like schemaOne.xml &amp; schemaTwo.xml), create two <strong><em>ListInstance</em></strong> elements in the elements.xml file referring to the respective schema files.</p>
-<p><img src="/image.axd?picture=/SPFX_MultipleLists_1.png" alt="" /></p>
+<p><img src="/assets/images/SPFX_MultipleLists_1.png" alt="" /></p>
 <p>Also, include all the schema files in the package-solution.json</p>
-<p><img src="/image.axd?picture=/SPFX_MultipleLists_2.png" alt="" /></p>
+<p><img src="/assets/images/SPFX_MultipleLists_2.png" alt="" /></p>

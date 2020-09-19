@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "PnPjs", "SPFx"]
-permalink: ["/post/getting-the-url-of-sharepoint-pages-and-documents-using-pnpjs-in-spfx-webparts"]
-  ---
+permalink: /post/getting-the-url-of-sharepoint-pages-and-documents-using-pnpjs-in-spfx-webparts
+---
 <!-- more -->
 <p>While developing some SPFx webparts or extensions, we might need to find the full URLs of the SharePoint items we read. For example, if we are developing a custom Image Gallery, the SPFx webpart should read all the items from a Image library and also need the full URLs of the images. Similarly when we are showing the list if pages or documents, we might need the full URLs for the pages and documents.</p>
 <h2>FileRef and EncodedAbsUrl</h2>
@@ -34,4 +34,4 @@ const images = await sp.web.lists.getByTitle("Site Assets").items.select("Title,
 console.dir(images);
 </pre>
 <p>Here is the sample JSON response from these queries.</p>
-<p><img src="/image.axd?picture=/FileRef-Example.png" alt="" /></p>
+<p><img src="/assets/images/FileRef-Example.png" alt="" /></p>

@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2010"]
-permalink: ["/post/developer-dashboard-in-sharepoint-2010"]
-  ---
+permalink: /post/developer-dashboard-in-sharepoint-2010
+---
 <!-- more -->
 <p>The <em><strong>Developer Dashboard</strong></em> is a new feature of SharePoint 2010 that is designed to give details and reports about the operations going on behind the scenes when a page is loaded. It breaks the statistics into various components and gives detailed information. Using the developer dashboard we can get the time taken for the request to be completed. This is further divided into various method levels in the request cycle, like 'BeginRequestHanlder', 'PostAuthenticateRequestHandler' etc., and shows the time taken by each of these methods. It also shows the execution time taken; Page checked out level etc., it also lists all the Stored Procedures which were executed and the time taken by each procedure.</p>
 <p>Developer dashboard can be in three states - "On", "Off" or "OnDemand". If it is On, then the dashboard is always displayed in a SharePoint page, at the bottom. If its set to "OnDemand", then we get a dashboard icon at the top right corner of the page, and on clicking this we will get the report generated at the bottom of the page. And we can set this off by changing the Dashboard display level to Off. This can be enabled/disabled through Object Model, PowerShell commands or by using STSADM.</p>

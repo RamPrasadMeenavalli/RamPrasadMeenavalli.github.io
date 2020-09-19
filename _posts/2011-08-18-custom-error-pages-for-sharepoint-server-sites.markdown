@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2010", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/custom-error-pages-for-sharepoint-server-sites"]
-  ---
+permalink: /post/custom-error-pages-for-sharepoint-server-sites
+---
 <!-- more -->
 <p>We often create internet/intranet portals using SharePoint Server. In all the projects which I worked, one common requirement is to set <em>custom error pages</em> for the application. We were asked to display some custom error page instead of the default ERROR (HTTP STATUS - 500) page, ACCESS DENIED (HTTP STATUS - 401) page etc.,</p>
 <p>In SharePoint 2007, we used to accomplish this requirement by implementing a HTTP Module, and we used to redirect to the appropriate pages based on the Http Status Code. Implementing this task in SharePoint 2010 is pretty easy now. The <em> SPWebApplication</em> object has a method called <em>UpdateMappedPage</em> which accepts two parameters. First one is an enum constant of type <em>SPWebApplication.SPCustomPage</em> which defines the type of error page to be mapped, and the second parameter is the URL of the custom error page. So, we can update many custom pages by calling this method of the SPWebApplication object. The <em>SPWebApplication.SPCustomPage</em> has the following values</p>

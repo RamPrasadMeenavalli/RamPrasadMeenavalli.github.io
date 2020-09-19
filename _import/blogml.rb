@@ -182,8 +182,8 @@ comments: true
 published: #{published}
 categories: ["blog", "archives"]
 tags: #{tags}
-permalink: #{old_url}
-  ---
+permalink: #{old_url[0]}
+---
               HEADER
               # f.puts
               # )

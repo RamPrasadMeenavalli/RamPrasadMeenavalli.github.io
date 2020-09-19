@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "SharePoint Server", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/sharepoint-js-csom-code-to-add-update-choices-for-a-choice-field"]
-  ---
+permalink: /post/sharepoint-js-csom-code-to-add-update-choices-for-a-choice-field
+---
 <!-- more -->
 <p>Following code snippet shows how to update the 'Status' column within a Tasks list and add new choice values to the field/column using JS CSOM. The Status column within a Tasks list is of type Choice Field.</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">var CONST_TASKS_LIST_TITLE = "Tasks";

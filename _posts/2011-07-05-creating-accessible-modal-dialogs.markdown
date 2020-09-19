@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2010", "SharePoint 2013"]
-permalink: ["/post/creating-accessible-modal-dialogs"]
-  ---
+permalink: /post/creating-accessible-modal-dialogs
+---
 <!-- more -->
 <p>In the previous <a title="Modal Dialogs in SharePoint 2010" href="http://spdeveloper.co.in/articles/pages/using-sharepoint-2010-modal-dialogs.aspx">article</a> we have seen what 'Modal Dialogs' are, and how can we create simple dialogs. Basically we create a modal dialog by calling a JavaScript function in the href attribute of an anchor tag.</p>
 <p>&lt;a href="javascript:OpenPopUpPage();"&gt;Open Dialog&lt;/a&gt;</p>

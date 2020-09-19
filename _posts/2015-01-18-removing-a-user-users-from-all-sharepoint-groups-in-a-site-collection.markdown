@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "SharePoint Server", "SharePoint 2007", "SharePoint 2010", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/removing-a-user-users-from-all-sharepoint-groups-in-a-site-collection"]
-  ---
+permalink: /post/removing-a-user-users-from-all-sharepoint-groups-in-a-site-collection
+---
 <!-- more -->
 <p>For some SharePoint implementation, we might end up creating many SharePoint groups and add users to these groups based on the business needs. Later we might need to remove a user from all these groups or the entire site collection. If we are having many groups spread across various sub sites within the site collection, it will be a tedious task to manually remove the users from all the SharePoint groups. There are many blogs which talk about writing some PowerShell script to traverse through all the SharePoint Groups and remove the user/users. If you are trying to remove the user/users completely from the site collection and all its groups, you can do this is in a simple way through UI. No need to write any code or PowerShell. Follow the below steps.</p>
 <ul class="spd-ul">

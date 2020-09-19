@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "Classic Sites", "SharePoint Server", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/javascript-client-code-to-get-current-user-s-groups-for-sharepoint-site"]
-  ---
+permalink: /post/javascript-client-code-to-get-current-user-s-groups-for-sharepoint-site
+---
 <!-- more -->
 <p>Below is a sample code snippet using JavaScript client object model, which gets the list of SharePoint groups the current user is part of.</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">&lt;script type="text/javascript"&gt;

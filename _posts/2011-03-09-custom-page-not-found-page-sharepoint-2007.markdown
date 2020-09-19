@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2007", "SharePoint 2010"]
-permalink: ["/post/custom-page-not-found-page-sharepoint-2007"]
-  ---
+permalink: /post/custom-page-not-found-page-sharepoint-2007
+---
 <!-- more -->
 <p>If we request for a broken URL or an invalid URL on a SharePoint site, we get the return status as 404 from the server and we get the default 404 page. But, for many sites (on internet/intranet) we need a custom page with a custom UI whenever the return status is 404. Follow the below steps to create a custom 404 page for a SharePoint WebApplication.</p>
 <h2>Create a custom 404 page</h2>

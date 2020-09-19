@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "Classic Sites", "SharePoint Server", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/sharepoint-all-users-rest-api-end-point-angular-js-json-response"]
-  ---
+permalink: /post/sharepoint-all-users-rest-api-end-point-angular-js-json-response
+---
 <!-- more -->
 <h2>Intro</h2>
 <p>SharePoint Server 2013 provides many REST endpoints which can be used to consume data and perform most of the CRUD operations on a Site Collections. Consuming the REST end points through various JavaScript frameworks like Angular JS, Knockout JS etc., is the most widely used approach these days. These frameworks are built on the fundamentals of JSON and it's easy to integrate and develop scripts if we have our data in JSON format. But, the SharePoint Server 2013 REST APIs/end points return the response in ATOM or XML by default.</p>

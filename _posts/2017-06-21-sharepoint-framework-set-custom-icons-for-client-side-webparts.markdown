@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "SharePoint Server", "SharePoint 2016", "SharePoint 2019", "SPFx"]
-permalink: ["/post/sharepoint-framework-set-custom-icons-for-client-side-webparts"]
-  ---
+permalink: /post/sharepoint-framework-set-custom-icons-for-client-side-webparts
+---
 <!-- more -->
 <p>Every Client Side Webpart within a SharePoint Framework App package can have an icon which is shown in the toolbox when we add a webpart to the modern page.</p>
 <p>Following properties can be used to set a custom icon</p>
@@ -17,10 +17,10 @@ permalink: ["/post/sharepoint-framework-set-custom-icons-for-client-side-webpart
 </ul>
 <h2>Client-Side Web Part icon using an image</h2>
 <p>Open the <strong>'[your webpart name].manifest.json'</strong> file from <strong>src/webparts/[your webpart name]</strong>. And replace the <strong>officeFabricIconFontName</strong> with <strong>iconImageUrl</strong>. This expects a path to an image of 38X38 dimension. At this time of writing this article only absolute URLs are accepted for this property. When its not possible to specify an absolute URL, we can encode an image into base 64 format and provide the encoded string to this property.</p>
-<p><img src="/image.axd?picture=/SPFX_Set_Icon_0.png" alt="" /><img src="/image.axd?picture=/SPFX_Set_Icon_1.png" alt="" /></p>
+<p><img src="/assets/images/SPFX_Set_Icon_0.png" alt="" /><img src="/assets/images/SPFX_Set_Icon_1.png" alt="" /></p>
 <h2>Client-Side Web Part icon using a font icon</h2>
 <p>This is used by default when you create a SharePoint Framework webpart solution. This property is set to "Page" and the page icon appears by default to all the custom webparts</p>
-<p><img src="/image.axd?picture=/SPFX_Set_Icon_2.png" alt="" /></p>
+<p><img src="/assets/images/SPFX_Set_Icon_2.png" alt="" /></p>
 <p>Following are the possible values for this property</p>
 <ul class="spd-ul floatedLis" style="display: inline-block;">
 <li>Add</li>

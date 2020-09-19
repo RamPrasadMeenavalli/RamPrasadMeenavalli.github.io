@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2013", "SharePoint 2016"]
-permalink: ["/post/sharepoint2013-export-search-crawl-log-to-excel"]
-  ---
+permalink: /post/sharepoint2013-export-search-crawl-log-to-excel
+---
 <!-- more -->
 <p>Search crawl logs play a crucial role while troubleshooting search issues in SharePoint Server 2013. But its very difficult for a SharePoint Administrator to go through the logs, 50 at a time and navigate between different sets of logs to understand the issue and observe a pattern for the errors or warnings. Its very easy to sort and filter the logs if we have all the details in an excel. The UI of Search Service Application doesn't provide any interface for exporting the logs, but the logs can be retrieved from the Search Service Application using the '<em>Microsoft.Office.Server.Search.Administration.CrawlLog</em>' class. This class has a method called '<em>GetCrawledUrls</em>' which can retrieve the logs. The 2013 documentation says that this method is obsolete, so be cautious if you are planning to use this script for SharePoint Server 2016 or later.</p>
 <h3>PowerShell Script to export Crawl Logs</h3>

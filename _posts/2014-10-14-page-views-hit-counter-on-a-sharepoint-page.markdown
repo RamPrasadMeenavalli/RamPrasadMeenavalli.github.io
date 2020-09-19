@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["SharePoint Server", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/page-views-hit-counter-on-a-sharepoint-page"]
-  ---
+permalink: /post/page-views-hit-counter-on-a-sharepoint-page
+---
 <!-- more -->
 <h2>Description</h2>
 <p>Showing the Page Views within a SharePoint page is a commonly expected feature by many of my clients. It looks good and useful to show the number of times a news/event page is viewed in one&rsquo;s corporate intranet. In SharePoint 2010, this was achieved by reading the Request Usage tables from the WSS Logging database and the consolidated count for each page/item is processed and stored within an application (mostly a custom SQL table). But the analytics in SharePoint 2013 makes this easy as they store the consolidated view count within the Search Service Application. This article describes how to show the 'Views Count' for a page using JavaScript client object model.</p>

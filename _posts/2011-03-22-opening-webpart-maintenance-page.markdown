@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "SharePoint Server", "SharePoint 2007", "SharePoint 2010", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/opening-webpart-maintenance-page"]
-  ---
+permalink: /post/opening-webpart-maintenance-page
+---
 <!-- more -->
 <h2>What is WebPart Maintenance Page?</h2>
 <p style="text-align: justify;">WebPart Maintenance page is an OOB page, which is used to manage the webparts in a webpart page. A webpart which is causing a problem in a webpart page can be removed using this page. Basically, a WebPart Maintenance page provides the list of all webparts added in a particular page and options to close or remove these webparts.</p>

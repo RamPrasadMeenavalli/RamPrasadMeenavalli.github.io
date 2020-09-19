@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "SharePoint Server", "SharePoint 2013", "SharePoint 2016", "SharePoint 2019"]
-permalink: ["/post/sharepoint-JSOM-create-list-custom-list-definition", "/post/sharepoint-jsom-create-list-custom-list-definition"]
-  ---
+permalink: /post/sharepoint-JSOM-create-list-custom-list-definition
+---
 <!-- more -->
 <h3 id="default">Using Default/OOB List Definitions</h3>
 <p>Below is the code to create a list instance on a SharePoint site using one of the existing (OOB) list definitions.</p>

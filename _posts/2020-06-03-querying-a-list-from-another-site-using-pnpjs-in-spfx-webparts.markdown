@@ -6,8 +6,8 @@ comments: true
 published: true
 categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "PnPjs", "SPFx"]
-permalink: ["/post/querying-a-list-from-another-site-using-pnpjs-in-spfx-webparts"]
-  ---
+permalink: /post/querying-a-list-from-another-site-using-pnpjs-in-spfx-webparts
+---
 <!-- more -->
 <p>While most of the SPFx webparts or extensions interact with the current site for querying a list or creating list items etc., there could be scenarios where a custom SPFx webpart or an application customizer might have to query a list from another site collection or a sub web of the current site collection.</p>
 <p>One common scenario could be a Announcements webpart, which queries the list from a root site collection (or any other site) to show the announcements across multiple sites.</p>
