@@ -5,7 +5,7 @@ baseurl: ''
 url: ''
 twitter_username: ram_meenavalli
 github_username: RamPrasadMeenavalli
-theme: minima
+theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
   - jekyll-sitemap
