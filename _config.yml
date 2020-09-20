@@ -10,3 +10,12 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+profile-photo: '/assets/images/ram.png'
+profile-name: Ram Prasad
+profile-url: https://meenavalli.in
+profile-tagline: Developer | Office 365 | SharePoint | Blogger | Speaker
+profile-fb: https://www.facebook.com/ramprasad.meenavalli
+profile-twitter: https://twitter.com/ram_meenavalli
+profile-linkedin: https://www.linkedin.com/in/ramprasadmeenavalli/
+profile-youtube: https://www.youtube.com/channel/UCBp4idRQxYfnJTPugX40dwg
+profile-git: https://github.com/RamPrasadMeenavalli

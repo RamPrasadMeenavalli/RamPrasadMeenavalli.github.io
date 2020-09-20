@@ -377,7 +377,7 @@ html {
   @extend %post-header;
 
   .post-header {
-    margin: 50px auto 60px;
+    margin: 0px auto 60px;
     padding: 0 0 20px;
     border-bottom: 1px solid #ebebeb;
 
@@ -387,6 +387,14 @@ html {
 
     .post-meta {
       color: #808080;
+      #social-icons{
+        float:right;
+        #twitter-button{
+          display:inline-block;
+          position: relative;
+          top:6px;
+        }
+      }
     }
   }
 
@@ -668,6 +676,7 @@ html {
   .sidebar {
     padding-left: 8px;
     transition: top 0.2s, display 0.2s;
+    max-width: 17rem;
 
     @include flex-sticky($header-height + 20px);
 
@@ -678,6 +687,65 @@ html {
   }
 }
 
+
+/**
+ * Author bio
+*/
+header.author-bio {
+  .blog-info {
+    background:$brand-color-light;
+    .blog-logo {
+      text-align: center;
+      color: $white-color !important;
+      display: block;
+      font-size: 1.75rem;
+      padding: 1.5rem 0 1rem;
+      outline: none !important;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+
+      img {
+        font-size: 0;
+        margin-bottom: 1rem;
+        width: 8rem;
+        display: block;
+        margin: 0 auto 1rem;
+        border-radius: 100%;
+      }
+
+    }
+    .blog-author {
+      padding: 0 1rem;
+      color: $white-color;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .social-network {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      padding-bottom: 1rem;
+
+      li{
+        padding: 0 .15rem !important;
+        a {
+          display: block;
+          height: 2.5rem;
+          width: 2.5rem;
+          border-radius: 50%;
+          line-height: 2.5rem;
+          background: $brand-color;
+          color: $white-color;
+
+          &:hover{
+            background: $white-color;
+            color: $brand-color;
+          }
+        }
+      }
+    }
+  }
+}
 
 /**
  * Segments page
