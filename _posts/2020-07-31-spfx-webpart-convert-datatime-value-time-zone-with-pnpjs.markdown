@@ -8,7 +8,8 @@ categories: ["blog", "archives"]
 tags: ["Office 365", "SharePoint Online", "PnPjs", "SPFx"]
 permalink: /post/spfx-webpart-convert-datatime-value-time-zone-with-pnpjs
 ---
-<!-- more -->
+<!-- more -->
+
 <p>When we fetch the values of any DateTime fields within a SharePoint list or library, the values are returned in UTC format, as they are stored in UTC format internally. When this values is shown with a SharePoint view or any default page, the UTC format is then converted to the correct Time Zone based on the User's &amp; Site's Regional Settings. But within an SPFx webpart it just displays the UTC time.</p>
 <p><img src="/assets/images/spfx-webpart-date-format.png" alt="" /></p>
 <p>Within an SPFx webpart, after querying the list, if we want to find the correct time zone to display the DateTime value, we will have to make at least 2 REST calls to find the User's regional settings and the Site's regional settings and then convert the UTC value to the correct time zone.</p>
