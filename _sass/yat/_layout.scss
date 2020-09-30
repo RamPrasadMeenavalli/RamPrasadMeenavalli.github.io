@@ -13,6 +13,7 @@ html {
       height: 0;
       margin-top: 20px;
       background-color: transparent;
+      border-color: transparent;
       transition: 0.1s height,background-color,box-shadow;
 
       &.site-header {
@@ -66,7 +67,7 @@ html {
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, .06);
   border-bottom: 7px solid $brand-color-light;
   // Positioning context for the mobile navigation icon
-  @include flex-sticky(0);
+  // @include flex-sticky(0);
   z-index: 1000;
 
   & > .wrapper {
@@ -188,10 +189,10 @@ html {
  * Site footer
  */
 .site-footer {
-  @include relative-font-size(1.0);
+  @include relative-font-size(0.75);
   color: $white-color;
   background-color: $brand-color-light;
-  text-align: left;
+  text-align: center;
   transition: background-color 0.2s;
 
   .site-footer-inner {
@@ -218,19 +219,21 @@ html {
   }
 
   .post-title {
-    @include relative-font-size(2.625);
+    @include relative-font-size(2.15);
     letter-spacing: -1px;
     line-height: 1;
 
     @include media-query($on-laptop) {
-      @include relative-font-size(2.25);
+      @include relative-font-size(1.95);
     }
   }
 
   .post-tags {
     display: inline-block;
     padding-right: 150px;
-
+    @include media-query($on-laptop){
+      padding-right: 0px;
+    }
     .post-tag {
       margin: 0 12px 0 0;
     }
@@ -245,6 +248,12 @@ html {
   -ms-flex: none; /* <-- Fix IE footer issue */
   padding: $spacing-unit 0;
   background: $grey-color-light;
+  @include media-query($on-laptop){
+    padding:0px;
+    .wrapper{
+      padding:0px;
+    }
+  }
 }
 
 .page-heading {
@@ -404,7 +413,6 @@ html {
     margin-bottom: $spacing-unit;
     overflow-wrap: break-word;
     word-wrap: break-word;
-    word-break: break-all;
 
     h2 {
       @include relative-font-size(2);
@@ -448,6 +456,12 @@ html {
       height: 1px;
       background-color: #ebebeb;
       border: none;
+    }
+
+    a{
+      text-decoration: none;
+      border-bottom: 3px solid $brand-color-light;
+      box-shadow: inset 0 -2px 0 $brand-color-light;
     }
   }
 
@@ -568,7 +582,7 @@ html {
   display: block;
   position: relative;
   height: $banner-height;
-  background-color: $banner-background;
+  background-color: $brand-color;
   transition: height 0.2s;
   margin-bottom: 32px;
 
@@ -669,11 +683,14 @@ html {
  * Layout and sidebar
  */
 .framework {
-    @extend %flex;
+  @extend %flex;
+  @include media-query($on-laptop) {
+    flex-direction: column;
+  }
 
   .main {
     @extend %flex-1;
-    background: $white-color;
+    background: $background-color;
     padding: $spacing-unit;
   }
 
@@ -682,12 +699,20 @@ html {
     transition: top 0.2s, display 0.2s;
     max-width: 18rem;
 
-    @include flex-sticky($header-height + 20px);
+    // @include flex-sticky($header-height + 20px);
 
     @include media-query($on-laptop) {
-      display: none;
+      max-width: unset;
+      width: 100%;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+      padding-top: $spacing-unit !important;
+      padding-bottom: $spacing-unit !important;
+      margin-left: 0px !important;
     }
-
+    .sidebar-box{
+      @include sidebar-box;
+    }
   }
 }
 

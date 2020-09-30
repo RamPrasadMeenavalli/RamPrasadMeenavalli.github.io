@@ -1,11 +1,10 @@
 title: Ram Prasad Meenavalli
 email: ram@meenavalli.in
 author: Ram Prasad
-copyright: Copyright © 2011-2020
+copyright: 'Copyright © 2011-2020'
 description: ''
 baseurl: ''
 favicon: '/assets/images/Ram.png'
-
 url: 'https://blog.meenavalli.in'
 twitter_username: ram_meenavalli
 github_username: RamPrasadMeenavalli
@@ -25,15 +24,14 @@ profile-fb: https://www.facebook.com/ramprasad.meenavalli
 profile-twitter: https://twitter.com/ram_meenavalli
 profile-linkedin: https://www.linkedin.com/in/ramprasadmeenavalli/
 profile-youtube: https://www.youtube.com/channel/UCBp4idRQxYfnJTPugX40dwg
-profile-git: https://github.com/RamPrasadMeenavalli
 
 google_analytics: UA-55279237-1
 
 # If you don't want transparent header, you can set false
-header_transparent: true
+header_transparent: false
 
 # Pagination setting
-paginate: 10
+paginate: 4
 
 fbappid: 1406604756269400
 
