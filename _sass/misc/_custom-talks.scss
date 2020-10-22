@@ -1,0 +1,56 @@
+.talks{
+    .container {
+        border-bottom: 2px solid $brand-color;
+        margin-bottom: 10px;
+        h3{
+            color: $brand-color;
+            text-transform: uppercase;
+        }
+
+        .card {
+            padding: 20px;
+            margin: 10px 0px;
+            background: $grey-color-light;
+            display: flex;
+
+            .info {
+                width:70%;
+                .event {
+                    font-size: .75rem;
+                    font-weight: bold;
+                    color: $brand-color-light;
+                }
+                .title{
+                    font-weight: bold;
+                }
+                .description {
+                    font-size: 14px;
+                }
+                .details {
+                    display: flex;
+                    flex: auto;
+                    margin-top: 10px;
+                    font-weight: bold;
+                    font-size: 14px;
+                    div { 
+                        flex:auto;
+
+                        .button{
+                            a{
+                                color: $white-color;
+                                background: $brand-color;
+                                padding: 5px 10px;
+                                text-transform: uppercase;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+            }
+            .flyer {
+                width: 30%;
+                align-self: center;
+            }
+        }
+    }
+}

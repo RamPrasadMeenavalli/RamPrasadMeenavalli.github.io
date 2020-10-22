@@ -3,29 +3,75 @@ layout: framework
 title: "Public Talks"
 sidebar:
     - author-bio
-hideAds: true
+hideAds: false
 ---
 {% assign today_date = 'now' | date: '%s' %}
 
-<div>
-    Upcoming
-</div>
-{%- for session in site.data.sessions -%}
-{% assign session_date = session.when | date: '%s' %}
-<div> 
-    {%- if session_date > today_date -%}
-    {{session.title}}
-    {%- endif -%}
-</div>
-{%- endfor -%}
+<div class="talks">
+<div class="container">
+    <h3>Upcoming</h3>
 
-<div>Past</div>
-{%- for session in site.data.sessions -%}
-{% assign session_date = session.when | date: '%s' %}
-<div> 
-    {%- if session_date > today_date -%}
-    {%- else -%}
-    {{session.title}}
-    {%- endif -%}
+    {%- for session in site.data.sessions -%}
+    {% assign session_date = session.when | date: '%s' %}
+        {%- if session_date > today_date -%}
+        <div class="card" id="{{session.event | downcase | replace:' ','-'}}">
+            <div class="info">
+                <div class="event">{{session.event}}</div>
+                <div class="title">{{session.title}}</div>
+                <div class="description">{{session.description}}</div>
+                <div class="details">
+                    <div>
+                        <i class="fa fa-map-marker"></i> {{session.where}}
+                    </div>                    
+                    <div>
+                        <i class="fa fa-calendar"></i> {{session.when | date: "%a, %b %d, %y"}}
+                    </div>
+                    <div>
+                        <span class="button">
+                            <a target="_blank" href="{{session.register}}">Register</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="flyer">
+                <img src="{{session.flyer}}" />
+            </div>
+        </div>
+        {%- endif -%}
+    {%- endfor -%}
 </div>
-{%- endfor -%}
+
+
+<div class="container">
+    <h3>Past</h3>
+    {%- for session in site.data.sessions -%}
+    {% assign session_date = session.when | date: '%s' %}
+        {%- if session_date > today_date -%}
+        {%- else -%}
+        <div class="card" id="{{session.event | downcase | replace:' ','-'}}">
+            <div class="info">
+                <div class="event">{{session.event}}</div>
+                <div class="title">{{session.title}}</div>
+                <div class="description">{{session.description}}</div>
+                <div class="details">
+                    <div>
+                        <i class="fa fa-map-marker"></i> {{session.where}}
+                    </div>                    
+                    <div>
+                        <i class="fa fa-calendar"></i> {{session.when | date: "%a, %b %d, %y"}}
+                    </div>
+                    <div>
+                        <span class="button">
+                            <a target="_blank" href="{{session.slides}}">Slides</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="flyer">
+                <img src="{{session.flyer}}" />
+            </div>
+        </div>
+        {%- endif -%}
+    {%- endfor -%}    
+</div>
+</div>

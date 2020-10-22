@@ -1,24 +1,53 @@
-- title: "Session One"
-  when: 2020-10-17
-  where: "Virutal/Online"
-  event: "M365 Saturday Ottawa"
-  description: "This is some descriptipn"
-  banner: "/assets/images/talks/sample.jpg"
-- title: "Session Two"
-  when: 2020-10-05
-  where: "Virutal/Online"
-  event: "M365 Saturday Ottawa"
-  description: "This is some descriptipn"
-  banner: "/assets/images/talks/sample.jpg"
-- title: "Session Three"
-  when: 2019-10-17
-  where: "Virutal/Online"
-  event: "M365 Saturday Ottawa"
-  description: "This is some descriptipn"
-  banner: "/assets/images/talks/sample.jpg"
-- title: "Session Four"
-  when: 2019-10-17
-  where: "Virutal/Online"
-  event: "M365 Saturday Ottawa"
-  description: "This is some descriptipn"
-  banner: "/assets/images/talks/sample.jpg"
+- title: "Provisioning Modern Sites using Site Scripts & Site Designs"
+  when: 2020-10-03
+  where: "Virtual/Online"
+  event: "M365 Saturday Saskatchewan 2020"
+  description: "Know how to use Site Scripts & Site Designs to create a custom site template for Modern sites in SharePoint online. With rich demos on how to automate branding/configuration by customizing the OOTB site provisioning experience. "
+  flyer: "https://southindia1-mediap.svc.ms/transform/thumbnail?provider=spo&inputFormat=png&cs=fFNQTw&docid=https%3A%2F%2Fspmodrn.sharepoint.com%3A443%2F_api%2Fv2.0%2Fdrives%2Fb!OhZiZ_tbE0WOPFfnH1suTKd7ZrtflH9JjCkcwidD7RKA38d70u2nS4V5DwV3PDsr%2Fitems%2F01IQ6QMGBEU6ZTZU55DFA2B3ZPRKIMI5A7%3Fversion%3DPublished&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvc3Btb2Rybi5zaGFyZXBvaW50LmNvbUAxYzYzOWFjNi0wNmJmLTQ4MTctOTZlMC00NzJhZDljNzg0MzciLCJpc3MiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAiLCJuYmYiOiIxNjAzMzg5NjAwIiwiZXhwIjoiMTYwMzQxMTIwMCIsImVuZHBvaW50dXJsIjoicUJZaG5vRkJFSlhvN2oxTCsrdDFVSlJNV2dBNUxGc1VOV0lBNm9YUVluUT0iLCJlbmRwb2ludHVybExlbmd0aCI6IjExNCIsImlzbG9vcGJhY2siOiJUcnVlIiwidmVyIjoiaGFzaGVkcHJvb2Z0b2tlbiIsInNpdGVpZCI6Ik5qYzJNakUyTTJFdE5XSm1ZaTAwTlRFekxUaGxNMk10TlRkbE56Rm1OV0l5WlRSaiIsIm5hbWVpZCI6IjAjLmZ8bWVtYmVyc2hpcHx1cm4lM2FzcG8lM2Fhbm9uIzAwYTQ0ZDhkY2NlZTgzOGFkODZiZTI1ZWVkMWMzZTc3YTQxZjIxZWI4M2UyMzg5OWE2ZmJjYzc2ZmQ0ZmJmZTEiLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHx1cm4lM2FzcG8lM2Fhbm9uIzAwYTQ0ZDhkY2NlZTgzOGFkODZiZTI1ZWVkMWMzZTc3YTQxZjIxZWI4M2UyMzg5OWE2ZmJjYzc2ZmQ0ZmJmZTEiLCJzaGFyaW5naWQiOiI1UnZOWHp2M3preWJYTGpTSCtQWW9nIiwidHQiOiIwIiwidXNlUGVyc2lzdGVudENvb2tpZSI6IjIifQ.WGFDL2pXY2dIVHNSMzBZclphN255NFRacVFKeWdGQ0loSFJ6eDBJaURBZz0&encodeFailures=1&srcWidth=&srcHeight=&width=954&height=508&action=Access"
+  slides: "https://spmodrn.sharepoint.com/:p:/s/talks/EVAi_BStlDNBoJFiegaY9sgBMd3y61TZA_VuooxrZIMmIg?e=jBCSO3"
+  register: ""  
+
+- title: "Provisioning Modern Sites using Site Scripts & Site Designs"
+  when: 2020-10-03
+  where: "Virtual/Online"
+  event: "M365 Saturday Saskatchewan 2020"
+  description: "Know how to use Site Scripts & Site Designs to create a custom site template for Modern sites in SharePoint online. With rich demos on how to automate branding/configuration by customizing the OOTB site provisioning experience."
+  flyer: "https://southindia1-mediap.svc.ms/transform/thumbnail?provider=spo&inputFormat=png&cs=fFNQTw&docid=https%3A%2F%2Fspmodrn.sharepoint.com%3A443%2F_api%2Fv2.0%2Fdrives%2Fb!OhZiZ_tbE0WOPFfnH1suTKd7ZrtflH9JjCkcwidD7RKA38d70u2nS4V5DwV3PDsr%2Fitems%2F01IQ6QMGAKB65Q7QBW55CYDDZJKM32SRPV%3Fversion%3DPublished&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvc3Btb2Rybi5zaGFyZXBvaW50LmNvbUAxYzYzOWFjNi0wNmJmLTQ4MTctOTZlMC00NzJhZDljNzg0MzciLCJpc3MiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAiLCJuYmYiOiIxNjAzMzc4ODAwIiwiZXhwIjoiMTYwMzQwMDQwMCIsImVuZHBvaW50dXJsIjoicUJZaG5vRkJFSlhvN2oxTCsrdDFVSlJNV2dBNUxGc1VOV0lBNm9YUVluUT0iLCJlbmRwb2ludHVybExlbmd0aCI6IjExNCIsImlzbG9vcGJhY2siOiJUcnVlIiwidmVyIjoiaGFzaGVkcHJvb2Z0b2tlbiIsInNpdGVpZCI6Ik5qYzJNakUyTTJFdE5XSm1ZaTAwTlRFekxUaGxNMk10TlRkbE56Rm1OV0l5WlRSaiIsIm5hbWVpZCI6IjAjLmZ8bWVtYmVyc2hpcHx1cm4lM2FzcG8lM2Fhbm9uIzAwYTQ0ZDhkY2NlZTgzOGFkODZiZTI1ZWVkMWMzZTc3YTQxZjIxZWI4M2UyMzg5OWE2ZmJjYzc2ZmQ0ZmJmZTEiLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHx1cm4lM2FzcG8lM2Fhbm9uIzAwYTQ0ZDhkY2NlZTgzOGFkODZiZTI1ZWVkMWMzZTc3YTQxZjIxZWI4M2UyMzg5OWE2ZmJjYzc2ZmQ0ZmJmZTEiLCJzaGFyaW5naWQiOiI1UnZOWHp2M3preWJYTGpTSCtQWW9nIiwidHQiOiIwIiwidXNlUGVyc2lzdGVudENvb2tpZSI6IjIifQ.VThMSWNjc2ErcEZNYk1hKzhQaStxN0d6eVJTRnIyeiszcnJkSXRUZk96az0&encodeFailures=1&srcWidth=&srcHeight=&width=300&height=157&action=Access"
+  slides: ""
+  register: ""
+
+- title: "Using Computer Vision to create Image Search Center in SharePoint"
+  when: 2020-06-20
+  where: "Online"
+  event: "Global AI On Tour 2020, Pune"
+  description: "Learn how we can leverage Azure Computer Vision, Power Automate & the Modern PnP Search webparts to create an engaging Search Center on SharePoint Online"
+  flyer: "https://southindia1-mediap.svc.ms/transform/thumbnail?provider=spo&inputFormat=jfif&cs=fFNQTw&docid=https%3A%2F%2Fspmodrn.sharepoint.com%3A443%2F_api%2Fv2.0%2Fdrives%2Fb!OhZiZ_tbE0WOPFfnH1suTKd7ZrtflH9JjCkcwidD7RKA38d70u2nS4V5DwV3PDsr%2Fitems%2F01IQ6QMGA5TCNX64EODFE3KIDGQ4WBFVZC%3Fversion%3DPublished&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvc3Btb2Rybi5zaGFyZXBvaW50LmNvbUAxYzYzOWFjNi0wNmJmLTQ4MTctOTZlMC00NzJhZDljNzg0MzciLCJpc3MiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAiLCJuYmYiOiIxNjAzMzc4ODAwIiwiZXhwIjoiMTYwMzQwMDQwMCIsImVuZHBvaW50dXJsIjoicUJZaG5vRkJFSlhvN2oxTCsrdDFVSlJNV2dBNUxGc1VOV0lBNm9YUVluUT0iLCJlbmRwb2ludHVybExlbmd0aCI6IjExNCIsImlzbG9vcGJhY2siOiJUcnVlIiwidmVyIjoiaGFzaGVkcHJvb2Z0b2tlbiIsInNpdGVpZCI6Ik5qYzJNakUyTTJFdE5XSm1ZaTAwTlRFekxUaGxNMk10TlRkbE56Rm1OV0l5WlRSaiIsIm5hbWVpZCI6IjAjLmZ8bWVtYmVyc2hpcHx1cm4lM2FzcG8lM2Fhbm9uIzAwYTQ0ZDhkY2NlZTgzOGFkODZiZTI1ZWVkMWMzZTc3YTQxZjIxZWI4M2UyMzg5OWE2ZmJjYzc2ZmQ0ZmJmZTEiLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHx1cm4lM2FzcG8lM2Fhbm9uIzAwYTQ0ZDhkY2NlZTgzOGFkODZiZTI1ZWVkMWMzZTc3YTQxZjIxZWI4M2UyMzg5OWE2ZmJjYzc2ZmQ0ZmJmZTEiLCJzaGFyaW5naWQiOiI1UnZOWHp2M3preWJYTGpTSCtQWW9nIiwidHQiOiIwIiwidXNlUGVyc2lzdGVudENvb2tpZSI6IjIifQ.VThMSWNjc2ErcEZNYk1hKzhQaStxN0d6eVJTRnIyeiszcnJkSXRUZk96az0&encodeFailures=1&srcWidth=&srcHeight=&width=1920&height=850&action=Access"
+  slides: "https://spmodrn.sharepoint.com/:p:/s/talks/EalAKLSrG-ZNvRk4bHkjXZ0Bjohl5ok6trg01qa5ylrw8g?e=SW3qpv"
+  register: ""  
+
+- title: "An introduction to Site Scripts & Site Designs"
+  when: 2019-11-30
+  where: "Microsoft Office, Bangalore"
+  event: "SPS Bangalore 2019"
+  description: "Learn about Site Scripts & Site Designs and know about the recent improvements and newly supported script actions."
+  flyer: "https://southindia1-mediap.svc.ms/transform/thumbnail?provider=spo&inputFormat=png&cs=fFNQTw&docid=https%3A%2F%2Fspmodrn.sharepoint.com%3A443%2F_api%2Fv2.0%2Fdrives%2Fb!OhZiZ_tbE0WOPFfnH1suTKd7ZrtflH9JjCkcwidD7RKA38d70u2nS4V5DwV3PDsr%2Fitems%2F01IQ6QMGBMYUEKCGMZPJA3NZD7FW7RMQPK%3Fversion%3DPublished&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvc3Btb2Rybi5zaGFyZXBvaW50LmNvbUAxYzYzOWFjNi0wNmJmLTQ4MTctOTZlMC00NzJhZDljNzg0MzciLCJpc3MiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAiLCJuYmYiOiIxNjAzMzc4ODAwIiwiZXhwIjoiMTYwMzQwMDQwMCIsImVuZHBvaW50dXJsIjoicUJZaG5vRkJFSlhvN2oxTCsrdDFVSlJNV2dBNUxGc1VOV0lBNm9YUVluUT0iLCJlbmRwb2ludHVybExlbmd0aCI6IjExNCIsImlzbG9vcGJhY2siOiJUcnVlIiwidmVyIjoiaGFzaGVkcHJvb2Z0b2tlbiIsInNpdGVpZCI6Ik5qYzJNakUyTTJFdE5XSm1ZaTAwTlRFekxUaGxNMk10TlRkbE56Rm1OV0l5WlRSaiIsIm5hbWVpZCI6IjAjLmZ8bWVtYmVyc2hpcHx1cm4lM2FzcG8lM2Fhbm9uIzAwYTQ0ZDhkY2NlZTgzOGFkODZiZTI1ZWVkMWMzZTc3YTQxZjIxZWI4M2UyMzg5OWE2ZmJjYzc2ZmQ0ZmJmZTEiLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHx1cm4lM2FzcG8lM2Fhbm9uIzAwYTQ0ZDhkY2NlZTgzOGFkODZiZTI1ZWVkMWMzZTc3YTQxZjIxZWI4M2UyMzg5OWE2ZmJjYzc2ZmQ0ZmJmZTEiLCJzaGFyaW5naWQiOiI1UnZOWHp2M3preWJYTGpTSCtQWW9nIiwidHQiOiIwIiwidXNlUGVyc2lzdGVudENvb2tpZSI6IjIifQ.VThMSWNjc2ErcEZNYk1hKzhQaStxN0d6eVJTRnIyeiszcnJkSXRUZk96az0&encodeFailures=1&srcWidth=&srcHeight=&width=1511&height=850&action=Access"
+  slides: "https://spmodrn.sharepoint.com/:p:/s/talks/EbQGoBP9bEZFofrZZEDnBQYB79Sav_AXBO5qxIbZT_ekXg?e=4Dfodm"
+  register: ""  
+
+- title: "Building an Image Search Center in SharePoint"
+  when: 2019-11-23
+  where: "Microsoft Building, Gachibowli, Hyderabad"
+  event: "Global M365 Bootcamp Hyderabad 2019"
+  description: "Bringing Artifical Intelligence to SharePoint using Azure Cognitive Services & Power Automate"
+  flyer: "https://southindia1-mediap.svc.ms/transform/thumbnail?provider=spo&inputFormat=jfif&cs=fFNQTw&docid=https%3A%2F%2Fspmodrn.sharepoint.com%3A443%2F_api%2Fv2.0%2Fdrives%2Fb!OhZiZ_tbE0WOPFfnH1suTKd7ZrtflH9JjCkcwidD7RKA38d70u2nS4V5DwV3PDsr%2Fitems%2F01IQ6QMGAXRKYB2M2RTRB3HINULNH4XGXY%3Fversion%3DPublished&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvc3Btb2Rybi5zaGFyZXBvaW50LmNvbUAxYzYzOWFjNi0wNmJmLTQ4MTctOTZlMC00NzJhZDljNzg0MzciLCJpc3MiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAiLCJuYmYiOiIxNjAzMzc4ODAwIiwiZXhwIjoiMTYwMzQwMDQwMCIsImVuZHBvaW50dXJsIjoicUJZaG5vRkJFSlhvN2oxTCsrdDFVSlJNV2dBNUxGc1VOV0lBNm9YUVluUT0iLCJlbmRwb2ludHVybExlbmd0aCI6IjExNCIsImlzbG9vcGJhY2siOiJUcnVlIiwidmVyIjoiaGFzaGVkcHJvb2Z0b2tlbiIsInNpdGVpZCI6Ik5qYzJNakUyTTJFdE5XSm1ZaTAwTlRFekxUaGxNMk10TlRkbE56Rm1OV0l5WlRSaiIsIm5hbWVpZCI6IjAjLmZ8bWVtYmVyc2hpcHx1cm4lM2FzcG8lM2Fhbm9uIzAwYTQ0ZDhkY2NlZTgzOGFkODZiZTI1ZWVkMWMzZTc3YTQxZjIxZWI4M2UyMzg5OWE2ZmJjYzc2ZmQ0ZmJmZTEiLCJuaWkiOiJtaWNyb3NvZnQuc2hhcmVwb2ludCIsImlzdXNlciI6InRydWUiLCJjYWNoZWtleSI6IjBoLmZ8bWVtYmVyc2hpcHx1cm4lM2FzcG8lM2Fhbm9uIzAwYTQ0ZDhkY2NlZTgzOGFkODZiZTI1ZWVkMWMzZTc3YTQxZjIxZWI4M2UyMzg5OWE2ZmJjYzc2ZmQ0ZmJmZTEiLCJzaGFyaW5naWQiOiI1UnZOWHp2M3preWJYTGpTSCtQWW9nIiwidHQiOiIwIiwidXNlUGVyc2lzdGVudENvb2tpZSI6IjIifQ.VThMSWNjc2ErcEZNYk1hKzhQaStxN0d6eVJTRnIyeiszcnJkSXRUZk96az0&encodeFailures=1&srcWidth=&srcHeight=&width=1920&height=850&action=Access"
+  slides: "https://spmodrn.sharepoint.com/:p:/s/talks/EWQK_z5asJNHluSGh8-hLDsB36vB7c4qbWb0vCiknkGwvA?e=HwZiNK"
+  register: ""  
+
+- title: "Provisioning Modern Sites using Site Scripts & Site Designs"
+  when: 2019-03-09
+  where: "Microsoft Building 1, Gachibowli, Hyderabad"
+  event: "SPS Hyderabad 2019"
+  description: "An introduction on Site Scripts & Site Designs, with demos on creating a custom site design using SharePoint Online Management Shell"
+  flyer: "https://southindia1-mediap.svc.ms/transform/thumbnail?provider=spo&inputFormat=png&cs=fFNQTw&docid=https%3A%2F%2Fspmodrn.sharepoint.com%3A443%2F_api%2Fv2.0%2Fdrives%2Fb!OhZiZ_tbE0WOPFfnH1suTKd7ZrtflH9JjCkcwidD7RKA38d70u2nS4V5DwV3PDsr%2Fitems%2F01IQ6QMGAHP5LEBDBH5BB2BIXSBG7H4FGV%3Fversion%3DPublished&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvc3Btb2Rybi5zaGFyZXBvaW50LmNvbUAxYzYzOWFjNi0wNmJmLTQ4MTctOTZlMC00NzJhZDljNzg0MzciLCJpc3MiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAiLCJuYmYiOiIxNjAzMzc4ODAwIiwiZXhwIjoiMTYwMzQwMDQwMCIsImVuZHBvaW50dXJsIjoicUJZaG5vRkJFSlhvN2oxTCsrdDFVSlJNV2dBNUxGc1VOV0lBNm9YUVluUT0iLCJlbmRwb2ludHVybExlbmd0aCI6IjExNCIsImlzbG9vcGJhY2siOiJUcnVlIiwidmVyIjoiaGFzaGVkcHJvb2Z0b2tlbiIsInNpdGVpZCI6Ik5qYzJNakUyTTJFdE5XSm1ZaTAwTlRFekxUaGxNMk10TlRkbE56Rm1OV0l5WlRSaiIsIm5hbWVpZCI6IjAjLmZ8bWVtYmVyc2hpcHxyQHNwbW9kcm4ub25taWNyb3NvZnQuY29tIiwibmlpIjoibWljcm9zb2Z0LnNoYXJlcG9pbnQiLCJpc3VzZXIiOiJ0cnVlIiwiY2FjaGVrZXkiOiIwaC5mfG1lbWJlcnNoaXB8MTAwMzIwMDBmMDI1OWI5Y0BsaXZlLmNvbSIsInR0IjoiMCIsInVzZVBlcnNpc3RlbnRDb29raWUiOiIyIn0.VndRZG9VU0JUYlpSWitYS2dtdGkyMWpRc1hOSitmcmZKTWpJNVFvNm80Zz0&encodeFailures=1&srcWidth=&srcHeight=&width=792&height=855&action=Access"
+  slides: "https://spmodrn.sharepoint.com/:p:/s/talks/EXrcaGP9685MjmLdtqMY20cBpCntGEF-DSYchOCg-GYSlw?rtime=12kE_a922Eg"
+  register: ""
