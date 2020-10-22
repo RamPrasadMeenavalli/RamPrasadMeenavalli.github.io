@@ -1,0 +1,24 @@
+- title: "Session One"
+  when: 2020-10-17
+  where: "Virutal/Online"
+  event: "M365 Saturday Ottawa"
+  description: "This is some descriptipn"
+  banner: "/assets/images/talks/sample.jpg"
+- title: "Session Two"
+  when: 2020-10-05
+  where: "Virutal/Online"
+  event: "M365 Saturday Ottawa"
+  description: "This is some descriptipn"
+  banner: "/assets/images/talks/sample.jpg"
+- title: "Session Three"
+  when: 2019-10-17
+  where: "Virutal/Online"
+  event: "M365 Saturday Ottawa"
+  description: "This is some descriptipn"
+  banner: "/assets/images/talks/sample.jpg"
+- title: "Session Four"
+  when: 2019-10-17
+  where: "Virutal/Online"
+  event: "M365 Saturday Ottawa"
+  description: "This is some descriptipn"
+  banner: "/assets/images/talks/sample.jpg"

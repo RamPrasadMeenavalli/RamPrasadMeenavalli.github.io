@@ -1,0 +1,31 @@
+---
+layout: framework
+title: "Public Talks"
+sidebar:
+    - author-bio
+hideAds: true
+---
+{% assign today_date = 'now' | date: '%s' %}
+
+<div>
+    Upcoming
+</div>
+{%- for session in site.data.sessions -%}
+{% assign session_date = session.when | date: '%s' %}
+<div> 
+    {%- if session_date > today_date -%}
+    {{session.title}}
+    {%- endif -%}
+</div>
+{%- endfor -%}
+
+<div>Past</div>
+{%- for session in site.data.sessions -%}
+{% assign session_date = session.when | date: '%s' %}
+<div> 
+    {%- if session_date > today_date -%}
+    {%- else -%}
+    {{session.title}}
+    {%- endif -%}
+</div>
+{%- endfor -%}

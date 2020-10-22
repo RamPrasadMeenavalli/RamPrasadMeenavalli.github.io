@@ -17,7 +17,9 @@
     </div>
 </header>
 
+{%- if page.hideAds != true && post.hideAds != true -%}
 <!--Add a square ad-->
 <div class="sidebar-box">
     {%- include adsense/square.html -%}
 </div>
+{%- endif -%}
