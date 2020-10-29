@@ -17,7 +17,7 @@ For example, a world time webpart can allow each user to choose their own choice
 ![img](/assets/images/spfx-webpart-personalization.png)
 
 > Watch this video for detailed steps on how we can extend the world time webpart to support personalization.
-![](//youtu.be/0UvweCXRFgQ)
+![](https://www.youtube.com/watch?v=0UvweCXRFgQ)
 
 #### How to support User Scoped properties in SPFx webparts
 
