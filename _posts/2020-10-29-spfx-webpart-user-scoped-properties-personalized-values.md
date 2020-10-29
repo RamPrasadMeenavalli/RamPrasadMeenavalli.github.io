@@ -4,7 +4,7 @@ title: "Creating a user scoped property for SPFx webparts"
 comments: true
 published: true
 categories: ["spfx"]
-tags: ["SharePoint", "SPFx webpart"]
+tags: ["SharePoint", "SPFx webpart", "SPFx"]
 hideAds: true
 ---
 
