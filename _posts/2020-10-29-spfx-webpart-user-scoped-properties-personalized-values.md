@@ -14,10 +14,11 @@ The traditional webparts which were used in the classic pages, supported User Sc
 
 For example, a world time webpart can allow each user to choose their own choice of a time zone and shows a clock with that time zone.
 
-![img](/assets/images/spfx-webpart-personalization.png)
+![](/assets/images/spfx-webpart-personalization.png)
 
 > Watch this video for detailed steps on how we can extend the world time webpart to support personalization.
-![](https://www.youtube.com/watch?v=0UvweCXRFgQ)
+
+![](//www.youtube.com/embed/0UvweCXRFgQ)
 
 #### How to support User Scoped properties in SPFx webparts
 
