@@ -5,19 +5,23 @@ comments: true
 published: true
 categories: ["spfx"]
 tags: ["SharePoint", "SPFx webpart"]
+hideAds: true
 ---
 
 Custom webpart properties provide a great way to support configurable values for SPFx webparts. The properties which we configure using the default property pane of an SPFx webpart can be changed when one edits the page and these property values are then for all users.
 
-The traditional webparts which were used in the classic pages, supported User Scoped or Shared custom properties. The custom properties in SPFx webparts are always scoped to be shared, and they do not support User scoped properties.
+The traditional webparts which were used in the classic pages, supported User Scoped or Shared custom properties. The custom properties in SPFx webparts are always scoped to be shared, and they do not support User scoped properties. User scoped properties can be really useful for some use cases where we want to allow the end users to change the configurations or properties.
 
-User scoped properties can be really useful for some use cases where we want to allow the end users to change the configurations or properties.
+For example, a world time webpart can allow each user to choose their own choice of a time zone and shows a clock with that time zone.
 
-For example, a new wepart can be configured to show top 5 posts, while we can allow end users to choose a value of their own. So, one user can choose to show 10 posts while another user could select 3 posts to be shown.
+![img](/assets/images/spfx-webpart-personalization.png)
+
+> Watch this video for detailed steps on how we can extend the world time webpart to support personalization.
+![](//youtu.be/0UvweCXRFgQ)
 
 #### How to support User Scoped properties in SPFx webparts
 
-As SPFx webparts doesn't support user scoped properties by default, the same have to handled using custom code. Here is a high level overview of what we need
+As SPFx webparts doesn't support user scoped properties by default, the same can be handled using custom code. Here is a high level overview of what we need
 
 1. A unique id to identify the webpart instance
 2. The logged in user's name
@@ -99,7 +103,6 @@ this.setState({
 });
 }
 ```
-
 The complete code sample can be found in the [Github Repo][1]
 
 [1]:https://github.com/RamPrasadMeenavalli/spfx-webparts-concepts/tree/main/src/webparts/clock
