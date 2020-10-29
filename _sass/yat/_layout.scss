@@ -388,7 +388,7 @@ html {
   @extend %post-header;
 
   .post-header {
-    margin: 0px auto 60px;
+    margin: 0px auto 30px;
     padding: 0 0 20px;
     border-bottom: 1px solid #ebebeb;
 
@@ -445,11 +445,11 @@ html {
     }
 
     h2, h3, h4, h5, h6 {
-      margin: 60px 0 19px;
+      margin: 20px 0 15px;
     }
 
     p, hr {
-      margin-bottom: 24px;
+      margin-bottom: 12px;
     }
 
     hr {

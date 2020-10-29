@@ -14,6 +14,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-paginate
+  - jekyll-spaceship
 
 # Author Bio settings
 profile-photo: '/assets/images/Ram.png'
