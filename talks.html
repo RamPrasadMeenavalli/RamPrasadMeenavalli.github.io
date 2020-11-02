@@ -11,7 +11,8 @@ hideAds: false
 <div class="container">
     <h3>Upcoming</h3>
 
-    {%- for session in site.data.sessions -%}
+    {%- assign upcoming = site.data.sessions | sort: "when" %}
+    {%- for session in upcoming -%}
     {% assign session_date = session.when | date: '%s' %}
         {%- if session_date > today_date -%}
         <div class="card" id="{{session.event | downcase | replace:' ','-'}}">
@@ -44,7 +45,8 @@ hideAds: false
 
 <div class="container">
     <h3>Past</h3>
-    {%- for session in site.data.sessions -%}
+    {%- assign past = site.data.sessions | sort: "when" | reverse %}
+    {%- for session in past -%}
     {% assign session_date = session.when | date: '%s' %}
         {%- if session_date > today_date -%}
         {%- else -%}
