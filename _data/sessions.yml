@@ -12,7 +12,7 @@
   where: "Virtual/Online"
   event: "aMS Germany"
   description: "In this session, we will talk about the architecture to enable image searching on SharePoint Online. A rich integration between SharePoint and Computer Vision using Power Automate allows us to build a rich image search experience in SharePoint."
-  flyer: "/assets/images/image-search.gif"
+  flyer: "/assets/images/flyers/ams-germany-2020.jpeg"
   slides: ""
   register: "https://www.eventbrite.fr/e/ams-germany-december-12020-tickets-125727318795"  
 
