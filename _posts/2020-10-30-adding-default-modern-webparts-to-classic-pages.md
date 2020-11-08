@@ -5,7 +5,6 @@ comments: true
 published: true
 categories: ["SPFx"]
 tags: ["SharePoint", "SharePoint Classic","SPFx", "SPFx webpart"]
-hideAds: true
 ---
 
 ![](/assets/images/adding-spfx-webparts-to-classic-pages.png)

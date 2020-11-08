@@ -1,3 +1,13 @@
+- title: "Building a SharePoint Image Search Center using Azure Computer Vision & Power Automate"
+  when: 2020-12-05
+  where: "Virtual/Online"
+  event: "M365 Saturday Ahmedabad 2020"
+  description: "In this session, we will talk about the architecture to enable image searching on SharePoint Online. A rich integration between SharePoint and Computer Vision using Power Automate allows us to build a rich image search experience in SharePoint."
+  flyer: ""
+  slides: ""
+  register: "https://www.eventbrite.com/e/m365-saturday-ahmedabad-2020-tickets-124962451055"  
+
+
 - title: "Design a chatbot with Power Virtual Agents. No more development"
   when: 2020-12-12
   where: "Virtual/Online"

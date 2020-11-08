@@ -5,7 +5,6 @@ comments: true
 published: true
 categories: ["spfx"]
 tags: ["SharePoint", "SPFx webpart", "SPFx"]
-hideAds: true
 ---
 
 Custom webpart properties provide a great way to support configurable values for SPFx webparts. The properties which we configure using the default property pane of an SPFx webpart can be changed when one edits the page and these property values are then for all users.
