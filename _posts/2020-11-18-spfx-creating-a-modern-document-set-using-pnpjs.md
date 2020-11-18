@@ -25,6 +25,11 @@ While this is no direct API to handle document sets, we can create a new documen
 import { sp } from '@pnp/sp';
 import '@pnp/sp/sites';
 import '@pnp/sp/features';
+import '@pnp/sp/webs';
+import '@pnp/sp/lists';
+import '@pnp/sp/content-types';
+import '@pnp/sp/folders';
+import '@pnp/sp/items';
 
 // Activate the Document Set feature using the feature ID
 // This will be same for all tenants, as this a default/OOTB feature
