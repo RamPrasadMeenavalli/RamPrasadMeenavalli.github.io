@@ -1,10 +1,12 @@
 ---
 layout: post
-title: Creating a modern Document Set using PnPjs from an SPFx webpart
+title: "Creating a modern Document Set using PnPjs from an SPFx webpart"
+date: 2020-11-18 00:00:00 +0530
 comments: true
 published: true
 categories: ["SPFx", "PnPjs"]
 tags: ["Document Set", "SharePoint", "Modern Document Set", "SPFx webpart"]
+# permalink: /post/spfx-creating-a-modern-document-set-using-pnpjs
 ---
 
 Document Sets are useful for grouping relevant documents together and maintain a shared metadata for all the documents. Document Sets are supported in the modern sites and it is available when we activate the site collection feature called **'Document Sets'** (Site Settings -> Site Collection Administration -> Site collection features)

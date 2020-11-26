@@ -1,10 +1,12 @@
 ---
 layout: post
-title: Adding OOTB/Default modern SPFx webparts to classic pages
+title: "Adding OOTB/Default modern SPFx webparts to classic pages"
+date: 2020-10-30 00:00:00 +0530
 comments: true
 published: true
 categories: ["SPFx"]
 tags: ["SharePoint", "SharePoint Classic","SPFx", "SPFx webpart"]
+# permalink: /post/adding-default-modern-webparts-to-classic-pages
 ---
 
 ![](/assets/images/adding-spfx-webparts-to-classic-pages.png)
