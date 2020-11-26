@@ -6,7 +6,7 @@ comments: true
 published: true
 categories: ["spfx"]
 tags: ["SharePoint", "SPFx webpart", "SPFx"]
-# permalink: /post/spfx-webpart-user-scoped-properties-personalized-values
+permalink: /post/spfx-webpart-user-scoped-properties-personalized-values
 ---
 
 Custom webpart properties provide a great way to support configurable values for SPFx webparts. The properties which we configure using the default property pane of an SPFx webpart can be changed when one edits the page and these property values are then for all users.

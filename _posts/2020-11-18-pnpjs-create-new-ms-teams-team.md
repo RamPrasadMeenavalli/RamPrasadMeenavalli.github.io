@@ -6,7 +6,7 @@ comments: true
 published: true
 categories: ["SPFx", "PnPjs"]
 tags: ["Teams", "SharePoint","SPFx", "SPFx webpart", "PnPjs"]
-# permalink: /post/pnpjs-create-new-ms-teams-team
+permalink: /post/pnpjs-create-new-ms-teams-team
 ---
 
 PnPjs offers great flexibility in quickly connecting to various services in your Office 365 suite. I was working on an SPFx webpart which manages Teams provisioning for an organization. The webpart accepts requests from users and when an admin approves the request it provisions a new MS Team with some custom settings and apps.

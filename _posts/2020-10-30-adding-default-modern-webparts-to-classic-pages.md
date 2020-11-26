@@ -6,7 +6,7 @@ comments: true
 published: true
 categories: ["SPFx"]
 tags: ["SharePoint", "SharePoint Classic","SPFx", "SPFx webpart"]
-# permalink: /post/adding-default-modern-webparts-to-classic-pages
+permalink: /post/adding-default-modern-webparts-to-classic-pages
 ---
 
 ![](/assets/images/adding-spfx-webparts-to-classic-pages.png)
