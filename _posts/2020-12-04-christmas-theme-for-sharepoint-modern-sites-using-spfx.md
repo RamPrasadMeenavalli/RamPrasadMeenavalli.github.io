@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Christmas theme for your Modern SharePoint sites"
-date: 2020-12-04 00:00:00 +0530
+date: 2020-12-04 00:00:00 +0000
 comments: true
 published: true
 categories: ["SPFx", "Extension"]
