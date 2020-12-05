@@ -4,7 +4,7 @@
   event: "M365 Saturday Ahmedabad 2020"
   description: "In this session, we will talk about the architecture to enable image searching on SharePoint Online. A rich integration between SharePoint and Computer Vision using Power Automate allows us to build a rich image search experience in SharePoint."
   flyer: "/assets/images/flyers/m365-ahmbd-2020.webp"
-  slides: ""
+  slides: "https://spmodrn.sharepoint.com/:p:/s/talks/EctDqiqnG_lJiO_ZbS1408MB9lFEy-LHQA4tVCcQ-BipRw?e=gBaUPa"
   register: "https://www.eventbrite.com/e/m365-saturday-ahmedabad-2020-tickets-124962451055"  
 
 

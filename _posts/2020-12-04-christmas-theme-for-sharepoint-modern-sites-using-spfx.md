@@ -18,7 +18,9 @@ With Christmas around the corner, here are some simple Christmas effects that ca
 Just add this SPFx app to install the Christmas theme on your SharePoint Modern sites and show these festive effects. If you would like to remove the Chrimstas theme and the effects, simply uninstall/remove this SPFx app
 
 >**Download the SPFx app from [here][1]**
+
 Feel free to extend the SPFx app based on your needs from the [Github repo][2]
+
 Refer this video for more details on how to install/uninstall this SPFx app
 
 [1]:/assets/packages/spo-christmas-effects.sppkg
