@@ -21,7 +21,5 @@ Just add this SPFx app to install the Christmas theme on your SharePoint Modern 
 
 Feel free to extend the SPFx app based on your needs from the [Github repo][2]
 
-Refer this video for more details on how to install/uninstall this SPFx app
-
 [1]:/assets/packages/spo-christmas-effects.sppkg
 [2]:https://github.com/RamPrasadMeenavalli/spfx-sample-parts

@@ -32,3 +32,13 @@ Follow these steps to enable adding OOTB/Default SPFx webparts to classic pages
 These steps can be repeated for all the OOTB/Default modern SPFx webparts and editors can then add these webparts to classic pages using the Webpart Adder controls.
 
 {% include embed/youtube.html id='tA3SXVTQjXw' %}
+
+Using this approach here a few modern webparts which can be added to classic pages
+- Text
+- File Viewer
+- Highlighted content
+- Call to action
+- Button
+- Hero
+- Weather
+- News
