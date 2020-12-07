@@ -5,7 +5,7 @@ date: 2020-12-04 00:00:00 +0000
 comments: true
 published: true
 categories: ["SPFx", "Extension"]
-tags: ["Christmas theme", "SPFx", "Snowfall", "SPFx greeting", "christmas greetings"]
+tags: ["Christmas", "SPFxTheme", "SharePoint", "SPFx"]
 permalink: /post/christmas-theme-for-sharepoint-modern-sites-using-spfx
 ---
 With Christmas around the corner, here are some simple Christmas effects that can be added to your SharePoint intranet sites. Bring the festive mood to your intranet by adding the following effects
