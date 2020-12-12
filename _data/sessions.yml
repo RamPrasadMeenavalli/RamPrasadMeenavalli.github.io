@@ -14,7 +14,7 @@
   event: "M365 Saturday Bangalore 2020"
   description: "Stop looking for data scientists and developers to build chatbots. Lets go through Power Virtual Agents and start building your chatbot using a visual designer and get your bot running in no time."
   flyer: "/assets/images/flyers/m365-blr-2020.webp"
-  slides: ""
+  slides: "https://spmodrn.sharepoint.com/:p:/s/talks/EfxilQ6dMTdHs6eZO2AowpMBTec2QBD51U6mJ42rmMMajA?e=vOyt1Q"
   register: "https://www.eventbrite.co.uk/e/m365-saturday-bangalore-2020-tickets-122294372761"  
 
 - title: "Building a SharePoint Image Search Center using Azure Computer Vision & Power Automate"
