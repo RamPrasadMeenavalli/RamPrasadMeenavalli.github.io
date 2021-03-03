@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+  <meta property="fb:app_id" content="1406604756269400">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Microsoft Bot Framework: Adding common intents to the dispatch LUIS app. | Ram Prasad Meenavalli</title>
+<meta name="generator" content="Jekyll v4.1.1">
+<meta property="og:title" content="Microsoft Bot Framework: Adding common intents to the dispatch LUIS app.">
+<meta name="author" content="Ram Prasad">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Go directly to the steps for adding a common cancel intent in the dispatch LUIS app Dispatch is a special type of LUIS app which helps in routing a user’s action to the correct module from different models. For a bot which handles Service Desk requests, Meeting rooms booking &amp; answers generic questions, we may design the following models with a dispatch tool The dispatch tool is used to create the dispatch LUIS app, where the 2 LUIS Apps and the QnA Knowledge Base are added as sources. Once it is created, we can see that there are three intents (one each for the 2 LUIS Apps and one for the QnA Knowledge Base) created in the dispatch LUIS APP. Upon the receiving the message from the user, within the OnTurnAsync method a call is made to the dispatch LUIS app, which returns the top intent. Based on this intent we can identify which Bot model to call, i.e., QnA KB or ServiceDeskOps LUIS or MeetingRoomsBooking LUIS. Cancel Intents There could be scenarios where one might want to create intents for cancelling an action/dialog. Now there are two possible ways to do this. With each approach having its own pros and cons. Separate Intent in each LUIS App: We can create a cancel intent in each of the LUIS Apps and refresh your dispatch model. In this case we identify the cancel intent from the individual LUIS App. This approach is used when we want different conversation flows/paths for each cancel operation. The first call to dispatch identifies which model to call. And second call to the respective LUIS app finds the cancel intent. Common Intent in the dispatch LUIS App: There could be scenarios where having a common intent in the dispatch LUIS app would be helpful. If the dispatch LUIS app itself can identify the user’s cancel intent, we can avoid calling the subsequent LUIS calls and immediately take action. This could be helpful for common cancellation flows. Follow these steps for creating a cancel intent in the dispatch LUIS app using dispatch tool Create a text file called ‘dispatch_cancel.txt’ with utterances for this intent. Each utterance to be written in a separate line in the txt file. stop cancel exit I want to cancel I do not want I dont need I dont want I want to cancel I want to stop this halt end close finish terminate Use the following dispatch command line code to add a source of type file to the dispatch model. dispatch init -b BotConfiguration.bot dispatch add -t file -name dispatch_cancel -f C:\Users\ram\botmodels\dispatch_cancel.txt dispatch refresh If you have the dispatch LUIS created already, refresh the model. Create the dispatch model if you haven’t created it already. This will create a new intent in your dispatch LUIS App Now, the first call to the dispatch LUIS app, will identify if the users intent was to cancel an action without subsequent calls to the individual LUIS models/apps.">
+<meta property="og:description" content="Go directly to the steps for adding a common cancel intent in the dispatch LUIS app Dispatch is a special type of LUIS app which helps in routing a user’s action to the correct module from different models. For a bot which handles Service Desk requests, Meeting rooms booking &amp; answers generic questions, we may design the following models with a dispatch tool The dispatch tool is used to create the dispatch LUIS app, where the 2 LUIS Apps and the QnA Knowledge Base are added as sources. Once it is created, we can see that there are three intents (one each for the 2 LUIS Apps and one for the QnA Knowledge Base) created in the dispatch LUIS APP. Upon the receiving the message from the user, within the OnTurnAsync method a call is made to the dispatch LUIS app, which returns the top intent. Based on this intent we can identify which Bot model to call, i.e., QnA KB or ServiceDeskOps LUIS or MeetingRoomsBooking LUIS. Cancel Intents There could be scenarios where one might want to create intents for cancelling an action/dialog. Now there are two possible ways to do this. With each approach having its own pros and cons. Separate Intent in each LUIS App: We can create a cancel intent in each of the LUIS Apps and refresh your dispatch model. In this case we identify the cancel intent from the individual LUIS App. This approach is used when we want different conversation flows/paths for each cancel operation. The first call to dispatch identifies which model to call. And second call to the respective LUIS app finds the cancel intent. Common Intent in the dispatch LUIS App: There could be scenarios where having a common intent in the dispatch LUIS app would be helpful. If the dispatch LUIS app itself can identify the user’s cancel intent, we can avoid calling the subsequent LUIS calls and immediately take action. This could be helpful for common cancellation flows. Follow these steps for creating a cancel intent in the dispatch LUIS app using dispatch tool Create a text file called ‘dispatch_cancel.txt’ with utterances for this intent. Each utterance to be written in a separate line in the txt file. stop cancel exit I want to cancel I do not want I dont need I dont want I want to cancel I want to stop this halt end close finish terminate Use the following dispatch command line code to add a source of type file to the dispatch model. dispatch init -b BotConfiguration.bot dispatch add -t file -name dispatch_cancel -f C:\Users\ram\botmodels\dispatch_cancel.txt dispatch refresh If you have the dispatch LUIS created already, refresh the model. Create the dispatch model if you haven’t created it already. This will create a new intent in your dispatch LUIS App Now, the first call to the dispatch LUIS app, will identify if the users intent was to cancel an action without subsequent calls to the individual LUIS models/apps.">
+<link rel="canonical" href="https://blog.meenavalli.in/post/microsoft-bot-framework-adding-common-intents-to-the-dispatch-luis-app">
+<meta property="og:url" content="https://blog.meenavalli.in/post/microsoft-bot-framework-adding-common-intents-to-the-dispatch-luis-app">
+<meta property="og:site_name" content="Ram Prasad Meenavalli">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-05-28T04:25:00+00:00">
+<script type="application/ld+json">
+{"description":"Go directly to the steps for adding a common cancel intent in the dispatch LUIS app Dispatch is a special type of LUIS app which helps in routing a user&rsquo;s action to the correct module from different models. For a bot which handles Service Desk requests, Meeting rooms booking &amp; answers generic questions, we may design the following models with a dispatch tool The dispatch tool is used to create the dispatch LUIS app, where the 2 LUIS Apps and the QnA Knowledge Base are added as sources. Once it is created, we can see that there are three intents (one each for the 2 LUIS Apps and one for the QnA Knowledge Base) created in the dispatch LUIS APP. Upon the receiving the message from the user, within the OnTurnAsync method a call is made to the dispatch LUIS app, which returns the top intent. Based on this intent we can identify which Bot model to call, i.e., QnA KB or ServiceDeskOps LUIS or MeetingRoomsBooking LUIS. Cancel Intents There could be scenarios where one might want to create intents for cancelling an action/dialog. Now there are two possible ways to do this. With each approach having its own pros and cons. Separate Intent in each LUIS App: We can create a cancel intent in each of the LUIS Apps and refresh your dispatch model. In this case we identify the cancel intent from the individual LUIS App. This approach is used when we want different conversation flows/paths for each cancel operation. The first call to dispatch identifies which model to call. And second call to the respective LUIS app finds the cancel intent. Common Intent in the dispatch LUIS App: There could be scenarios where having a common intent in the dispatch LUIS app would be helpful. If the dispatch LUIS app itself can identify the user&rsquo;s cancel intent, we can avoid calling the subsequent LUIS calls and immediately take action. This could be helpful for common cancellation flows. Follow these steps for creating a cancel intent in the dispatch LUIS app using dispatch tool Create a text file called &lsquo;dispatch_cancel.txt&rsquo; with utterances for this intent. Each utterance to be written in a separate line in the txt file. stop cancel exit I want to cancel I do not want I dont need I dont want I want to cancel I want to stop this halt end close finish terminate Use the following dispatch command line code to add a source of type file to the dispatch model. dispatch init -b BotConfiguration.bot dispatch add -t file -name dispatch_cancel -f C:\\Users\\ram\\botmodels\\dispatch_cancel.txt dispatch refresh If you have the dispatch LUIS created already, refresh the model. Create the dispatch model if you haven&rsquo;t created it already. This will create a new intent in your dispatch LUIS App Now, the first call to the dispatch LUIS app, will identify if the users intent was to cancel an action without subsequent calls to the individual LUIS models/apps.","url":"https://blog.meenavalli.in/post/microsoft-bot-framework-adding-common-intents-to-the-dispatch-luis-app","@type":"BlogPosting","headline":"Microsoft Bot Framework: Adding common intents to the dispatch LUIS app.","dateModified":"2019-05-28T04:25:00+00:00","datePublished":"2019-05-28T04:25:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.meenavalli.in/post/microsoft-bot-framework-adding-common-intents-to-the-dispatch-luis-app"},"author":{"@type":"Person","name":"Ram Prasad"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="/assets/images/Ram.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://blog.meenavalli.in/feed.xml" title="Ram Prasad Meenavalli">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/">
+  <!-- <img class="site-favicon" title="Ram Prasad Meenavalli" src="/assets/images/Ram.png" onerror="this.style.display='none'"> -->
+  Ram Prasad Meenavalli
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/">HOME</a><a class="page-link" href="/talks.html">PUBLIC TALKS</a>
+
+
+
+
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.matches('a')) {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">Microsoft Bot Framework: Adding common intents to the dispatch LUIS app.</h1>
+  <h3 class="post-subtitle"></h3>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2019-05-28T04:25:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> May 28, 2019
+    </time>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span><div id="social-icons">
+    <!-- Twitter button -->
+    <div id="twitter-button">
+    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Microsoft+Bot+Framework%3A+Adding+common+intents+to+the+dispatch+LUIS+app.&amp;url=https%3A%2F%2Fblog.meenavalli.in%2Fpost%2Fmicrosoft-bot-framework-adding-common-intents-to-the-dispatch-luis-app&amp;hashtags=BotFrameworkLUIS&amp;via=ram_meenavalli">Tweet</a>
+
+    </div>
+    <!--End of twitter button code--> 
+
+    <!--Linkedin share button-->
+    <script type="IN/Share" data-url="https://blog.meenavalli.in/post/microsoft-bot-framework-adding-common-intents-to-the-dispatch-luis-app"></script>
+    <!--End of Linkedin share button-->
+
+    <!--Facebook share button-->
+    <div id="fb-root" style="display:inline-block"></div>
+    <div style="display:inline-block" class="fb-share-button" data-href="https://blog.meenavalli.in/post/microsoft-bot-framework-adding-common-intents-to-the-dispatch-luis-app" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.meenavalli.in%2Fpost%2Fmicrosoft-bot-framework-adding-common-intents-to-the-dispatch-luis-app&src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+    <!--End of facebook share button-->
+
+    <!--Facebook page like button-->
+    <div style="top:8px" class="fb-like" data-href="https://www.facebook.com/rammeenavalli" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+    <!--End of facebook page like button-->
+</div>
+</div>
+<div class="post-tags">
+<a class="post-tag" href="/tags.html#BotFramework">#BotFramework</a><a class="post-tag" href="/tags.html#LUIS">#LUIS</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <!-- more -->
+
+<p style="text-align: justify;"><em>Go directly to the <a href="#cancelintent">steps</a> for adding a common cancel intent in the dispatch LUIS app</em></p>
+<p style="text-align: justify;"><a href="https://github.com/microsoft/botbuilder-tools/tree/master/packages/Dispatch" target="_blank">Dispatch</a> is a special type of LUIS app which helps in routing a user’s action to the correct module from different models. For a bot which handles Service Desk requests, Meeting rooms booking &amp; answers generic questions, we may design the following models with a dispatch tool</p>
+<p style="text-align: center;"><img src="data:image/png;base64,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" alt="" width="571" height="149"></p>
+<p style="text-align: justify;">The dispatch tool is used to create the dispatch LUIS app, where the 2 LUIS Apps and the QnA Knowledge Base are added as sources. Once it is created, we can see that there are three intents (one each for the 2 LUIS Apps and one for the QnA Knowledge Base) created in the dispatch LUIS APP.</p>
+<p style="text-align: justify;">Upon the receiving the message from the user, within the OnTurnAsync method a call is made to the dispatch LUIS app, which returns the top intent. Based on this intent we can identify which Bot model to call, i.e., QnA KB or ServiceDeskOps LUIS or MeetingRoomsBooking LUIS.</p>
+<h2>Cancel Intents</h2>
+<p>There could be scenarios where one might want to create intents for cancelling an action/dialog. Now there are two possible ways to do this. With each approach having its own pros and cons.</p>
+<h3>Separate Intent in each LUIS App:</h3>
+<p>We can create a cancel intent in each of the LUIS Apps and refresh your dispatch model. In this case we identify the cancel intent from the individual LUIS App. This approach is used when we want different conversation flows/paths for each cancel operation. The first call to dispatch identifies which model to call. And second call to the respective LUIS app finds the cancel intent.</p>
+<h3 id="cancelintent">Common Intent in the dispatch LUIS App:</h3>
+<p>There could be scenarios where having a common intent in the dispatch LUIS app would be helpful. If the dispatch LUIS app itself can identify the user’s cancel intent, we can avoid calling the subsequent LUIS calls and immediately take action. This could be helpful for common cancellation flows.</p>
+<p>Follow these steps for creating a cancel intent in the dispatch LUIS app using dispatch tool</p>
+<ol>
+<li>Create a text file called ‘dispatch_cancel.txt’ with utterances for this intent. Each utterance to be written in a separate line in the txt file.
+<pre class="brush:plain;auto-links:false;toolbar:false" contenteditable="false">stop
+cancel
+exit
+I want to cancel
+I do not want
+I dont need
+I dont want 
+I want to cancel
+I want to stop this
+halt
+end
+close
+finish
+terminate</pre>
+</li>
+<li>Use the following dispatch command line code to add a source of type file to the dispatch model.
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">dispatch init -b BotConfiguration.bot
+
+dispatch add -t file -name dispatch_cancel -f C:\Users\ram\botmodels\dispatch_cancel.txt
+
+dispatch refresh</pre>
+</li>
+<li>If you have the dispatch LUIS created already, refresh the model. Create the dispatch model if you haven’t created it already.</li>
+<li>This will create a new intent in your dispatch LUIS App</li>
+</ol>
+<p>Now, the first call to the dispatch LUIS app, will identify if the users intent was to cancel an action without subsequent calls to the individual LUIS models/apps.</p>
+
+
+    </div>
+
+</article><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-7825254818219233" data-ad-slot="2526456411"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><div class="post-nav">
+<a class="previous" href="/post/sharepoint-framework-removing-unwanted-colon-after-text-data-on-modern-pages" title="SharePoint Framework : Removing unwanted colon after text/data on Modern Pages">SharePoint Framework : Removing unwanted colon...</a><a class="next" href="/post/powershell-import-a-specific-module-from-the-installed-sharepoint-pnp-powershell-modules-2013-2016-2019-and-online" title="PowerShell: Import a specific module from the installed SharePoint PnP PowerShell modules (2013, 2016, 2019 &amp; Online)">PowerShell: Import a specific module from...</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li><a class="post-link" href="/post/sharepoint-jsom-code-to-hide-remove-ribbon-tabs-in-sharepoint-list-forms-or-pages" title="PowerShell: Import a specific module from the installed SharePoint PnP PowerShell modules (2013, 2016, 2019 &amp; Online)">SharePoint JSOM code to Hide/Remove Ribbon tabs in SharePoint List Forms or...</a></li>
+<li><a class="post-link" href="/post/creating-accessible-modal-dialogs" title="PowerShell: Import a specific module from the installed SharePoint PnP PowerShell modules (2013, 2016, 2019 &amp; Online)">Creating Accessible Modal Dialogs</a></li>
+<li><a class="post-link" href="/post/spfx-creating-a-modern-document-set-using-pnpjs" title="PowerShell: Import a specific module from the installed SharePoint PnP PowerShell modules (2013, 2016, 2019 &amp; Online)">Creating a modern Document Set using PnPjs from an SPFx webpart</a></li>
+<li><a class="post-link" href="/post/custom-page-not-found-page-sharepoint-2007" title="PowerShell: Import a specific module from the installed SharePoint PnP PowerShell modules (2013, 2016, 2019 &amp; Online)">Creating custom Page Not Found Page</a></li>
+</ul>
+    </div>
+<div class="post-comments"></div>
+<div class="fb-comments" data-mobile data-width="100%" data-href="https://blog.meenavalli.in/post/microsoft-bot-framework-adding-common-intents-to-the-dispatch-luis-app" data-numposts="5"></div>
+  </section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><header class="author-bio">
+    <div class="blog-info">
+        <a class="blog-logo" href="https://meenavalli.in" tabindex="-1" target="_blank">
+            <img src="/assets/images/Ram.png" alt="Ram Prasad">
+            Ram Prasad
+        </a>
+        <div class="blog-author">
+            Developer | Office 365 | SharePoint | Blogger | Speaker
+        </div>
+        <ul class="social-network">
+            <li style="display: inline-block;"><a href="https://www.facebook.com/ramprasad.meenavalli" rel="external nofollow"><i class="fa fa-facebook"></i></a></li>
+            <li style="display: inline-block;"><a href="https://twitter.com/ram_meenavalli" rel="external nofollow"><i class="fa fa-twitter"></i></a></li>
+            <li style="display: inline-block;"><a href="https://www.linkedin.com/in/ramprasadmeenavalli/" rel="external nofollow"><i class="fa fa-linkedin"></i></a></li>
+            <li style="display: inline-block;"><a href="https://www.youtube.com/channel/UCBp4idRQxYfnJTPugX40dwg" rel="external nofollow"><i class="fa fa-youtube"></i></a></li>
+            <li style="display: inline-block;"><a href="https://github.com/RamPrasadMeenavalli" rel="external nofollow"><i class="fa fa-git"></i></a></li>
+        </ul>
+    </div>
+</header><!--Add a square ad-->
+<div class="sidebar-box">
+<!-- display-square -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7825254818219233" data-ad-slot="6472568147" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div>Copyright © 2011-2021</div>
+      <div>Customized &amp; redesigned from <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+
+
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&amp;version=v8.0&amp;appId=1406604756269400&amp;autoLogAppEvents=1" nonce="LgzoCMCm"></script>
+</body>
+</html>

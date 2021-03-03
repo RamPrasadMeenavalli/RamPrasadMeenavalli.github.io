@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+  <meta property="fb:app_id" content="1406604756269400">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>SharePoint Server 2013 : Mail Alerts for Search Crawl Errors using PowerShell Script | Ram Prasad Meenavalli</title>
+<meta name="generator" content="Jekyll v4.1.1">
+<meta property="og:title" content="SharePoint Server 2013 : Mail Alerts for Search Crawl Errors using PowerShell Script">
+<meta name="author" content="Ram Prasad">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="As a SharePoint Admin for a search intensive SharePoint 2013 application, I had to check the Crawl Logs everyday to see if there are any crawl errors for an item, and if any item is missed in the crawl. I always thought if we can simply receive a daily mail whenever there is an error in the crawl. This made me write this simple Powershell Script which sends the mail with the error details, and then schedule this to run daily. Now I don't need to open the Search Service Application everyday and check the crawl logs, I have the details in my mail the moment I start my day, which saves some time for me.. :) PowerShell Script As explained in my previous post I have used the 'GetCrawledUrls()' method of the 'Microsoft.Office.Server.Search.Administration.CrawlLog' class. This script retrieves all the crawl error logs for the previous day and sends these details in a mail as an excel attachment. Below is the complete script and steps to achieve this. #Powershell Script which to Send a dialy Alert Mail when an error occurs during Search Crawl. #This solution is for SharePoint Server 2013 (on-Premises) #Author : Ram Prasad Meenavalli #---------------------------------------------------- #Parameters Required #---------------------------------------------------- $ssaName = &quot;Search Service Application&quot; $errorsFileName = &quot;errors.csv&quot; $topErrorsFileName = &quot;toplevelerrors.csv&quot; #$logMaxRows - This specifies the number of errors to be sent in the mail attachment. $logMaxRows = 10000 #$contentSourceID - This specifies the Content Source ID where we need to check for Crawl Errors. #-1 will give crawl errors from all content sources. $contentSourceID = -1 #---------------------------------------------------- # Email Variables #---------------------------------------------------- $smtp = &quot;smtp-server-address&quot; $to = &quot;ram@yourmail.com&quot;,&quot;prasad@yourmail.com&quot; $from = &quot;no-reply@yourmail.com&quot; $subject = &quot;Search Crawl Errors&quot; $body = &quot;Your Search Service has encountered some errors while crawling the content. Please check the attachment/s for more details.&quot; #---------------------------------------------------- # Constants #---------------------------------------------------- $errorID = -1 $currentDate = Get-Date $startDate = $currentDate.AddDays(-1) $endDate = (($startDate.AddHours(23)).AddMinutes(59)).AddSeconds(59) if ((Get-PSSnapin &quot;Microsoft.SharePoint.PowerShell&quot; -ErrorAction SilentlyContinue) -eq $null) { Add-PSSnapin Microsoft.SharePoint.PowerShell } $ssa = Get-SPEnterpriseSearchServiceApplication -Identity $ssaName $logs = New-Object Microsoft.Office.Server.Search.Administration.CrawlLog $ssa $errors = $logs.GetCrawledUrls($true,$logMaxRows,&quot;&quot;,$false,$contentSourceID,2,$errorID,$startDate,$endDate) $topErrors = $logs.GetCrawledUrls($true,$logMaxRows,&quot;&quot;,$false,$contentSourceID,4,$errorID,$startDate,$endDate) if(($errors.Rows[0][&quot;DocumentCount&quot;] -gt 0) -or ($topErrors.Rows[0][&quot;DocumentCount&quot;] -gt 0)) { $logs.GetCrawledUrls($false,$logMaxRows,&quot;&quot;,$false,$contentSourceID,2,$errorID,$startDate,$endDate) | export-csv -notype $errorsFileName $logs.GetCrawledUrls($false,$logMaxRows,&quot;&quot;,$false,$contentSourceID,4,$errorID,$startDate,$endDate) | export-csv -notype $topErrorsFileName send-MailMessage -SmtpServer $smtp -To $to -From $from -Subject $subject -Body $body -BodyAsHtml -Attachments $errorsFileName,$topErrorsFileName } Copy the script above and change the parameters/values appropriately to suit your needs. Save this script as errorMailAlerts.ps1 or any other relevant name with .ps1 extension and save it on a SharePoint Server. Schedule the script This powershell script should be scheduled to run daily using the windows Task Scheduler. Follow the below steps for scheduling a task Login to the SharePoint Server where the .ps1 file is saved. Open the Windows Task Scheduler and select the Create Task option. Enter a name for the task, and give it a description. In the General tab, go to the Security options heading and specify the user account that the task should be run under. Change the settings so the task will run if the user is logged in or not. In the Triggers tab add a new trigger for the scheduled task. Select the Start Date and the frequency to run once everyday at 1:00 AM (or any desired time). In the Actions tab, add a new Action and set it to Start a program. In the Program/script box enter &quot;PowerShell.&quot; In the Add arguments box enter the value &quot;.\errorMailAlerts.ps1.&quot; In the Start in box, add the complete path of the folder that contains your PowerShell script. Click OK when all the desired settings are made. This runs the powershell script daily and the admins will receive a mail with the crawl error details if any.">
+<meta property="og:description" content="As a SharePoint Admin for a search intensive SharePoint 2013 application, I had to check the Crawl Logs everyday to see if there are any crawl errors for an item, and if any item is missed in the crawl. I always thought if we can simply receive a daily mail whenever there is an error in the crawl. This made me write this simple Powershell Script which sends the mail with the error details, and then schedule this to run daily. Now I don't need to open the Search Service Application everyday and check the crawl logs, I have the details in my mail the moment I start my day, which saves some time for me.. :) PowerShell Script As explained in my previous post I have used the 'GetCrawledUrls()' method of the 'Microsoft.Office.Server.Search.Administration.CrawlLog' class. This script retrieves all the crawl error logs for the previous day and sends these details in a mail as an excel attachment. Below is the complete script and steps to achieve this. #Powershell Script which to Send a dialy Alert Mail when an error occurs during Search Crawl. #This solution is for SharePoint Server 2013 (on-Premises) #Author : Ram Prasad Meenavalli #---------------------------------------------------- #Parameters Required #---------------------------------------------------- $ssaName = &quot;Search Service Application&quot; $errorsFileName = &quot;errors.csv&quot; $topErrorsFileName = &quot;toplevelerrors.csv&quot; #$logMaxRows - This specifies the number of errors to be sent in the mail attachment. $logMaxRows = 10000 #$contentSourceID - This specifies the Content Source ID where we need to check for Crawl Errors. #-1 will give crawl errors from all content sources. $contentSourceID = -1 #---------------------------------------------------- # Email Variables #---------------------------------------------------- $smtp = &quot;smtp-server-address&quot; $to = &quot;ram@yourmail.com&quot;,&quot;prasad@yourmail.com&quot; $from = &quot;no-reply@yourmail.com&quot; $subject = &quot;Search Crawl Errors&quot; $body = &quot;Your Search Service has encountered some errors while crawling the content. Please check the attachment/s for more details.&quot; #---------------------------------------------------- # Constants #---------------------------------------------------- $errorID = -1 $currentDate = Get-Date $startDate = $currentDate.AddDays(-1) $endDate = (($startDate.AddHours(23)).AddMinutes(59)).AddSeconds(59) if ((Get-PSSnapin &quot;Microsoft.SharePoint.PowerShell&quot; -ErrorAction SilentlyContinue) -eq $null) { Add-PSSnapin Microsoft.SharePoint.PowerShell } $ssa = Get-SPEnterpriseSearchServiceApplication -Identity $ssaName $logs = New-Object Microsoft.Office.Server.Search.Administration.CrawlLog $ssa $errors = $logs.GetCrawledUrls($true,$logMaxRows,&quot;&quot;,$false,$contentSourceID,2,$errorID,$startDate,$endDate) $topErrors = $logs.GetCrawledUrls($true,$logMaxRows,&quot;&quot;,$false,$contentSourceID,4,$errorID,$startDate,$endDate) if(($errors.Rows[0][&quot;DocumentCount&quot;] -gt 0) -or ($topErrors.Rows[0][&quot;DocumentCount&quot;] -gt 0)) { $logs.GetCrawledUrls($false,$logMaxRows,&quot;&quot;,$false,$contentSourceID,2,$errorID,$startDate,$endDate) | export-csv -notype $errorsFileName $logs.GetCrawledUrls($false,$logMaxRows,&quot;&quot;,$false,$contentSourceID,4,$errorID,$startDate,$endDate) | export-csv -notype $topErrorsFileName send-MailMessage -SmtpServer $smtp -To $to -From $from -Subject $subject -Body $body -BodyAsHtml -Attachments $errorsFileName,$topErrorsFileName } Copy the script above and change the parameters/values appropriately to suit your needs. Save this script as errorMailAlerts.ps1 or any other relevant name with .ps1 extension and save it on a SharePoint Server. Schedule the script This powershell script should be scheduled to run daily using the windows Task Scheduler. Follow the below steps for scheduling a task Login to the SharePoint Server where the .ps1 file is saved. Open the Windows Task Scheduler and select the Create Task option. Enter a name for the task, and give it a description. In the General tab, go to the Security options heading and specify the user account that the task should be run under. Change the settings so the task will run if the user is logged in or not. In the Triggers tab add a new trigger for the scheduled task. Select the Start Date and the frequency to run once everyday at 1:00 AM (or any desired time). In the Actions tab, add a new Action and set it to Start a program. In the Program/script box enter &quot;PowerShell.&quot; In the Add arguments box enter the value &quot;.\errorMailAlerts.ps1.&quot; In the Start in box, add the complete path of the folder that contains your PowerShell script. Click OK when all the desired settings are made. This runs the powershell script daily and the admins will receive a mail with the crawl error details if any.">
+<link rel="canonical" href="https://blog.meenavalli.in/post/sharepoint2013-email-alerts-search-crawl-errors-powershell">
+<meta property="og:url" content="https://blog.meenavalli.in/post/sharepoint2013-email-alerts-search-crawl-errors-powershell">
+<meta property="og:site_name" content="Ram Prasad Meenavalli">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2015-03-03T06:30:00+00:00">
+<script type="application/ld+json">
+{"description":"As a SharePoint Admin for a search intensive SharePoint 2013 application, I had to check the Crawl Logs everyday to see if there are any crawl errors for an item, and if any item is missed in the crawl. I always thought if we can simply receive a daily mail whenever there is an error in the crawl. This made me write this simple Powershell Script which sends the mail with the error details, and then schedule this to run daily. Now I don&#39;t need to open the Search Service Application everyday and check the crawl logs, I have the details in my mail the moment I start my day, which saves some time for me.. :) PowerShell Script As explained in my previous post I have used the &#39;GetCrawledUrls()&#39; method of the &#39;Microsoft.Office.Server.Search.Administration.CrawlLog&#39; class. This script retrieves all the crawl error logs for the previous day and sends these details in a mail as an excel attachment. Below is the complete script and steps to achieve this. #Powershell Script which to Send a dialy Alert Mail when an error occurs during Search Crawl. #This solution is for SharePoint Server 2013 (on-Premises) #Author : Ram Prasad Meenavalli #---------------------------------------------------- #Parameters Required #---------------------------------------------------- $ssaName = &quot;Search Service Application&quot; $errorsFileName = &quot;errors.csv&quot; $topErrorsFileName = &quot;toplevelerrors.csv&quot; #$logMaxRows - This specifies the number of errors to be sent in the mail attachment. $logMaxRows = 10000 #$contentSourceID - This specifies the Content Source ID where we need to check for Crawl Errors. #-1 will give crawl errors from all content sources. $contentSourceID = -1 #---------------------------------------------------- # Email Variables #---------------------------------------------------- $smtp = &quot;smtp-server-address&quot; $to = &quot;ram@yourmail.com&quot;,&quot;prasad@yourmail.com&quot; $from = &quot;no-reply@yourmail.com&quot; $subject = &quot;Search Crawl Errors&quot; $body = &quot;Your Search Service has encountered some errors while crawling the content. Please check the attachment/s for more details.&quot; #---------------------------------------------------- # Constants #---------------------------------------------------- $errorID = -1 $currentDate = Get-Date $startDate = $currentDate.AddDays(-1) $endDate = (($startDate.AddHours(23)).AddMinutes(59)).AddSeconds(59) if ((Get-PSSnapin &quot;Microsoft.SharePoint.PowerShell&quot; -ErrorAction SilentlyContinue) -eq $null) { Add-PSSnapin Microsoft.SharePoint.PowerShell } $ssa = Get-SPEnterpriseSearchServiceApplication -Identity $ssaName $logs = New-Object Microsoft.Office.Server.Search.Administration.CrawlLog $ssa $errors = $logs.GetCrawledUrls($true,$logMaxRows,&quot;&quot;,$false,$contentSourceID,2,$errorID,$startDate,$endDate) $topErrors = $logs.GetCrawledUrls($true,$logMaxRows,&quot;&quot;,$false,$contentSourceID,4,$errorID,$startDate,$endDate) if(($errors.Rows[0][&quot;DocumentCount&quot;] -gt 0) -or ($topErrors.Rows[0][&quot;DocumentCount&quot;] -gt 0)) { $logs.GetCrawledUrls($false,$logMaxRows,&quot;&quot;,$false,$contentSourceID,2,$errorID,$startDate,$endDate) | export-csv -notype $errorsFileName $logs.GetCrawledUrls($false,$logMaxRows,&quot;&quot;,$false,$contentSourceID,4,$errorID,$startDate,$endDate) | export-csv -notype $topErrorsFileName send-MailMessage -SmtpServer $smtp -To $to -From $from -Subject $subject -Body $body -BodyAsHtml -Attachments $errorsFileName,$topErrorsFileName } Copy the script above and change the parameters/values appropriately to suit your needs. Save this script as errorMailAlerts.ps1 or any other relevant name with .ps1 extension and save it on a SharePoint Server. Schedule the script This powershell script should be scheduled to run daily using the windows Task Scheduler. Follow the below steps for scheduling a task Login to the SharePoint Server where the .ps1 file is saved. Open the Windows Task Scheduler and select the Create Task option. Enter a name for the task, and give it a description. In the General tab, go to the Security options heading and specify the user account that the task should be run under. Change the settings so the task will run if the user is logged in or not. In the Triggers tab add a new trigger for the scheduled task. Select the Start Date and the frequency to run once everyday at 1:00 AM (or any desired time). In the Actions tab, add a new Action and set it to Start a program. In the Program/script box enter &quot;PowerShell.&quot; In the Add arguments box enter the value &quot;.\\errorMailAlerts.ps1.&quot; In the Start in box, add the complete path of the folder that contains your PowerShell script. Click OK when all the desired settings are made. This runs the powershell script daily and the admins will receive a mail with the crawl error details if any.","url":"https://blog.meenavalli.in/post/sharepoint2013-email-alerts-search-crawl-errors-powershell","@type":"BlogPosting","headline":"SharePoint Server 2013 : Mail Alerts for Search Crawl Errors using PowerShell Script","dateModified":"2015-03-03T06:30:00+00:00","datePublished":"2015-03-03T06:30:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.meenavalli.in/post/sharepoint2013-email-alerts-search-crawl-errors-powershell"},"author":{"@type":"Person","name":"Ram Prasad"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="/assets/images/Ram.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://blog.meenavalli.in/feed.xml" title="Ram Prasad Meenavalli">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/">
+  <!-- <img class="site-favicon" title="Ram Prasad Meenavalli" src="/assets/images/Ram.png" onerror="this.style.display='none'"> -->
+  Ram Prasad Meenavalli
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/">HOME</a><a class="page-link" href="/talks.html">PUBLIC TALKS</a>
+
+
+
+
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.matches('a')) {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">SharePoint Server 2013 : Mail Alerts for Search Crawl Errors using PowerShell Script</h1>
+  <h3 class="post-subtitle"></h3>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2015-03-03T06:30:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Mar 3, 2015
+    </time>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span><div id="social-icons">
+    <!-- Twitter button -->
+    <div id="twitter-button">
+    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=SharePoint+Server+2013+%3A+Mail+Alerts+for+Search+Crawl+Errors+using+PowerShell+Script&amp;url=https%3A%2F%2Fblog.meenavalli.in%2Fpost%2Fsharepoint2013-email-alerts-search-crawl-errors-powershell&amp;hashtags=SharePointServer,SharePoint2013,SharePoint2016&amp;via=ram_meenavalli">Tweet</a>
+
+    </div>
+    <!--End of twitter button code--> 
+
+    <!--Linkedin share button-->
+    <script type="IN/Share" data-url="https://blog.meenavalli.in/post/sharepoint2013-email-alerts-search-crawl-errors-powershell"></script>
+    <!--End of Linkedin share button-->
+
+    <!--Facebook share button-->
+    <div id="fb-root" style="display:inline-block"></div>
+    <div style="display:inline-block" class="fb-share-button" data-href="https://blog.meenavalli.in/post/sharepoint2013-email-alerts-search-crawl-errors-powershell" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.meenavalli.in%2Fpost%2Fsharepoint2013-email-alerts-search-crawl-errors-powershell&src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+    <!--End of facebook share button-->
+
+    <!--Facebook page like button-->
+    <div style="top:8px" class="fb-like" data-href="https://www.facebook.com/rammeenavalli" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+    <!--End of facebook page like button-->
+</div>
+</div>
+<div class="post-tags">
+<a class="post-tag" href="/tags.html#SharePoint%20Server">#SharePoint Server</a><a class="post-tag" href="/tags.html#SharePoint%202013">#SharePoint 2013</a><a class="post-tag" href="/tags.html#SharePoint%202016">#SharePoint 2016</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <!-- more -->
+
+<p>As a SharePoint Admin for a search intensive SharePoint 2013 application, I had to check the Crawl Logs everyday to see if there are any crawl errors for an item, and if any item is missed in the crawl. I always thought if we can simply receive a daily mail whenever there is an error in the crawl. This made me write this simple Powershell Script which sends the mail with the error details, and then schedule this to run daily. Now I don't need to open the Search Service Application everyday and check the crawl logs, I have the details in my mail the moment I start my day, which saves some time for me.. :)</p>
+<h3>PowerShell Script</h3>
+<p>As explained in my previous <a href="http://spdeveloper.co.in/sharepoint2013/export-search-crawl-log-to-excel.aspx">post</a> I have used the '<em>GetCrawledUrls()</em>' method of the '<em>Microsoft.Office.Server.Search.Administration.CrawlLog</em>' class. This script retrieves all the crawl error logs for the previous day and sends these details in a mail as an excel attachment. Below is the complete script and steps to achieve this.</p>
+<pre class="brush:ps;auto-links:false;toolbar:false" contenteditable="false">#Powershell Script which to Send a dialy Alert Mail when an error occurs during Search Crawl.
+#This solution is for SharePoint Server 2013 (on-Premises)
+#Author : Ram Prasad Meenavalli
+
+#----------------------------------------------------
+#Parameters Required
+#----------------------------------------------------
+$ssaName = "Search Service Application"
+$errorsFileName = "errors.csv"
+$topErrorsFileName = "toplevelerrors.csv"
+
+#$logMaxRows - This specifies the number of errors to be sent in the mail attachment. 
+$logMaxRows = 10000
+
+#$contentSourceID - This specifies the Content Source ID where we need to check for Crawl Errors.
+#-1 will give crawl errors from all content sources.
+$contentSourceID = -1
+
+
+
+#----------------------------------------------------
+# Email Variables
+#----------------------------------------------------
+$smtp = "smtp-server-address" 
+$to = "ram@yourmail.com","prasad@yourmail.com"
+$from = "no-reply@yourmail.com"
+$subject = "Search Crawl Errors"
+$body = "Your Search Service has encountered some errors while crawling the content. Please check the attachment/s for more details."
+
+#----------------------------------------------------
+# Constants
+#----------------------------------------------------
+$errorID = -1
+$currentDate = Get-Date
+$startDate = $currentDate.AddDays(-1)
+$endDate = (($startDate.AddHours(23)).AddMinutes(59)).AddSeconds(59)
+
+
+if ((Get-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinue) -eq $null)
+{
+    Add-PSSnapin Microsoft.SharePoint.PowerShell
+}
+
+$ssa = Get-SPEnterpriseSearchServiceApplication -Identity $ssaName
+$logs = New-Object Microsoft.Office.Server.Search.Administration.CrawlLog $ssa
+
+$errors = $logs.GetCrawledUrls($true,$logMaxRows,"",$false,$contentSourceID,2,$errorID,$startDate,$endDate)
+$topErrors = $logs.GetCrawledUrls($true,$logMaxRows,"",$false,$contentSourceID,4,$errorID,$startDate,$endDate)
+
+if(($errors.Rows[0]["DocumentCount"] -gt 0) -or ($topErrors.Rows[0]["DocumentCount"] -gt 0))
+{
+	\$logs.GetCrawledUrls\(\$false,\$logMaxRows,\"\",\$false,\$contentSourceID,2,\$errorID,\$startDate,\$endDate) | export-csv -notype \$errorsFileName
+	\$logs.GetCrawledUrls\(\$false,\$logMaxRows,\"\",\$false,\$contentSourceID,4,\$errorID,\$startDate,\$endDate) | export-csv -notype \$topErrorsFileName	
+
+	send-MailMessage -SmtpServer $smtp -To $to -From $from -Subject $subject -Body $body -BodyAsHtml -Attachments $errorsFileName,$topErrorsFileName
+}</pre>
+<ul class="spd-ul">
+<li>Copy the script above and change the parameters/values appropriately to suit your needs.</li>
+<li>Save this script as <em>errorMailAlerts.ps1</em> or any other relevant name with .ps1 extension and save it on a SharePoint Server.</li>
+</ul>
+<h3>Schedule the script</h3>
+<p>This powershell script should be scheduled to run daily using the windows Task Scheduler. Follow the below steps for scheduling a task</p>
+<ul class="spd-ul">
+<li>Login to the SharePoint Server where the .ps1 file is saved.</li>
+<li>Open the Windows Task Scheduler and select the Create Task option.</li>
+<li>Enter a name for the task, and give it a description.</li>
+<li>In the General tab, go to the Security options heading and specify the user account that the task should be run under. Change the settings so the task will run if the user is logged in or not.</li>
+<li>In the Triggers tab add a new trigger for the scheduled task. Select the Start Date and the frequency to run once everyday at 1:00 AM (or any desired time).</li>
+<li>In the Actions tab, add a new Action and set it to Start a program.</li>
+<li>In the Program/script box enter "PowerShell."</li>
+<li>In the Add arguments box enter the value ".\errorMailAlerts.ps1."</li>
+<li>In the Start in box, add the complete path of the folder that contains your PowerShell script.</li>
+<li>Click OK when all the desired settings are made.</li>
+</ul>
+<p>This runs the powershell script daily and the admins will receive a mail with the crawl error details if any.</p>
+
+
+    </div>
+
+</article><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-7825254818219233" data-ad-slot="2526456411"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><div class="post-nav">
+<a class="previous" href="/post/sharepoint2013-export-search-crawl-log-to-excel" title="SharePoint Server 2013 : Exporting Search Crawl Logs using PowerShell">SharePoint Server 2013 : Exporting Search...</a><a class="next" href="/post/sharepoint-all-users-rest-api-end-point-angular-js-json-response" title="Get all Site Users - SharePoint Server 2013 REST end point through Angular JS : Get the response in JSON format.">Get all Site Users - SharePoint...</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li><a class="post-link" href="/post/open-tool-pane-link-in-a-custom-webpart" title="Get all Site Users - SharePoint Server 2013 REST end point through Angular JS : Get the response in JSON format.">'Open Tool Pane' link in a custom webpart</a></li>
+<li><a class="post-link" href="/post/javascript-client-code-to-get-current-user-s-groups-for-sharepoint-site" title="Get all Site Users - SharePoint Server 2013 REST end point through Angular JS : Get the response in JSON format.">JavaScript Client Code to get current user's groups for SharePoint Site</a></li>
+<li><a class="post-link" href="/post/whats-new-sharepoint-server-2016-ignite-2015" title="Get all Site Users - SharePoint Server 2013 REST end point through Angular JS : Get the response in JSON format.">What's New in SharePoint Server 2016 - Insights revealed during Ignite 2015...</a></li>
+<li><a class="post-link" href="/post/manually-install-app-fabric-cache" title="Get all Site Users - SharePoint Server 2013 REST end point through Angular JS : Get the response in JSON format.">Products Prepartion Tool - Application Server Role. Windows Server (IIS) Role: Configuration...</a></li>
+</ul>
+    </div>
+<div class="post-comments"></div>
+<div class="fb-comments" data-mobile data-width="100%" data-href="https://blog.meenavalli.in/post/sharepoint2013-email-alerts-search-crawl-errors-powershell" data-numposts="5"></div>
+  </section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><header class="author-bio">
+    <div class="blog-info">
+        <a class="blog-logo" href="https://meenavalli.in" tabindex="-1" target="_blank">
+            <img src="/assets/images/Ram.png" alt="Ram Prasad">
+            Ram Prasad
+        </a>
+        <div class="blog-author">
+            Developer | Office 365 | SharePoint | Blogger | Speaker
+        </div>
+        <ul class="social-network">
+            <li style="display: inline-block;"><a href="https://www.facebook.com/ramprasad.meenavalli" rel="external nofollow"><i class="fa fa-facebook"></i></a></li>
+            <li style="display: inline-block;"><a href="https://twitter.com/ram_meenavalli" rel="external nofollow"><i class="fa fa-twitter"></i></a></li>
+            <li style="display: inline-block;"><a href="https://www.linkedin.com/in/ramprasadmeenavalli/" rel="external nofollow"><i class="fa fa-linkedin"></i></a></li>
+            <li style="display: inline-block;"><a href="https://www.youtube.com/channel/UCBp4idRQxYfnJTPugX40dwg" rel="external nofollow"><i class="fa fa-youtube"></i></a></li>
+            <li style="display: inline-block;"><a href="https://github.com/RamPrasadMeenavalli" rel="external nofollow"><i class="fa fa-git"></i></a></li>
+        </ul>
+    </div>
+</header><!--Add a square ad-->
+<div class="sidebar-box">
+<!-- display-square -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7825254818219233" data-ad-slot="6472568147" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div>Copyright © 2011-2021</div>
+      <div>Customized &amp; redesigned from <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+
+
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&amp;version=v8.0&amp;appId=1406604756269400&amp;autoLogAppEvents=1" nonce="LgzoCMCm"></script>
+</body>
+</html>

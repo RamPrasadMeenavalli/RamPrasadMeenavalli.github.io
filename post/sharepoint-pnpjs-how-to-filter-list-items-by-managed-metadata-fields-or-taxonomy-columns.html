@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+  <meta property="fb:app_id" content="1406604756269400">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>SharePoint PnPjs : How to filter list items by Managed Metadata Fields or Taxonomy Columns | Ram Prasad Meenavalli</title>
+<meta name="generator" content="Jekyll v4.1.1">
+<meta property="og:title" content="SharePoint PnPjs : How to filter list items by Managed Metadata Fields or Taxonomy Columns">
+<meta name="author" content="Ram Prasad">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="SharePoint REST APIs does not allow to Managed Metadata / Taxonomy fields within the OData $filter parameter. So, PnPjs which uses REST APIs internally, cannot query on a Managed Metadata column using the .filter() method. But we can query using CAML query and the .getItemsByCAMLQuery method. Below is a sample document library which is has some policy documents uploaded and there is Managed Metadata Field called 'Deparments' which accepts multiple values. Below is a sample PnPjs V2 snippet which finds the list of documents that are tagged with a specific Managed Metadata term. import { setup as pnpSetup } from &quot;@pnp/common&quot;; import { sp } from &quot;@pnp/sp&quot;; import &quot;@pnp/sp/webs&quot;; import &quot;@pnp/sp/lists/web&quot;; import &quot;@pnp/sp/items/list&quot;; ... protected onInit(): Promise&lt;void&gt; { return super.onInit().then(_ =&gt; { pnpSetup({spfxContext: this.context}); }); } ... const queryView = ` &lt;View&gt; &lt;Query&gt; &lt;Where&gt;&lt;Eq&gt; &lt;FieldRef Name=&quot;Department&quot; /&gt; &lt;Value Type='TaxonomyFieldTypeMulti'&gt;HR&lt;/Value&gt; &lt;/Eq&gt;&lt;/Where&gt; &lt;/Query&gt; &lt;/View&gt; `; const docs = await sp.web.lists .getByTitle(&quot;Policies&quot;) .getItemsByCAMLQuery({ViewXml: queryView},&quot;File&quot;); docs.map(doc =&gt; { const depts = doc.Department.map(dept =&gt; {return dept.Label}); console.log(`Url : ${doc.File.ServerRelativeUrl} || Department : ${depts.join(&quot;,&quot;)}`); }); This will filter for all the documents which are tagged with the Taxonomy term 'HR'. And here is the output showing the required documents that are filtered. This can be used in scenarios where an SPFx webpart should show content based on the current user's properties. The above example can be extended to show policy documents for the current user's department. The user's department can be fetched from the profile and the value can be passed to the CAML Query.">
+<meta property="og:description" content="SharePoint REST APIs does not allow to Managed Metadata / Taxonomy fields within the OData $filter parameter. So, PnPjs which uses REST APIs internally, cannot query on a Managed Metadata column using the .filter() method. But we can query using CAML query and the .getItemsByCAMLQuery method. Below is a sample document library which is has some policy documents uploaded and there is Managed Metadata Field called 'Deparments' which accepts multiple values. Below is a sample PnPjs V2 snippet which finds the list of documents that are tagged with a specific Managed Metadata term. import { setup as pnpSetup } from &quot;@pnp/common&quot;; import { sp } from &quot;@pnp/sp&quot;; import &quot;@pnp/sp/webs&quot;; import &quot;@pnp/sp/lists/web&quot;; import &quot;@pnp/sp/items/list&quot;; ... protected onInit(): Promise&lt;void&gt; { return super.onInit().then(_ =&gt; { pnpSetup({spfxContext: this.context}); }); } ... const queryView = ` &lt;View&gt; &lt;Query&gt; &lt;Where&gt;&lt;Eq&gt; &lt;FieldRef Name=&quot;Department&quot; /&gt; &lt;Value Type='TaxonomyFieldTypeMulti'&gt;HR&lt;/Value&gt; &lt;/Eq&gt;&lt;/Where&gt; &lt;/Query&gt; &lt;/View&gt; `; const docs = await sp.web.lists .getByTitle(&quot;Policies&quot;) .getItemsByCAMLQuery({ViewXml: queryView},&quot;File&quot;); docs.map(doc =&gt; { const depts = doc.Department.map(dept =&gt; {return dept.Label}); console.log(`Url : ${doc.File.ServerRelativeUrl} || Department : ${depts.join(&quot;,&quot;)}`); }); This will filter for all the documents which are tagged with the Taxonomy term 'HR'. And here is the output showing the required documents that are filtered. This can be used in scenarios where an SPFx webpart should show content based on the current user's properties. The above example can be extended to show policy documents for the current user's department. The user's department can be fetched from the profile and the value can be passed to the CAML Query.">
+<link rel="canonical" href="https://blog.meenavalli.in/post/sharepoint-pnpjs-how-to-filter-list-items-by-managed-metadata-fields-or-taxonomy-columns">
+<meta property="og:url" content="https://blog.meenavalli.in/post/sharepoint-pnpjs-how-to-filter-list-items-by-managed-metadata-fields-or-taxonomy-columns">
+<meta property="og:site_name" content="Ram Prasad Meenavalli">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-03-02T08:26:00+00:00">
+<script type="application/ld+json">
+{"description":"SharePoint REST APIs does not allow to Managed Metadata / Taxonomy fields within the OData $filter parameter. So, PnPjs which uses REST APIs internally, cannot query on a&nbsp;Managed Metadata column using the .filter() method. But we can query using CAML query and the .getItemsByCAMLQuery&nbsp;method. Below is a&nbsp;sample&nbsp;document library which is has some policy documents uploaded and there is Managed Metadata Field called &#39;Deparments&#39; which accepts multiple values. Below&nbsp;is a sample PnPjs V2 snippet which finds the list of documents that are tagged with a specific Managed Metadata term. import { setup as pnpSetup } from &quot;@pnp/common&quot;; import { sp } from &quot;@pnp/sp&quot;; import &quot;@pnp/sp/webs&quot;; import &quot;@pnp/sp/lists/web&quot;; import &quot;@pnp/sp/items/list&quot;; ... protected onInit(): Promise&lt;void&gt; { return super.onInit().then(_ =&gt; { pnpSetup({spfxContext: this.context}); }); } ... const queryView = ` &lt;View&gt; &lt;Query&gt; &lt;Where&gt;&lt;Eq&gt; &lt;FieldRef Name=&quot;Department&quot; /&gt; &lt;Value Type=&#39;TaxonomyFieldTypeMulti&#39;&gt;HR&lt;/Value&gt; &lt;/Eq&gt;&lt;/Where&gt; &lt;/Query&gt; &lt;/View&gt; `; const docs = await sp.web.lists .getByTitle(&quot;Policies&quot;) .getItemsByCAMLQuery({ViewXml: queryView},&quot;File&quot;); docs.map(doc =&gt; { const depts = doc.Department.map(dept =&gt; {return dept.Label}); console.log(`Url : ${doc.File.ServerRelativeUrl} || Department : ${depts.join(&quot;,&quot;)}`); }); This will filter for all the documents which are tagged with the Taxonomy term &#39;HR&#39;. And here is the output showing the required documents that are filtered. This can be used in scenarios where an SPFx webpart should show content based on the current user&#39;s properties. The above example can be extended to show policy documents for the current user&#39;s department. The user&#39;s department can be fetched from the profile and the value can be passed to the CAML Query.","url":"https://blog.meenavalli.in/post/sharepoint-pnpjs-how-to-filter-list-items-by-managed-metadata-fields-or-taxonomy-columns","@type":"BlogPosting","headline":"SharePoint PnPjs : How to filter list items by Managed Metadata Fields or Taxonomy Columns","dateModified":"2020-03-02T08:26:00+00:00","datePublished":"2020-03-02T08:26:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.meenavalli.in/post/sharepoint-pnpjs-how-to-filter-list-items-by-managed-metadata-fields-or-taxonomy-columns"},"author":{"@type":"Person","name":"Ram Prasad"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="/assets/images/Ram.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://blog.meenavalli.in/feed.xml" title="Ram Prasad Meenavalli">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/">
+  <!-- <img class="site-favicon" title="Ram Prasad Meenavalli" src="/assets/images/Ram.png" onerror="this.style.display='none'"> -->
+  Ram Prasad Meenavalli
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/">HOME</a><a class="page-link" href="/talks.html">PUBLIC TALKS</a>
+
+
+
+
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.matches('a')) {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">SharePoint PnPjs : How to filter list items by Managed Metadata Fields or Taxonomy Columns</h1>
+  <h3 class="post-subtitle"></h3>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2020-03-02T08:26:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Mar 2, 2020
+    </time>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span><div id="social-icons">
+    <!-- Twitter button -->
+    <div id="twitter-button">
+    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=SharePoint+PnPjs+%3A+How+to+filter+list+items+by+Managed+Metadata+Fields+or+Taxonomy+Columns&amp;url=https%3A%2F%2Fblog.meenavalli.in%2Fpost%2Fsharepoint-pnpjs-how-to-filter-list-items-by-managed-metadata-fields-or-taxonomy-columns&amp;hashtags=Office365,SharePointOnline,PnPjs,SPFx&amp;via=ram_meenavalli">Tweet</a>
+
+    </div>
+    <!--End of twitter button code--> 
+
+    <!--Linkedin share button-->
+    <script type="IN/Share" data-url="https://blog.meenavalli.in/post/sharepoint-pnpjs-how-to-filter-list-items-by-managed-metadata-fields-or-taxonomy-columns"></script>
+    <!--End of Linkedin share button-->
+
+    <!--Facebook share button-->
+    <div id="fb-root" style="display:inline-block"></div>
+    <div style="display:inline-block" class="fb-share-button" data-href="https://blog.meenavalli.in/post/sharepoint-pnpjs-how-to-filter-list-items-by-managed-metadata-fields-or-taxonomy-columns" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.meenavalli.in%2Fpost%2Fsharepoint-pnpjs-how-to-filter-list-items-by-managed-metadata-fields-or-taxonomy-columns&src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+    <!--End of facebook share button-->
+
+    <!--Facebook page like button-->
+    <div style="top:8px" class="fb-like" data-href="https://www.facebook.com/rammeenavalli" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+    <!--End of facebook page like button-->
+</div>
+</div>
+<div class="post-tags">
+<a class="post-tag" href="/tags.html#Office%20365">#Office 365</a><a class="post-tag" href="/tags.html#SharePoint%20Online">#SharePoint Online</a><a class="post-tag" href="/tags.html#PnPjs">#PnPjs</a><a class="post-tag" href="/tags.html#SPFx">#SPFx</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <!-- more -->
+
+<p>SharePoint REST APIs does not allow to Managed Metadata / Taxonomy fields within the OData $filter parameter. So, PnPjs which uses REST APIs internally, cannot query on a Managed Metadata column using the .filter() method.</p>
+<p>But we can query using CAML query and the <strong>.getItemsByCAMLQuery </strong>method. Below is a sample document library which is has some policy documents uploaded and there is Managed Metadata Field called '<strong>Deparments</strong>' which accepts multiple values.</p>
+<p><img src="/assets/images/listStructure.PNG" alt=""></p>
+<p>Below is a sample PnPjs V2 snippet which finds the list of documents that are tagged with a specific Managed Metadata term.</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">import { setup as pnpSetup } from "@pnp/common";
+import { sp } from "@pnp/sp";
+import "@pnp/sp/webs";
+import "@pnp/sp/lists/web";
+import "@pnp/sp/items/list";
+
+...
+  protected onInit(): Promise&lt;void&gt; {
+    return super.onInit().then(_ =&gt; {
+      pnpSetup({spfxContext: this.context}); });
+  }
+...
+
+const queryView = `
+      &lt;View&gt;
+        &lt;Query&gt;
+          &lt;Where&gt;&lt;Eq&gt;
+            &lt;FieldRef Name="Department" /&gt;
+            &lt;Value Type='TaxonomyFieldTypeMulti'&gt;HR&lt;/Value&gt;
+          &lt;/Eq&gt;&lt;/Where&gt;
+        &lt;/Query&gt;
+      &lt;/View&gt;
+    `;
+
+    const docs = await sp.web.lists
+    .getByTitle("Policies")
+    .getItemsByCAMLQuery({ViewXml: queryView},"File");
+    
+    docs.map(doc =&gt; {
+      const depts = doc.Department.map(dept =&gt; {return dept.Label});
+      console.log(`Url : ${doc.File.ServerRelativeUrl} || Department : ${depts.join(",")}`);
+    });</pre>
+<p>This will filter for all the documents which are tagged with the Taxonomy term 'HR'. And here is the output showing the required documents that are filtered.</p>
+<p><img src="/assets/images/taxonomyQueryOP.PNG" alt=""></p>
+<p>This can be used in scenarios where an SPFx webpart should show content based on the current user's properties. The above example can be extended to show policy documents for the current user's department. The user's department can be fetched from the profile and the value can be passed to the CAML Query.</p>
+
+
+    </div>
+
+</article><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-7825254818219233" data-ad-slot="2526456411"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><div class="post-nav">
+<a class="previous" href="/post/filtering-sharepoint-list-items-by-current-logged-in-user-in-spfx-webparts-using-pnpjs" title="Filtering SharePoint list items by current logged-in user in SPFx webparts">Filtering SharePoint list items by current...</a><a class="next" href="/post/spfx-covid-19-tracker-webpart" title="SPFx COVID-19 tracker webpart">SPFx COVID-19 tracker webpart</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li><a class="post-link" href="/post/install-features-after-update-spsolution" title="SPFx COVID-19 tracker webpart">Upgrade-SPSolution | Installs the newly added features when a solution(WSP) is updated...</a></li>
+<li><a class="post-link" href="/post/custom-status-messages-with-different-colors" title="SPFx COVID-19 tracker webpart">Setting Different Colors for Custom Status Messages in SharePoint 2010</a></li>
+<li><a class="post-link" href="/post/how-to-provision-subscription-settings-service-application-and-proxy-for-sharepoint-server-20131" title="SPFx COVID-19 tracker webpart">How to Provision Subscription Settings Service Application and Proxy for SharePoint Server...</a></li>
+<li><a class="post-link" href="/post/changes-not-reflecting-visual-webpart-sharepoint-2013" title="SPFx COVID-19 tracker webpart">Common build issues with Visual WebParts in SharePoint 2013</a></li>
+</ul>
+    </div>
+<div class="post-comments"></div>
+<div class="fb-comments" data-mobile data-width="100%" data-href="https://blog.meenavalli.in/post/sharepoint-pnpjs-how-to-filter-list-items-by-managed-metadata-fields-or-taxonomy-columns" data-numposts="5"></div>
+  </section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><header class="author-bio">
+    <div class="blog-info">
+        <a class="blog-logo" href="https://meenavalli.in" tabindex="-1" target="_blank">
+            <img src="/assets/images/Ram.png" alt="Ram Prasad">
+            Ram Prasad
+        </a>
+        <div class="blog-author">
+            Developer | Office 365 | SharePoint | Blogger | Speaker
+        </div>
+        <ul class="social-network">
+            <li style="display: inline-block;"><a href="https://www.facebook.com/ramprasad.meenavalli" rel="external nofollow"><i class="fa fa-facebook"></i></a></li>
+            <li style="display: inline-block;"><a href="https://twitter.com/ram_meenavalli" rel="external nofollow"><i class="fa fa-twitter"></i></a></li>
+            <li style="display: inline-block;"><a href="https://www.linkedin.com/in/ramprasadmeenavalli/" rel="external nofollow"><i class="fa fa-linkedin"></i></a></li>
+            <li style="display: inline-block;"><a href="https://www.youtube.com/channel/UCBp4idRQxYfnJTPugX40dwg" rel="external nofollow"><i class="fa fa-youtube"></i></a></li>
+            <li style="display: inline-block;"><a href="https://github.com/RamPrasadMeenavalli" rel="external nofollow"><i class="fa fa-git"></i></a></li>
+        </ul>
+    </div>
+</header><!--Add a square ad-->
+<div class="sidebar-box">
+<!-- display-square -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7825254818219233" data-ad-slot="6472568147" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div>Copyright © 2011-2021</div>
+      <div>Customized &amp; redesigned from <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+
+
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&amp;version=v8.0&amp;appId=1406604756269400&amp;autoLogAppEvents=1" nonce="LgzoCMCm"></script>
+</body>
+</html>
