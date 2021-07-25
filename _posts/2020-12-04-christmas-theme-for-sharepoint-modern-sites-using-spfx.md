@@ -8,7 +8,7 @@ categories: ["SPFx", "Extension"]
 tags: ["Christmas", "SPFxTheme", "SharePoint", "SPFx"]
 permalink: /post/christmas-theme-for-sharepoint-modern-sites-using-spfx
 ---
-With Christmas around the corner, here are some simple Christmas effects that can be added to your SharePoint intranet sites. Bring the festive mood to your intranet by adding the following effects.
+With Christmas around the corner, here are some simple Christmas effects that can be added to your SharePoint intranet sites. Bring the festive mood to your intranet by adding the following effects
 - Snow on top of your site header
 - Snow fall on the site
 - A greeting message in the footer with a Santa and a Christmas tree.
