@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+  <meta property="fb:app_id" content="1406604756269400">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Get all Site Users - SharePoint Server 2013 REST end point through Angular JS : Get the response in JSON format. | Ram Prasad Meenavalli</title>
+<meta name="generator" content="Jekyll v4.1.1">
+<meta property="og:title" content="Get all Site Users - SharePoint Server 2013 REST end point through Angular JS : Get the response in JSON format.">
+<meta name="author" content="Ram Prasad">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Intro SharePoint Server 2013 provides many REST endpoints which can be used to consume data and perform most of the CRUD operations on a Site Collections. Consuming the REST end points through various JavaScript frameworks like Angular JS, Knockout JS etc., is the most widely used approach these days. These frameworks are built on the fundamentals of JSON and it's easy to integrate and develop scripts if we have our data in JSON format. But, the SharePoint Server 2013 REST APIs/end points return the response in ATOM or XML by default. How to receive a JSON response from REST APIs? We can instruct the server to give the response in a JSON format instead of ATOM or XML feed. When the REST end points are called, the Request Header is checked for the following property/attribute Accept: application/json;odata=verbose Once this property is found in the request header, the response is returned as JSON. So, this property should be added to the Request Header before the REST call is made. For Angular JS, refer the following script on how to add the header information. This script is a simple scenario which shows the code snippets to get the list of users in a site collection, by consuming the REST end points using Angular JS. HTML Template &lt;html ng-app=&quot;AllSiteUsers&quot;&gt;&lt;head&gt; &lt;title&gt;All Site Users&lt;/title&gt; &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js&quot;&gt;&lt;/script&gt; &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt; &lt;/head&gt; &lt;body ng-controller=&quot;GetAllUsers&quot;&gt; &lt;table&gt; &lt;thead&gt;&lt;th&gt;Login Name&lt;/th&gt;&lt;th&gt;Display Name&lt;/th&gt;&lt;/thead&gt; &lt;tbody&gt; &lt;tr ng-repeat=&quot;user in users&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;/body&gt; &lt;/html&gt; script.js var mod = angular.module('AllSiteUsers', []); mod.controller('GetAllUsers', ['$scope', '$http', function ($scope, $http) { $http.defaults.headers.common['Accept'] = 'application/json;odata=verbose'; var url='http://rams-sharepoint/sites/ram/_api/web/siteusers'; $http.get(url). success(function(data) { $scope.users = data.d.results; }); }]);  ">
+<meta property="og:description" content="Intro SharePoint Server 2013 provides many REST endpoints which can be used to consume data and perform most of the CRUD operations on a Site Collections. Consuming the REST end points through various JavaScript frameworks like Angular JS, Knockout JS etc., is the most widely used approach these days. These frameworks are built on the fundamentals of JSON and it's easy to integrate and develop scripts if we have our data in JSON format. But, the SharePoint Server 2013 REST APIs/end points return the response in ATOM or XML by default. How to receive a JSON response from REST APIs? We can instruct the server to give the response in a JSON format instead of ATOM or XML feed. When the REST end points are called, the Request Header is checked for the following property/attribute Accept: application/json;odata=verbose Once this property is found in the request header, the response is returned as JSON. So, this property should be added to the Request Header before the REST call is made. For Angular JS, refer the following script on how to add the header information. This script is a simple scenario which shows the code snippets to get the list of users in a site collection, by consuming the REST end points using Angular JS. HTML Template &lt;html ng-app=&quot;AllSiteUsers&quot;&gt;&lt;head&gt; &lt;title&gt;All Site Users&lt;/title&gt; &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js&quot;&gt;&lt;/script&gt; &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt; &lt;/head&gt; &lt;body ng-controller=&quot;GetAllUsers&quot;&gt; &lt;table&gt; &lt;thead&gt;&lt;th&gt;Login Name&lt;/th&gt;&lt;th&gt;Display Name&lt;/th&gt;&lt;/thead&gt; &lt;tbody&gt; &lt;tr ng-repeat=&quot;user in users&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;/body&gt; &lt;/html&gt; script.js var mod = angular.module('AllSiteUsers', []); mod.controller('GetAllUsers', ['$scope', '$http', function ($scope, $http) { $http.defaults.headers.common['Accept'] = 'application/json;odata=verbose'; var url='http://rams-sharepoint/sites/ram/_api/web/siteusers'; $http.get(url). success(function(data) { $scope.users = data.d.results; }); }]);  ">
+<link rel="canonical" href="https://blog.meenavalli.in/post/sharepoint-all-users-rest-api-end-point-angular-js-json-response">
+<meta property="og:url" content="https://blog.meenavalli.in/post/sharepoint-all-users-rest-api-end-point-angular-js-json-response">
+<meta property="og:site_name" content="Ram Prasad Meenavalli">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2015-04-22T06:30:00+00:00">
+<script type="application/ld+json">
+{"description":"Intro SharePoint Server 2013 provides many REST endpoints which can be used to consume data and perform most of the CRUD operations on a Site Collections. Consuming the REST end points through various JavaScript frameworks like Angular JS, Knockout JS etc., is the most widely used approach these days. These frameworks are built on the fundamentals of JSON and it&#39;s easy to integrate and develop scripts if we have our data in JSON format. But, the SharePoint Server 2013 REST APIs/end points return the response in ATOM or XML by default. How to receive a JSON response from REST APIs? We can instruct the server to give the response in a JSON format instead of ATOM or XML feed. When the REST end points are called, the Request Header is checked for the following property/attribute Accept: application/json;odata=verbose Once this property is found in the request header, the response is returned as JSON. So, this property should be added to the Request Header before the REST call is made. For Angular JS, refer the following script on how to add the header information. This script is a simple scenario which shows the code snippets to get the list of users in a site collection, by consuming the REST end points using Angular JS. HTML Template &lt;html ng-app=&quot;AllSiteUsers&quot;&gt;&lt;head&gt; &lt;title&gt;All Site Users&lt;/title&gt; &lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js&quot;&gt;&lt;/script&gt; &lt;script src=&quot;script.js&quot;&gt;&lt;/script&gt; &lt;/head&gt; &lt;body ng-controller=&quot;GetAllUsers&quot;&gt; &lt;table&gt; &lt;thead&gt;&lt;th&gt;Login Name&lt;/th&gt;&lt;th&gt;Display Name&lt;/th&gt;&lt;/thead&gt; &lt;tbody&gt; &lt;tr ng-repeat=&quot;user in users&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;/body&gt; &lt;/html&gt; script.js var mod = angular.module(&#39;AllSiteUsers&#39;, []); mod.controller(&#39;GetAllUsers&#39;, [&#39;$scope&#39;, &#39;$http&#39;, function ($scope, $http) { $http.defaults.headers.common[&#39;Accept&#39;] = &#39;application/json;odata=verbose&#39;; var url=&#39;http://rams-sharepoint/sites/ram/_api/web/siteusers&#39;; $http.get(url). success(function(data) { $scope.users = data.d.results; }); }]); &nbsp;","url":"https://blog.meenavalli.in/post/sharepoint-all-users-rest-api-end-point-angular-js-json-response","@type":"BlogPosting","headline":"Get all Site Users - SharePoint Server 2013 REST end point through Angular JS : Get the response in JSON format.","dateModified":"2015-04-22T06:30:00+00:00","datePublished":"2015-04-22T06:30:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.meenavalli.in/post/sharepoint-all-users-rest-api-end-point-angular-js-json-response"},"author":{"@type":"Person","name":"Ram Prasad"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="/assets/images/Ram.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://blog.meenavalli.in/feed.xml" title="Ram Prasad Meenavalli">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/">
+  <!-- <img class="site-favicon" title="Ram Prasad Meenavalli" src="/assets/images/Ram.png" onerror="this.style.display='none'"> -->
+  Ram Prasad Meenavalli
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/">HOME</a><a class="page-link" href="/talks.html">PUBLIC TALKS</a>
+
+
+
+
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.matches('a')) {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">Get all Site Users - SharePoint Server 2013 REST end point through Angular JS : Get the response in JSON format.</h1>
+  <h3 class="post-subtitle"></h3>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2015-04-22T06:30:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Apr 22, 2015
+    </time>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span><div id="social-icons">
+    <!-- Twitter button -->
+    <div id="twitter-button">
+    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Get+all+Site+Users+-+SharePoint+Server+2013+REST+end+point+through+Angular+JS+%3A+Get+the+response+in+JSON+format.&amp;url=https%3A%2F%2Fblog.meenavalli.in%2Fpost%2Fsharepoint-all-users-rest-api-end-point-angular-js-json-response&amp;hashtags=Office365,SharePointOnline,ClassicSites,SharePointServer,SharePoint2013,SharePoint2016,SharePoint2019&amp;via=ram_meenavalli">Tweet</a>
+
+    </div>
+    <!--End of twitter button code--> 
+
+    <!--Linkedin share button-->
+    <script type="IN/Share" data-url="https://blog.meenavalli.in/post/sharepoint-all-users-rest-api-end-point-angular-js-json-response"></script>
+    <!--End of Linkedin share button-->
+
+    <!--Facebook share button-->
+    <div id="fb-root" style="display:inline-block"></div>
+    <div style="display:inline-block" class="fb-share-button" data-href="https://blog.meenavalli.in/post/sharepoint-all-users-rest-api-end-point-angular-js-json-response" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.meenavalli.in%2Fpost%2Fsharepoint-all-users-rest-api-end-point-angular-js-json-response&src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+    <!--End of facebook share button-->
+
+    <!--Facebook page like button-->
+    <div style="top:8px" class="fb-like" data-href="https://www.facebook.com/rammeenavalli" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+    <!--End of facebook page like button-->
+</div>
+</div>
+<div class="post-tags">
+<a class="post-tag" href="/tags.html#Office%20365">#Office 365</a><a class="post-tag" href="/tags.html#SharePoint%20Online">#SharePoint Online</a><a class="post-tag" href="/tags.html#Classic%20Sites">#Classic Sites</a><a class="post-tag" href="/tags.html#SharePoint%20Server">#SharePoint Server</a><a class="post-tag" href="/tags.html#SharePoint%202013">#SharePoint 2013</a><a class="post-tag" href="/tags.html#SharePoint%202016">#SharePoint 2016</a><a class="post-tag" href="/tags.html#SharePoint%202019">#SharePoint 2019</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <!-- more -->
+
+<h2>Intro</h2>
+<p>SharePoint Server 2013 provides many REST endpoints which can be used to consume data and perform most of the CRUD operations on a Site Collections. Consuming the REST end points through various JavaScript frameworks like Angular JS, Knockout JS etc., is the most widely used approach these days. These frameworks are built on the fundamentals of JSON and it's easy to integrate and develop scripts if we have our data in JSON format. But, the SharePoint Server 2013 REST APIs/end points return the response in ATOM or XML by default.</p>
+<h3>How to receive a JSON response from REST APIs?</h3>
+<p>We can instruct the server to give the response in a JSON format instead of ATOM or XML feed. When the REST end points are called, the Request Header is checked for the following property/attribute</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">Accept: application/json;odata=verbose</pre>
+<p>Once this property is found in the request header, the response is returned as JSON. So, this property should be added to the Request Header before the REST call is made. For Angular JS, refer the following script on how to add the header information. This script is a simple scenario which shows the code snippets to get the list of users in a site collection, by consuming the REST end points using Angular JS.</p>
+<h3>HTML Template</h3>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">&lt;html ng-app="AllSiteUsers"&gt;&lt;head&gt;
+&lt;title&gt;All Site Users&lt;/title&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"&gt;&lt;/script&gt;
+&lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+&lt;body ng-controller="GetAllUsers"&gt;
+
+&lt;table&gt;
+&lt;thead&gt;&lt;th&gt;Login Name&lt;/th&gt;&lt;th&gt;Display Name&lt;/th&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr ng-repeat="user in users"&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<h3>script.js</h3>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">var mod = angular.module('AllSiteUsers', []);
+
+mod.controller('GetAllUsers', ['$scope', '$http', function ($scope, $http) {
+
+	$http.defaults.headers.common['Accept'] = 'application/json;odata=verbose';
+	var url='http://rams-sharepoint/sites/ram/_api/web/siteusers';
+	$http.get(url).
+        success(function(data) {
+            $scope.users = data.d.results;
+        });
+}]);</pre>
+<p> </p>
+
+
+    </div>
+
+</article><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-7825254818219233" data-ad-slot="2526456411"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><div class="post-nav">
+<a class="previous" href="/post/sharepoint2013-email-alerts-search-crawl-errors-powershell" title="SharePoint Server 2013 : Mail Alerts for Search Crawl Errors using PowerShell Script">SharePoint Server 2013 : Mail Alerts...</a><a class="next" href="/post/whats-new-sharepoint-server-2016-ignite-2015" title="What's New in SharePoint Server 2016 - Insights revealed during Ignite 2015">What's New in SharePoint Server 2016...</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li><a class="post-link" href="/post/custom-page-not-found-page-sharepoint-2010" title="What's New in SharePoint Server 2016 - Insights revealed during Ignite 2015">Custom Page Not Found Page for SharePoint 2010 site</a></li>
+<li><a class="post-link" href="/post/pnpjs-create-new-ms-teams-team" title="What's New in SharePoint Server 2016 - Insights revealed during Ignite 2015">How to create a new Microsoft Teams Team using PnPjs within your...</a></li>
+<li><a class="post-link" href="/post/rest-api-endpoint-and-jsom-code-to-get-the-list-of-sub-sites-for-the-current-user" title="What's New in SharePoint Server 2016 - Insights revealed during Ignite 2015">REST API Endpoint and JSOM Code to get the list of sub...</a></li>
+<li><a class="post-link" href="/post/christmas-theme-for-sharepoint-modern-sites-using-spfx" title="What's New in SharePoint Server 2016 - Insights revealed during Ignite 2015">Christmas theme for your Modern SharePoint sites</a></li>
+</ul>
+    </div>
+<div class="post-comments"></div>
+<div class="fb-comments" data-mobile data-width="100%" data-href="https://blog.meenavalli.in/post/sharepoint-all-users-rest-api-end-point-angular-js-json-response" data-numposts="5"></div>
+  </section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><header class="author-bio">
+    <div class="blog-info">
+        <a class="blog-logo" href="https://meenavalli.in" tabindex="-1" target="_blank">
+            <img src="/assets/images/Ram.png" alt="Ram Prasad">
+            Ram Prasad
+        </a>
+        <div class="blog-author">
+            Developer | Office 365 | SharePoint | Blogger | Speaker
+        </div>
+        <ul class="social-network">
+            <li style="display: inline-block;"><a href="https://www.facebook.com/ramprasad.meenavalli" rel="external nofollow"><i class="fa fa-facebook"></i></a></li>
+            <li style="display: inline-block;"><a href="https://twitter.com/ram_meenavalli" rel="external nofollow"><i class="fa fa-twitter"></i></a></li>
+            <li style="display: inline-block;"><a href="https://www.linkedin.com/in/ramprasadmeenavalli/" rel="external nofollow"><i class="fa fa-linkedin"></i></a></li>
+            <li style="display: inline-block;"><a href="https://www.youtube.com/channel/UCBp4idRQxYfnJTPugX40dwg" rel="external nofollow"><i class="fa fa-youtube"></i></a></li>
+            <li style="display: inline-block;"><a href="https://github.com/RamPrasadMeenavalli" rel="external nofollow"><i class="fa fa-git"></i></a></li>
+        </ul>
+    </div>
+</header><!--Add a square ad-->
+<div class="sidebar-box">
+<!-- display-square -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7825254818219233" data-ad-slot="6472568147" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div>Copyright © 2011-2021</div>
+      <div>Customized &amp; redesigned from <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+
+
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&amp;version=v8.0&amp;appId=1406604756269400&amp;autoLogAppEvents=1" nonce="LgzoCMCm"></script>
+</body>
+</html>

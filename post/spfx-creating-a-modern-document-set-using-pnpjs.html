@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+  <meta property="fb:app_id" content="1406604756269400">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Creating a modern Document Set using PnPjs from an SPFx webpart | Ram Prasad Meenavalli</title>
+<meta name="generator" content="Jekyll v4.1.1">
+<meta property="og:title" content="Creating a modern Document Set using PnPjs from an SPFx webpart">
+<meta name="author" content="Ram Prasad">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Document Sets are useful for grouping relevant documents together and maintain a shared metadata for all the documents. Document Sets are supported in the modern sites and it is available when we activate the site collection feature called ‘Document Sets’ (Site Settings -&gt; Site Collection Administration -&gt; Site collection features)">
+<meta property="og:description" content="Document Sets are useful for grouping relevant documents together and maintain a shared metadata for all the documents. Document Sets are supported in the modern sites and it is available when we activate the site collection feature called ‘Document Sets’ (Site Settings -&gt; Site Collection Administration -&gt; Site collection features)">
+<link rel="canonical" href="https://blog.meenavalli.in/post/spfx-creating-a-modern-document-set-using-pnpjs">
+<meta property="og:url" content="https://blog.meenavalli.in/post/spfx-creating-a-modern-document-set-using-pnpjs">
+<meta property="og:site_name" content="Ram Prasad Meenavalli">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-11-17T18:30:00+00:00">
+<script type="application/ld+json">
+{"description":"Document Sets are useful for grouping relevant documents together and maintain a shared metadata for all the documents. Document Sets are supported in the modern sites and it is available when we activate the site collection feature called ‘Document Sets’ (Site Settings -&gt; Site Collection Administration -&gt; Site collection features)","url":"https://blog.meenavalli.in/post/spfx-creating-a-modern-document-set-using-pnpjs","@type":"BlogPosting","headline":"Creating a modern Document Set using PnPjs from an SPFx webpart","dateModified":"2020-11-17T18:30:00+00:00","datePublished":"2020-11-17T18:30:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.meenavalli.in/post/spfx-creating-a-modern-document-set-using-pnpjs"},"author":{"@type":"Person","name":"Ram Prasad"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="/assets/images/Ram.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://blog.meenavalli.in/feed.xml" title="Ram Prasad Meenavalli">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/">
+  <!-- <img class="site-favicon" title="Ram Prasad Meenavalli" src="/assets/images/Ram.png" onerror="this.style.display='none'"> -->
+  Ram Prasad Meenavalli
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/">HOME</a><a class="page-link" href="/talks.html">PUBLIC TALKS</a>
+
+
+
+
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.matches('a')) {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">Creating a modern Document Set using PnPjs from an SPFx webpart</h1>
+  <h3 class="post-subtitle"></h3>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2020-11-17T18:30:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Nov 17, 2020
+    </time>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span><div id="social-icons">
+    <!-- Twitter button -->
+    <div id="twitter-button">
+    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Creating+a+modern+Document+Set+using+PnPjs+from+an+SPFx+webpart&amp;url=https%3A%2F%2Fblog.meenavalli.in%2Fpost%2Fspfx-creating-a-modern-document-set-using-pnpjs&amp;hashtags=DocumentSet,SharePoint,ModernDocumentSet,SPFxwebpart&amp;via=ram_meenavalli">Tweet</a>
+
+    </div>
+    <!--End of twitter button code--> 
+
+    <!--Linkedin share button-->
+    <script type="IN/Share" data-url="https://blog.meenavalli.in/post/spfx-creating-a-modern-document-set-using-pnpjs"></script>
+    <!--End of Linkedin share button-->
+
+    <!--Facebook share button-->
+    <div id="fb-root" style="display:inline-block"></div>
+    <div style="display:inline-block" class="fb-share-button" data-href="https://blog.meenavalli.in/post/spfx-creating-a-modern-document-set-using-pnpjs" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.meenavalli.in%2Fpost%2Fspfx-creating-a-modern-document-set-using-pnpjs&src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+    <!--End of facebook share button-->
+
+    <!--Facebook page like button-->
+    <div style="top:8px" class="fb-like" data-href="https://www.facebook.com/rammeenavalli" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+    <!--End of facebook page like button-->
+</div>
+</div>
+<div class="post-tags">
+<a class="post-tag" href="/tags.html#Document%20Set">#Document Set</a><a class="post-tag" href="/tags.html#SharePoint">#SharePoint</a><a class="post-tag" href="/tags.html#Modern%20Document%20Set">#Modern Document Set</a><a class="post-tag" href="/tags.html#SPFx%20webpart">#SPFx webpart</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <p>Document Sets are useful for grouping relevant documents together and maintain a shared metadata for all the documents. Document Sets are supported in the modern sites and it is available when we activate the site collection feature called <strong>‘Document Sets’</strong> (Site Settings -&gt; Site Collection Administration -&gt; Site collection features)</p>
+
+<p><img src="/assets/images/document-set-feature.png" alt=""></p>
+
+<p>Here are the steps to be done for using a Document Set</p>
+<ol>
+  <li>Activate the ‘Document Sets’ feature</li>
+  <li>From the List Settings page of the library, Advanced Settings, select ‘Yes’ for Allow management of content types and save the settings.</li>
+  <li>In the list settings page of the library, under Content Types section, select ‘Add from existing site content types’ and select the Document Set content type.</li>
+  <li>Now you will be able to create a Document Set from the Modern UI of the document library.</li>
+</ol>
+
+<h3 id="how-to-create-a-document-set-using-pnpjs">How to create a document set using PnPjs</h3>
+
+<p>While this is no direct API to handle document sets, we can create a new document set by performing some of the above steps using PnPjs (2.0.11). And then create a normal folder and change the content type id of the new folder to the id of the document set content type.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">sp</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@pnp/sp</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">@pnp/sp/sites</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">@pnp/sp/features</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">@pnp/sp/webs</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">@pnp/sp/lists</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">@pnp/sp/content-types</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">@pnp/sp/folders</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">@pnp/sp/items</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// Activate the Document Set feature using the feature ID</span>
+<span class="c1">// This will be same for all tenants, as this a default/OOTB feature</span>
+<span class="kd">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">sp</span><span class="p">.</span><span class="nx">site</span><span class="p">.</span><span class="nx">features</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="dl">"</span><span class="s2">3bae86a2-776d-499d-9db8-fa4cdc7884f8</span><span class="dl">"</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+
+<span class="c1">// Add the content type to the document library</span>
+<span class="kd">const</span> <span class="nx">lib</span> <span class="o">=</span> <span class="nx">sp</span><span class="p">.</span><span class="nx">web</span><span class="p">.</span><span class="nx">lists</span><span class="p">.</span><span class="nx">getByTitle</span><span class="p">(</span><span class="dl">"</span><span class="s2">Documents</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// ID for the document set content type. This will be same across all the tenants.</span>
+<span class="kd">const</span> <span class="nx">documentSetContentTypeId</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">0x0120D520</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">await</span> <span class="nx">lib</span><span class="p">.</span><span class="nx">contentTypes</span><span class="p">.</span><span class="nx">addAvailableContentType</span><span class="p">(</span><span class="nx">documentSetContentTypeId</span><span class="p">);</span>
+
+<span class="c1">// Create a normal folder within an existing folder</span>
+<span class="kd">const</span> <span class="nx">folderName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Manuals</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">newFolder</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">lib</span><span class="p">.</span><span class="nx">rootFolder</span><span class="p">.</span><span class="nx">folders</span><span class="p">.</span><span class="nx">getByName</span><span class="p">(</span><span class="dl">'</span><span class="s1">Client Documents</span><span class="dl">'</span><span class="p">).</span><span class="nx">addSubFolderUsingPath</span><span class="p">(</span><span class="nx">folderName</span><span class="p">)</span>
+<span class="c1">// Update the content type Id</span>
+<span class="kd">const</span> <span class="nx">fldObj</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">lib</span><span class="p">.</span><span class="nx">rootFolder</span><span class="p">.</span><span class="nx">folders</span><span class="p">.</span><span class="nx">getByName</span><span class="p">(</span><span class="dl">'</span><span class="s1">Client Documents</span><span class="dl">'</span><span class="p">).</span><span class="nx">folders</span><span class="p">.</span><span class="nx">getByName</span><span class="p">(</span><span class="nx">folderName</span><span class="p">).</span><span class="nx">listItemAllFields</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
+<span class="k">await</span> <span class="nx">lib</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">getById</span><span class="p">(</span><span class="nx">fldObj</span><span class="p">.</span><span class="nx">Id</span><span class="p">).</span><span class="nx">update</span><span class="p">({</span>
+    <span class="na">ContentTypeId</span><span class="p">:</span> <span class="nx">documentSetContentTypeId</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>The above snippet creates a new Document Set called ‘Manuals’ within the folder ‘Client Documents’, inside the Shared Documents library.</p>
+
+
+    </div>
+
+</article><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-7825254818219233" data-ad-slot="2526456411"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><div class="post-nav">
+<a class="previous" href="/post/pnpjs-create-new-ms-teams-team" title="How to create a new Microsoft Teams Team using PnPjs within your SPFx components">How to create a new Microsoft...</a><a class="next" href="/post/christmas-theme-for-sharepoint-modern-sites-using-spfx" title="Christmas theme for your Modern SharePoint sites">Christmas theme for your Modern SharePoint...</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li><a class="post-link" href="/post/manually-install-app-fabric-cache" title="Christmas theme for your Modern SharePoint sites">Products Prepartion Tool - Application Server Role. Windows Server (IIS) Role: Configuration...</a></li>
+<li><a class="post-link" href="/post/office-web-apps-configuration-issues" title="Christmas theme for your Modern SharePoint sites">Word Web App error - Sorry, Word Web App can't open this...</a></li>
+<li><a class="post-link" href="/post/sharepoint-2010-notifications-and-status" title="Christmas theme for your Modern SharePoint sites">SharePoint 2010 Notifications and Status</a></li>
+<li><a class="post-link" href="/post/custom-page-not-found-page-sharepoint-2007" title="Christmas theme for your Modern SharePoint sites">Creating custom Page Not Found Page</a></li>
+</ul>
+    </div>
+<div class="post-comments"></div>
+<div class="fb-comments" data-mobile data-width="100%" data-href="https://blog.meenavalli.in/post/spfx-creating-a-modern-document-set-using-pnpjs" data-numposts="5"></div>
+  </section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><header class="author-bio">
+    <div class="blog-info">
+        <a class="blog-logo" href="https://meenavalli.in" tabindex="-1" target="_blank">
+            <img src="/assets/images/Ram.png" alt="Ram Prasad">
+            Ram Prasad
+        </a>
+        <div class="blog-author">
+            Developer | Office 365 | SharePoint | Blogger | Speaker
+        </div>
+        <ul class="social-network">
+            <li style="display: inline-block;"><a href="https://www.facebook.com/ramprasad.meenavalli" rel="external nofollow"><i class="fa fa-facebook"></i></a></li>
+            <li style="display: inline-block;"><a href="https://twitter.com/ram_meenavalli" rel="external nofollow"><i class="fa fa-twitter"></i></a></li>
+            <li style="display: inline-block;"><a href="https://www.linkedin.com/in/ramprasadmeenavalli/" rel="external nofollow"><i class="fa fa-linkedin"></i></a></li>
+            <li style="display: inline-block;"><a href="https://www.youtube.com/channel/UCBp4idRQxYfnJTPugX40dwg" rel="external nofollow"><i class="fa fa-youtube"></i></a></li>
+            <li style="display: inline-block;"><a href="https://github.com/RamPrasadMeenavalli" rel="external nofollow"><i class="fa fa-git"></i></a></li>
+        </ul>
+    </div>
+</header><!--Add a square ad-->
+<div class="sidebar-box">
+<!-- display-square -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7825254818219233" data-ad-slot="6472568147" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div>Copyright © 2011-2021</div>
+      <div>Customized &amp; redesigned from <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+
+
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&amp;version=v8.0&amp;appId=1406604756269400&amp;autoLogAppEvents=1" nonce="LgzoCMCm"></script>
+</body>
+</html>

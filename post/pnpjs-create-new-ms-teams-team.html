@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+  <meta property="fb:app_id" content="1406604756269400">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>How to create a new Microsoft Teams Team using PnPjs within your SPFx components | Ram Prasad Meenavalli</title>
+<meta name="generator" content="Jekyll v4.1.1">
+<meta property="og:title" content="How to create a new Microsoft Teams Team using PnPjs within your SPFx components">
+<meta name="author" content="Ram Prasad">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="PnPjs offers great flexibility in quickly connecting to various services in your Office 365 suite. I was working on an SPFx webpart which manages Teams provisioning for an organization. The webpart accepts requests from users and when an admin approves the request it provisions a new MS Team with some custom settings and apps.">
+<meta property="og:description" content="PnPjs offers great flexibility in quickly connecting to various services in your Office 365 suite. I was working on an SPFx webpart which manages Teams provisioning for an organization. The webpart accepts requests from users and when an admin approves the request it provisions a new MS Team with some custom settings and apps.">
+<link rel="canonical" href="https://blog.meenavalli.in/post/pnpjs-create-new-ms-teams-team">
+<meta property="og:url" content="https://blog.meenavalli.in/post/pnpjs-create-new-ms-teams-team">
+<meta property="og:site_name" content="Ram Prasad Meenavalli">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-11-17T18:30:00+00:00">
+<script type="application/ld+json">
+{"description":"PnPjs offers great flexibility in quickly connecting to various services in your Office 365 suite. I was working on an SPFx webpart which manages Teams provisioning for an organization. The webpart accepts requests from users and when an admin approves the request it provisions a new MS Team with some custom settings and apps.","url":"https://blog.meenavalli.in/post/pnpjs-create-new-ms-teams-team","@type":"BlogPosting","headline":"How to create a new Microsoft Teams Team using PnPjs within your SPFx components","dateModified":"2020-11-17T18:30:00+00:00","datePublished":"2020-11-17T18:30:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.meenavalli.in/post/pnpjs-create-new-ms-teams-team"},"author":{"@type":"Person","name":"Ram Prasad"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="/assets/images/Ram.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://blog.meenavalli.in/feed.xml" title="Ram Prasad Meenavalli">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/">
+  <!-- <img class="site-favicon" title="Ram Prasad Meenavalli" src="/assets/images/Ram.png" onerror="this.style.display='none'"> -->
+  Ram Prasad Meenavalli
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/">HOME</a><a class="page-link" href="/talks.html">PUBLIC TALKS</a>
+
+
+
+
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.matches('a')) {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">How to create a new Microsoft Teams Team using PnPjs within your SPFx components</h1>
+  <h3 class="post-subtitle"></h3>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2020-11-17T18:30:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Nov 17, 2020
+    </time>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span><div id="social-icons">
+    <!-- Twitter button -->
+    <div id="twitter-button">
+    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=How+to+create+a+new+Microsoft+Teams+Team+using+PnPjs+within+your+SPFx+components&amp;url=https%3A%2F%2Fblog.meenavalli.in%2Fpost%2Fpnpjs-create-new-ms-teams-team&amp;hashtags=Teams,SharePoint,SPFx,SPFxwebpart,PnPjs&amp;via=ram_meenavalli">Tweet</a>
+
+    </div>
+    <!--End of twitter button code--> 
+
+    <!--Linkedin share button-->
+    <script type="IN/Share" data-url="https://blog.meenavalli.in/post/pnpjs-create-new-ms-teams-team"></script>
+    <!--End of Linkedin share button-->
+
+    <!--Facebook share button-->
+    <div id="fb-root" style="display:inline-block"></div>
+    <div style="display:inline-block" class="fb-share-button" data-href="https://blog.meenavalli.in/post/pnpjs-create-new-ms-teams-team" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.meenavalli.in%2Fpost%2Fpnpjs-create-new-ms-teams-team&src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+    <!--End of facebook share button-->
+
+    <!--Facebook page like button-->
+    <div style="top:8px" class="fb-like" data-href="https://www.facebook.com/rammeenavalli" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+    <!--End of facebook page like button-->
+</div>
+</div>
+<div class="post-tags">
+<a class="post-tag" href="/tags.html#Teams">#Teams</a><a class="post-tag" href="/tags.html#SharePoint">#SharePoint</a><a class="post-tag" href="/tags.html#SPFx">#SPFx</a><a class="post-tag" href="/tags.html#SPFx%20webpart">#SPFx webpart</a><a class="post-tag" href="/tags.html#PnPjs">#PnPjs</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <p>PnPjs offers great flexibility in quickly connecting to various services in your Office 365 suite. I was working on an SPFx webpart which manages Teams provisioning for an organization. The webpart accepts requests from users and when an admin approves the request it provisions a new MS Team with some custom settings and apps.</p>
+
+<p>With PnPjs (used 2.0.11 when writing), creating a new team is a 2 step process. First we have to create a new group, or use an existing group, and then add/create a new Team to the Office 365 group.</p>
+
+<p>Below is the sample code on how to do this.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">graph</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@pnp/graph</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">'</span><span class="s1">@pnp/graph/groups</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">GroupType</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@pnp/graph/groups</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">"</span><span class="s2">@pnp/graph/teams</span><span class="dl">"</span>
+
+<span class="kd">const</span> <span class="nx">groupName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Research and Development</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">groupNickName</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">RnD</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">group</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">groups</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">groupName</span><span class="p">,</span> <span class="nx">groupNickName</span><span class="p">,</span> <span class="nx">GroupType</span><span class="p">.</span><span class="nx">Office365</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">team</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">groups</span><span class="p">.</span><span class="nx">getById</span><span class="p">(</span><span class="nx">group</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">id</span><span class="p">).</span><span class="nx">createTeam</span><span class="p">({</span>
+            <span class="na">funSettings</span><span class="p">:{</span>
+                <span class="na">allowGiphy</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="na">allowCustomMemes</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="na">allowStickersAndMemes</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="na">giphyContentRating</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Strict</span><span class="dl">"</span>
+            <span class="p">},</span>
+            <span class="na">guestSettings</span><span class="p">:{</span>
+                <span class="na">allowDeleteChannels</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="na">allowCreateUpdateChannels</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+</code></pre></div></div>
+
+<p>When executing these 2 steps in sequence, we might often face a 404 error for the teams creation call. This happens because the graph API is not able to find the newly created group. Even though the graph.groups.add() is succesfully executed, the group is still being provisioned and our call to create the team will fail with a 404.</p>
+
+<p>So, before trying to create a team, check if the group is ready and delay the process untill the group is ready. 
+Here is how we can do it.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">group</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">groups</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">groupName</span><span class="p">,</span> <span class="nx">groupNickName</span><span class="p">,</span> <span class="nx">GroupType</span><span class="p">.</span><span class="nx">Office365</span><span class="p">);</span>
+
+<span class="c1">// Wait until the new group is ready</span>
+<span class="kd">let</span> <span class="nx">newGroup</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">retry</span><span class="p">:</span><span class="nx">boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">retry</span><span class="p">){</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="nx">newGroup</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">groups</span><span class="p">.</span><span class="nx">getById</span><span class="p">(</span><span class="nx">projectId</span><span class="p">).</span><span class="kd">get</span><span class="p">();</span>
+        <span class="nx">retry</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">ex</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Wait for 10 seconds before checking again</span>
+        <span class="k">await</span> <span class="k">this</span><span class="p">.</span><span class="nx">_delay</span><span class="p">(</span><span class="mi">10000</span><span class="p">);</span>
+        <span class="nx">retry</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">team</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">graph</span><span class="p">.</span><span class="nx">groups</span><span class="p">.</span><span class="nx">getById</span><span class="p">(</span><span class="nx">projectId</span><span class="p">).</span><span class="nx">createTeam</span><span class="p">({</span>
+    <span class="na">funSettings</span><span class="p">:{</span>
+        <span class="na">allowGiphy</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="c1">// A helper function to delay for the given milliseconds of time.</span>
+<span class="k">private</span> <span class="nx">_delay</span> <span class="o">=</span> <span class="p">(</span><span class="nx">ms</span><span class="p">:</span> <span class="kr">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span> <span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">ms</span><span class="p">)</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+
+    </div>
+
+</article><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-7825254818219233" data-ad-slot="2526456411"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><div class="post-nav">
+<a class="previous" href="/post/adding-default-modern-webparts-to-classic-pages" title="Adding OOTB/Default modern SPFx webparts to classic pages">Adding OOTB/Default modern SPFx webparts to...</a><a class="next" href="/post/spfx-creating-a-modern-document-set-using-pnpjs" title="Creating a modern Document Set using PnPjs from an SPFx webpart">Creating a modern Document Set using...</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li><a class="post-link" href="/post/removing-a-user-users-from-all-sharepoint-groups-in-a-site-collection" title="Creating a modern Document Set using PnPjs from an SPFx webpart">Removing a user/users from all SharePoint Groups in a Site Collection</a></li>
+<li><a class="post-link" href="/post/pnpjs-create-new-ms-teams-team" title="Creating a modern Document Set using PnPjs from an SPFx webpart">How to create a new Microsoft Teams Team using PnPjs within your...</a></li>
+<li><a class="post-link" href="/post/caml-query-not-returning-results-from-code" title="Creating a modern Document Set using PnPjs from an SPFx webpart">Using CAML query for SPQuery in Object Model</a></li>
+<li><a class="post-link" href="/post/adding-custom-font-styles-to-sharepoint-server-rich-text-editors" title="Creating a modern Document Set using PnPjs from an SPFx webpart">Adding Custom Font Styles to SharePoint Server Rich Text Editors</a></li>
+</ul>
+    </div>
+<div class="post-comments"></div>
+<div class="fb-comments" data-mobile data-width="100%" data-href="https://blog.meenavalli.in/post/pnpjs-create-new-ms-teams-team" data-numposts="5"></div>
+  </section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><header class="author-bio">
+    <div class="blog-info">
+        <a class="blog-logo" href="https://meenavalli.in" tabindex="-1" target="_blank">
+            <img src="/assets/images/Ram.png" alt="Ram Prasad">
+            Ram Prasad
+        </a>
+        <div class="blog-author">
+            Developer | Office 365 | SharePoint | Blogger | Speaker
+        </div>
+        <ul class="social-network">
+            <li style="display: inline-block;"><a href="https://www.facebook.com/ramprasad.meenavalli" rel="external nofollow"><i class="fa fa-facebook"></i></a></li>
+            <li style="display: inline-block;"><a href="https://twitter.com/ram_meenavalli" rel="external nofollow"><i class="fa fa-twitter"></i></a></li>
+            <li style="display: inline-block;"><a href="https://www.linkedin.com/in/ramprasadmeenavalli/" rel="external nofollow"><i class="fa fa-linkedin"></i></a></li>
+            <li style="display: inline-block;"><a href="https://www.youtube.com/channel/UCBp4idRQxYfnJTPugX40dwg" rel="external nofollow"><i class="fa fa-youtube"></i></a></li>
+            <li style="display: inline-block;"><a href="https://github.com/RamPrasadMeenavalli" rel="external nofollow"><i class="fa fa-git"></i></a></li>
+        </ul>
+    </div>
+</header><!--Add a square ad-->
+<div class="sidebar-box">
+<!-- display-square -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7825254818219233" data-ad-slot="6472568147" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div>Copyright © 2011-2021</div>
+      <div>Customized &amp; redesigned from <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+
+
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&amp;version=v8.0&amp;appId=1406604756269400&amp;autoLogAppEvents=1" nonce="LgzoCMCm"></script>
+</body>
+</html>

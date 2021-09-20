@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+  <meta property="fb:app_id" content="1406604756269400">
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Url Properties of SPSite and SPWeb | Ram Prasad Meenavalli</title>
+<meta name="generator" content="Jekyll v4.1.1">
+<meta property="og:title" content="Url Properties of SPSite and SPWeb">
+<meta name="author" content="Ram Prasad">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="There are some properties for SPSite and SPWeb class using which we can get the URL values for the sites and webs. The two most used of these properties are - 'ServerRelativeUrl' and 'Url' As a developer we use the values of the properties for writing some logic for satisfying the business needs. Whenever I used to write a OM code to use these properties, the first question which flashes in my mind - &quot;What values are returned by these properties?&quot;. I immediately create a console application, and check the values returned by these properties and continue with the actual work. I have seen many other developers doing this. So, for a quick reference I prepared the below table which has the url values returned by these properties. Some people may find this easy, but some (like me ;)) get confused when the sites have managed paths. These properties return the managed path if the site has one. Here goes the list SCENARIO 1: A Site Collection (SPSite) without any managed path. URL : 'http://rams' Property Value SPSite.ServerRelativeUrl / SPSite.Url http://rams SPWeb.ServerRelativeUrl / SPWeb.Url http://rams Url - http://rams/about ('about' is a sub site) SPSite.ServerRelativeUrl / SPSite.Url http://rams SPWeb.ServerRelativeUrl /about SPWeb.Url http://rams/about This looks pretty simple. We get confused when sites are created using managed paths. Below are the samples values for site created with managed paths   SCENARIO 2: A Site Collection with a managed path (of type Explicit inclusion). For the below URL '/my' is the managed path URL : 'http://rams/my' Property Value SPSite.ServerRelativeUrl /my SPSite.Url http://rams/my SPWeb.ServerRelativeUrl /my SPWeb.Url http://rams/my Url - http://rams/my/about ('about' is a sub site) SPSite.ServerRelativeUrl /my SPSite.Url http://rams/my SPWeb.ServerRelativeUrl /my/about SPWeb.Url http://rams/my/about   SCENARIO 3: A Site Collection with a managed path (of type Wildard inclusion). For the below URL '/sites' is the managed path, and a site collection is created at '/blog' URL : 'http://rams/sites/blog' Property Value SPSite.ServerRelativeUrl /sites/blog SPSite.Url http://rams/sites/blog SPWeb.ServerRelativeUrl /sites/blog SPWeb.Url http://rams/sites/blog Url - http://rams/sites/blog/about ('about' is a sub site) SPSite.ServerRelativeUrl /sites/blog SPSite.Url http://rams/sites/blog SPWeb.ServerRelativeUrl /sites/blog/about SPWeb.Url http://rams/sites/blog/about">
+<meta property="og:description" content="There are some properties for SPSite and SPWeb class using which we can get the URL values for the sites and webs. The two most used of these properties are - 'ServerRelativeUrl' and 'Url' As a developer we use the values of the properties for writing some logic for satisfying the business needs. Whenever I used to write a OM code to use these properties, the first question which flashes in my mind - &quot;What values are returned by these properties?&quot;. I immediately create a console application, and check the values returned by these properties and continue with the actual work. I have seen many other developers doing this. So, for a quick reference I prepared the below table which has the url values returned by these properties. Some people may find this easy, but some (like me ;)) get confused when the sites have managed paths. These properties return the managed path if the site has one. Here goes the list SCENARIO 1: A Site Collection (SPSite) without any managed path. URL : 'http://rams' Property Value SPSite.ServerRelativeUrl / SPSite.Url http://rams SPWeb.ServerRelativeUrl / SPWeb.Url http://rams Url - http://rams/about ('about' is a sub site) SPSite.ServerRelativeUrl / SPSite.Url http://rams SPWeb.ServerRelativeUrl /about SPWeb.Url http://rams/about This looks pretty simple. We get confused when sites are created using managed paths. Below are the samples values for site created with managed paths   SCENARIO 2: A Site Collection with a managed path (of type Explicit inclusion). For the below URL '/my' is the managed path URL : 'http://rams/my' Property Value SPSite.ServerRelativeUrl /my SPSite.Url http://rams/my SPWeb.ServerRelativeUrl /my SPWeb.Url http://rams/my Url - http://rams/my/about ('about' is a sub site) SPSite.ServerRelativeUrl /my SPSite.Url http://rams/my SPWeb.ServerRelativeUrl /my/about SPWeb.Url http://rams/my/about   SCENARIO 3: A Site Collection with a managed path (of type Wildard inclusion). For the below URL '/sites' is the managed path, and a site collection is created at '/blog' URL : 'http://rams/sites/blog' Property Value SPSite.ServerRelativeUrl /sites/blog SPSite.Url http://rams/sites/blog SPWeb.ServerRelativeUrl /sites/blog SPWeb.Url http://rams/sites/blog Url - http://rams/sites/blog/about ('about' is a sub site) SPSite.ServerRelativeUrl /sites/blog SPSite.Url http://rams/sites/blog SPWeb.ServerRelativeUrl /sites/blog/about SPWeb.Url http://rams/sites/blog/about">
+<link rel="canonical" href="https://blog.meenavalli.in/post/values-for-spsite-spweb-url-properties">
+<meta property="og:url" content="https://blog.meenavalli.in/post/values-for-spsite-spweb-url-properties">
+<meta property="og:site_name" content="Ram Prasad Meenavalli">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2012-12-14T06:21:00+00:00">
+<script type="application/ld+json">
+{"description":"There are some properties for SPSite and SPWeb class using which we can get the URL values for the sites and webs. The two most used of these properties are - &#39;ServerRelativeUrl&#39; and &#39;Url&#39; As a developer we use the values of the properties for writing some logic for satisfying the business needs. Whenever I used to write a OM code to use these properties, the first question which flashes in my mind - &quot;What values are returned by these properties?&quot;. I immediately create a console application, and check the values returned by these properties and continue with the actual work. I have seen many other developers doing this. So, for a quick reference I prepared the below table which has the url values returned by these properties. Some people may find this easy, but some (like me ;)) get confused when the sites have managed paths. These properties return the managed path if the site has one. Here goes the list SCENARIO 1: A Site Collection (SPSite) without any managed path. URL : &#39;http://rams&#39; Property Value SPSite.ServerRelativeUrl / SPSite.Url http://rams SPWeb.ServerRelativeUrl / SPWeb.Url http://rams Url - http://rams/about (&#39;about&#39; is a sub site) SPSite.ServerRelativeUrl / SPSite.Url http://rams SPWeb.ServerRelativeUrl /about SPWeb.Url http://rams/about This looks pretty simple. We get confused when sites are created using managed paths. Below are the samples values for site created with managed paths &nbsp; SCENARIO 2: A Site Collection with a managed path (of type Explicit inclusion). For the below URL &#39;/my&#39; is the managed path URL : &#39;http://rams/my&#39; Property Value SPSite.ServerRelativeUrl /my SPSite.Url http://rams/my SPWeb.ServerRelativeUrl /my SPWeb.Url http://rams/my Url - http://rams/my/about (&#39;about&#39; is a sub site) SPSite.ServerRelativeUrl /my SPSite.Url http://rams/my SPWeb.ServerRelativeUrl /my/about SPWeb.Url http://rams/my/about &nbsp; SCENARIO 3: A Site Collection with a managed path (of type Wildard inclusion). For the below URL &#39;/sites&#39; is the managed path, and a site collection is created at &#39;/blog&#39; URL : &#39;http://rams/sites/blog&#39; Property Value SPSite.ServerRelativeUrl /sites/blog SPSite.Url http://rams/sites/blog SPWeb.ServerRelativeUrl /sites/blog SPWeb.Url http://rams/sites/blog Url - http://rams/sites/blog/about (&#39;about&#39; is a sub site) SPSite.ServerRelativeUrl /sites/blog SPSite.Url http://rams/sites/blog SPWeb.ServerRelativeUrl /sites/blog/about SPWeb.Url http://rams/sites/blog/about","url":"https://blog.meenavalli.in/post/values-for-spsite-spweb-url-properties","@type":"BlogPosting","headline":"Url Properties of SPSite and SPWeb","dateModified":"2012-12-14T06:21:00+00:00","datePublished":"2012-12-14T06:21:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.meenavalli.in/post/values-for-spsite-spweb-url-properties"},"author":{"@type":"Person","name":"Ram Prasad"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="/assets/images/Ram.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+  <!-- and it's easy to individually load additional languages -->
+  <script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://blog.meenavalli.in/feed.xml" title="Ram Prasad Meenavalli">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/">
+  <!-- <img class="site-favicon" title="Ram Prasad Meenavalli" src="/assets/images/Ram.png" onerror="this.style.display='none'"> -->
+  Ram Prasad Meenavalli
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/">HOME</a><a class="page-link" href="/talks.html">PUBLIC TALKS</a>
+
+
+
+
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  (function() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.matches('a')) {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">Url Properties of SPSite and SPWeb</h1>
+  <h3 class="post-subtitle"></h3>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2012-12-14T06:21:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Dec 14, 2012
+    </time>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span><div id="social-icons">
+    <!-- Twitter button -->
+    <div id="twitter-button">
+    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Url+Properties+of+SPSite+and+SPWeb&amp;url=https%3A%2F%2Fblog.meenavalli.in%2Fpost%2Fvalues-for-spsite-spweb-url-properties&amp;hashtags=SharePointServer,SharePoint2010,SharePoint2013,SharePoint2016,SharePoint2019&amp;via=ram_meenavalli">Tweet</a>
+
+    </div>
+    <!--End of twitter button code--> 
+
+    <!--Linkedin share button-->
+    <script type="IN/Share" data-url="https://blog.meenavalli.in/post/values-for-spsite-spweb-url-properties"></script>
+    <!--End of Linkedin share button-->
+
+    <!--Facebook share button-->
+    <div id="fb-root" style="display:inline-block"></div>
+    <div style="display:inline-block" class="fb-share-button" data-href="https://blog.meenavalli.in/post/values-for-spsite-spweb-url-properties" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fblog.meenavalli.in%2Fpost%2Fvalues-for-spsite-spweb-url-properties&src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+    <!--End of facebook share button-->
+
+    <!--Facebook page like button-->
+    <div style="top:8px" class="fb-like" data-href="https://www.facebook.com/rammeenavalli" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="false"></div>
+    <!--End of facebook page like button-->
+</div>
+</div>
+<div class="post-tags">
+<a class="post-tag" href="/tags.html#SharePoint%20Server">#SharePoint Server</a><a class="post-tag" href="/tags.html#SharePoint%202010">#SharePoint 2010</a><a class="post-tag" href="/tags.html#SharePoint%202013">#SharePoint 2013</a><a class="post-tag" href="/tags.html#SharePoint%202016">#SharePoint 2016</a><a class="post-tag" href="/tags.html#SharePoint%202019">#SharePoint 2019</a>
+</div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <!-- more -->
+
+<p>There are some properties for <em>SPSite</em> and <em>SPWeb</em> class using which we can get the URL values for the sites and webs. The two most used of these properties are - '<em>ServerRelativeUrl</em>' and '<em>Url</em>'</p>
+<p>As a developer we use the values of the properties for writing some logic for satisfying the business needs. Whenever I used to write a OM code to use these properties, the first question which flashes in my mind - "<em>What values are returned by these properties?</em>". I immediately create a console application, and check the values returned by these properties and continue with the actual work. I have seen many other developers doing this. So, for a quick reference I prepared the below table which has the url values returned by these properties.</p>
+<p>Some people may find this easy, but some (like me ;)) get confused when the sites have managed paths. These properties return the managed path if the site has one. Here goes the list</p>
+<p><strong>SCENARIO 1:</strong> A Site Collection (SPSite) without any managed path.</p>
+<table class="spd-table">
+<thead>
+<tr>
+<th colspan="2"><strong>URL : ‘http://rams’</strong></th>
+</tr>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SPSite.ServerRelativeUrl</td>
+<td>/</td>
+</tr>
+<tr>
+<td>SPSite.Url</td>
+<td>http://rams</td>
+</tr>
+<tr>
+<td>SPWeb.ServerRelativeUrl</td>
+<td>/</td>
+</tr>
+<tr>
+<td>SPWeb.Url</td>
+<td>http://rams</td>
+</tr>
+<tr>
+<th colspan="2"><strong>Url - http://rams/about (‘about’ is a sub site)</strong></th>
+</tr>
+<tr>
+<td>SPSite.ServerRelativeUrl</td>
+<td>/</td>
+</tr>
+<tr>
+<td>SPSite.Url</td>
+<td>http://rams</td>
+</tr>
+<tr>
+<td>SPWeb.ServerRelativeUrl</td>
+<td>/about</td>
+</tr>
+<tr>
+<td>SPWeb.Url</td>
+<td>http://rams/about</td>
+</tr>
+</tbody>
+</table>
+<p>This looks pretty simple. We get confused when sites are created using managed paths. Below are the samples values for site created with managed paths</p>
+<div class="gad" style="height: 15px; min-width: 468px;"> </div>
+<p><strong>SCENARIO 2:</strong> A Site Collection with a managed path (of type Explicit inclusion). For the below URL '/my' is the managed path</p>
+<table class="spd-table">
+<thead>
+<tr>
+<th colspan="2"><strong>URL : ‘http://rams/my’</strong></th>
+</tr>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SPSite.ServerRelativeUrl</td>
+<td>/my</td>
+</tr>
+<tr>
+<td>SPSite.Url</td>
+<td>http://rams/my</td>
+</tr>
+<tr>
+<td>SPWeb.ServerRelativeUrl</td>
+<td>/my</td>
+</tr>
+<tr>
+<td>SPWeb.Url</td>
+<td>http://rams/my</td>
+</tr>
+<tr>
+<th colspan="2"><strong>Url - http://rams/my/about (‘about’ is a sub site)</strong></th>
+</tr>
+<tr>
+<td>SPSite.ServerRelativeUrl</td>
+<td>/my</td>
+</tr>
+<tr>
+<td>SPSite.Url</td>
+<td>http://rams/my</td>
+</tr>
+<tr>
+<td>SPWeb.ServerRelativeUrl</td>
+<td>/my/about</td>
+</tr>
+<tr>
+<td>SPWeb.Url</td>
+<td>http://rams/my/about</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p><strong>SCENARIO 3:</strong> A Site Collection with a managed path (of type Wildard inclusion). For the below URL '/sites' is the managed path, and a site collection is created at '/blog'</p>
+<table class="spd-table">
+<thead>
+<tr>
+<th colspan="2"><strong>URL : ‘http://rams/sites/blog’</strong></th>
+</tr>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SPSite.ServerRelativeUrl</td>
+<td>/sites/blog</td>
+</tr>
+<tr>
+<td>SPSite.Url</td>
+<td>http://rams/sites/blog</td>
+</tr>
+<tr>
+<td>SPWeb.ServerRelativeUrl</td>
+<td>/sites/blog</td>
+</tr>
+<tr>
+<td>SPWeb.Url</td>
+<td>http://rams/sites/blog</td>
+</tr>
+<tr>
+<th colspan="2"><strong>Url - http://rams/sites/blog/about (‘about’ is a sub site)</strong></th>
+</tr>
+<tr>
+<td>SPSite.ServerRelativeUrl</td>
+<td>/sites/blog</td>
+</tr>
+<tr>
+<td>SPSite.Url</td>
+<td>http://rams/sites/blog</td>
+</tr>
+<tr>
+<td>SPWeb.ServerRelativeUrl</td>
+<td>/sites/blog/about</td>
+</tr>
+<tr>
+<td>SPWeb.Url</td>
+<td>http://rams/sites/blog/about</td>
+</tr>
+</tbody>
+</table>
+
+
+    </div>
+
+</article><ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-7825254818219233" data-ad-slot="2526456411"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><div class="post-nav">
+<a class="previous" href="/post/referencing-js-files-using-custom-action-element-in-sharepoint" title="Referencing JS Files using Custom Action element in SharePoint">Referencing JS Files using Custom Action...</a><a class="next" href="/post/retrieve-items-or-documents-from-a-particular-folder-of-a-sharepoint-list-or-document-library" title="Retrieve Items or Documents from a particular folder of a Sharepoint List or Document Library">Retrieve Items or Documents from a...</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li><a class="post-link" href="/post/creating-accessible-modal-dialogs" title="Retrieve Items or Documents from a particular folder of a Sharepoint List or Document Library">Creating Accessible Modal Dialogs</a></li>
+<li><a class="post-link" href="/post/sharepoint2013-export-search-crawl-log-to-excel" title="Retrieve Items or Documents from a particular folder of a Sharepoint List or Document Library">SharePoint Server 2013 : Exporting Search Crawl Logs using PowerShell</a></li>
+<li><a class="post-link" href="/post/whats-new-sharepoint-server-2016-ignite-2015" title="Retrieve Items or Documents from a particular folder of a Sharepoint List or Document Library">What's New in SharePoint Server 2016 - Insights revealed during Ignite 2015...</a></li>
+<li><a class="post-link" href="/post/getting-the-url-of-sharepoint-pages-and-documents-using-pnpjs-in-spfx-webparts" title="Retrieve Items or Documents from a particular folder of a Sharepoint List or Document Library">Getting the URL of SharePoint Pages and Documents using PnPjs in SPFx...</a></li>
+</ul>
+    </div>
+<div class="post-comments"></div>
+<div class="fb-comments" data-mobile data-width="100%" data-href="https://blog.meenavalli.in/post/values-for-spsite-spweb-url-properties" data-numposts="5"></div>
+  </section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><header class="author-bio">
+    <div class="blog-info">
+        <a class="blog-logo" href="https://meenavalli.in" tabindex="-1" target="_blank">
+            <img src="/assets/images/Ram.png" alt="Ram Prasad">
+            Ram Prasad
+        </a>
+        <div class="blog-author">
+            Developer | Office 365 | SharePoint | Blogger | Speaker
+        </div>
+        <ul class="social-network">
+            <li style="display: inline-block;"><a href="https://www.facebook.com/ramprasad.meenavalli" rel="external nofollow"><i class="fa fa-facebook"></i></a></li>
+            <li style="display: inline-block;"><a href="https://twitter.com/ram_meenavalli" rel="external nofollow"><i class="fa fa-twitter"></i></a></li>
+            <li style="display: inline-block;"><a href="https://www.linkedin.com/in/ramprasadmeenavalli/" rel="external nofollow"><i class="fa fa-linkedin"></i></a></li>
+            <li style="display: inline-block;"><a href="https://www.youtube.com/channel/UCBp4idRQxYfnJTPugX40dwg" rel="external nofollow"><i class="fa fa-youtube"></i></a></li>
+            <li style="display: inline-block;"><a href="https://github.com/RamPrasadMeenavalli" rel="external nofollow"><i class="fa fa-git"></i></a></li>
+        </ul>
+    </div>
+</header><!--Add a square ad-->
+<div class="sidebar-box">
+<!-- display-square -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7825254818219233" data-ad-slot="6472568147" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+      <div>Copyright © 2011-2021</div>
+      <div>Customized &amp; redesigned from <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
+</script>
+
+
+
+<script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&amp;version=v8.0&amp;appId=1406604756269400&amp;autoLogAppEvents=1" nonce="LgzoCMCm"></script>
+</body>
+</html>
